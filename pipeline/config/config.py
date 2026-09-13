@@ -3,7 +3,7 @@ from pathlib import Path
 from pydantic import model_validator
 from pydantic_settings import BaseSettings, SettingsConfigDict
 
-REPO_ROOT = Path(__file__).resolve().parent.parent
+REPO_ROOT = Path(__file__).resolve().parents[2]
 
 
 class Settings(BaseSettings):
@@ -31,7 +31,7 @@ class Settings(BaseSettings):
     TOP_K: int = 5
     RETRIEVER: str = "dense"
     POLL_INTERVAL_SECONDS: float = 3
-    OUTPUT_DIR: Path = Path("output")
+    OUTPUT_DIR: Path = Path("outputs")
     LOG_LEVEL: str = "INFO"
 
     @model_validator(mode="after")
