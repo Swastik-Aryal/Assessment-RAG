@@ -32,8 +32,8 @@ class Embedder:
 if __name__ == "__main__":
     import numpy as np
 
-    from pipeline.config import load_settings
-    from pipeline.logging_setup import setup_logging
+    from pipeline.config.config import load_settings
+    from pipeline.config.logging_setup import setup_logging
 
     setup_logging()
     e = Embedder(load_settings())

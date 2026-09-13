@@ -34,9 +34,9 @@ if __name__ == "__main__":
 
     from pydantic import BaseModel
 
-    from pipeline.config import load_settings
+    from pipeline.config.config import load_settings
     from pipeline.llm.gemini import GeminiClient
-    from pipeline.logging_setup import setup_logging
+    from pipeline.config.logging_setup import setup_logging
 
     class Toy(BaseModel):
         name: str

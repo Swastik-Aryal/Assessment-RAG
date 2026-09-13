@@ -195,7 +195,7 @@ def render(path, full: bool = False) -> str:
 
 
 if __name__ == "__main__":
-    from pipeline.logging_setup import setup_logging
+    from pipeline.config.logging_setup import setup_logging
 
     p = argparse.ArgumentParser()
     p.add_argument("path")

@@ -142,11 +142,11 @@ def _hit_dump(h) -> dict:
 if __name__ == "__main__":
     from datetime import datetime, timezone
 
-    from pipeline.config import load_settings
+    from pipeline.config.config import load_settings
     from pipeline.excel.analyzer import infer_schema
     from pipeline.llm.gemini import GeminiClient
     from pipeline.llm.ollama import OllamaClient
-    from pipeline.logging_setup import setup_logging
+    from pipeline.config.logging_setup import setup_logging
     from pipeline.rag.generator import Generator, build_system, build_user
     from pipeline.rag.index import build_retriever
 

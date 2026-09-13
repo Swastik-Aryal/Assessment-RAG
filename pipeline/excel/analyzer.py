@@ -81,9 +81,9 @@ def infer_schema(path, gemini, out_dir: Path | None = None, force_full: bool = F
 
 
 if __name__ == "__main__":
-    from pipeline.config import load_settings
+    from pipeline.config.config import load_settings
     from pipeline.llm.gemini import GeminiClient
-    from pipeline.logging_setup import setup_logging
+    from pipeline.config.logging_setup import setup_logging
 
     p = argparse.ArgumentParser()
     p.add_argument("path")

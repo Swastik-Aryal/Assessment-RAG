@@ -8,7 +8,7 @@ import requests
 from requests.adapters import HTTPAdapter
 from urllib3.util.retry import Retry
 
-from pipeline.config import load_settings
+from pipeline.config.config import load_settings
 
 
 @dataclass

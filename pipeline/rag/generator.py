@@ -328,9 +328,9 @@ def _check_finalize():
 
 
 if __name__ == "__main__":
-    from pipeline.config import load_settings
+    from pipeline.config.config import load_settings
     from pipeline.llm.ollama import OllamaClient
-    from pipeline.logging_setup import setup_logging
+    from pipeline.config.logging_setup import setup_logging
     from pipeline.rag.index import build_retriever
 
     p = argparse.ArgumentParser()

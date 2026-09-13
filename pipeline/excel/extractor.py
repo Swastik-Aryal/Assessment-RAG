@@ -110,9 +110,9 @@ if __name__ == "__main__":
 
     from openpyxl import load_workbook
 
-    from pipeline.config import load_settings
+    from pipeline.config.config import load_settings
     from pipeline.excel.schema import WorkbookSchema
-    from pipeline.logging_setup import setup_logging
+    from pipeline.config.logging_setup import setup_logging
     from pipeline.llm.gemini import GeminiClient
     from pipeline.excel.analyzer import infer_schema
 

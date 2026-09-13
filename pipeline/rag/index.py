@@ -153,8 +153,8 @@ def build_retriever(settings, kind=None, embedder=None, chunks=None) -> Retrieve
 
 
 if __name__ == "__main__":
-    from pipeline.config import load_settings
-    from pipeline.logging_setup import setup_logging
+    from pipeline.config.config import load_settings
+    from pipeline.config.logging_setup import setup_logging
 
     setup_logging()
     s = load_settings()

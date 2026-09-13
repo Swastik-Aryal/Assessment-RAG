@@ -2,8 +2,8 @@ import logging
 import re
 from dataclasses import dataclass
 
-from pipeline.config import load_settings
-from pipeline.logging_setup import setup_logging
+from pipeline.config.config import load_settings
+from pipeline.config.logging_setup import setup_logging
 from pipeline.mail.client import MailClient, Message
 from pipeline.models import Scenario
 
@@ -53,8 +53,7 @@ class Watcher:
     def __init__(self, settings, mail: MailClient):
         self.settings = settings
         self.mail = mail
-        self.failed: set[str] = set()
-        self._cache: dict[str, Message] = {}
+        self.failed: set[tuple[str, str]] = set()
 
     def _sent_refs(self) -> tuple[set[str], set[str]]:
         """(acked ids, completed ids) from [ref:msg-N] markers in sent mail."""
@@ -74,31 +73,63 @@ class Watcher:
         for s in self.mail.list_inbox():
             if s["from"] != self.settings.CLIENT_ADDRESS or s["subject"].startswith("Re:"):
                 continue
-            msg = self._cache.get(s["id"]) or self._cache.setdefault(s["id"], self.mail.get_message(s["id"]))
+            msg = self.mail.get_message(s["id"])
             if classify(msg, self.settings) != Scenario.UNKNOWN:
                 out.append(msg)
         return sorted(out, key=lambda m: (m.received_at, m.id))
 
+    def sent_ack(self, msg_id: str) -> dict | None:
+        """First /sent row whose body has [ref:msg_id], as {id, to, sent_at}."""
+        for s in self.mail.list_sent():
+            if f"[ref:{msg_id}]" in (s.get("body") or ""):
+                return {"id": s["id"], "to": s.get("to"), "sent_at": s.get("sent_at")}
+        return None
+
+    def ack_alive(self, snap: dict | None) -> bool:
+        """True if that exact sent row is still in /sent (id, to, sent_at)."""
+        if not snap:
+            return False
+        for s in self.mail.list_sent():
+            if (
+                s.get("id") == snap["id"]
+                and s.get("to") == snap["to"]
+                and s.get("sent_at") == snap["sent_at"]
+            ):
+                return True
+        return False
+
+    def ack(self, msg: Message) -> dict | None:
+        """Ack this request if needed. Returns the sent row snapshot."""
+        row = self.sent_ack(msg.id)
+        if row:
+            return row
+        self.mail.send(
+            self.settings.CLIENT_ADDRESS,
+            "Re: " + msg.subject,
+            f"We have received your questionnaire request and will complete it shortly. {ref(msg.id)}",
+        )
+        log.info("acknowledged %s %r", msg.id, msg.subject)
+        return self.sent_ack(msg.id)
+
     def ack_pending(self) -> int:
         """Send Re: <subject> with [ref:] for every unacknowledged request. Returns how many."""
-        acked, _ = self._sent_refs()
         n = 0
         for msg in self._requests():
-            if msg.id in acked:
+            if self.sent_ack(msg.id):
                 continue
-            self.mail.send(
-                self.settings.CLIENT_ADDRESS,
-                "Re: " + msg.subject,
-                f"We have received your questionnaire request and will complete it shortly. {ref(msg.id)}",
-            )
-            log.info("acknowledged %s (%s)", msg.id, msg.subject)
+            log.info("found %s %r (mid-run)", msg.id, msg.subject)
+            self.ack(msg)
             n += 1
         return n
 
     def pending(self) -> list[Message]:
         """Requests not yet Completed: and not in the in-memory failed set."""
         _, completed = self._sent_refs()
-        return [m for m in self._requests() if m.id not in completed and m.id not in self.failed]
+        return [
+            m
+            for m in self._requests()
+            if m.id not in completed and (m.id, m.received_at) not in self.failed
+        ]
 
 
 if __name__ == "__main__":
