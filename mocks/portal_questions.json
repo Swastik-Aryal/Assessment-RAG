@@ -1,0 +1,106 @@
+[
+  {
+    "id": "Q1",
+    "question": "Do you restrict access to cardholder data by business need to know?"
+  },
+  {
+    "id": "Q2",
+    "question": "Do you identify and authenticate access to system components?"
+  },
+  {
+    "id": "Q3",
+    "question": "Do you restrict physical access to cardholders data?"
+  },
+  {
+    "id": "Q4",
+    "question": "Does your business use network segmentation to affect the scope of your Payment Card Industry Data Security Standard (PCI DSS) environment?"
+  },
+  {
+    "id": "Q5",
+    "question": "Do you install and maintain a firewall configuration to protect cardholder data?"
+  },
+  {
+    "id": "Q6",
+    "question": "What information do you have about the service provider organization?"
+  },
+  {
+    "id": "Q7",
+    "question": "Does the organization use one or more Payment Applications?"
+  },
+  {
+    "id": "Q8",
+    "question": "Do you protect all systems against malware and regularly update anti-virus software or programs?"
+  },
+  {
+    "id": "Q9",
+    "question": "Is there information available about the Qualified Security Assessor (QSA) company?"
+  },
+  {
+    "id": "Q10",
+    "question": "Do you regularly test security systems and processes?"
+  },
+  {
+    "id": "Q11",
+    "question": "Do you track and monitor all access to network resources and cardholder data?"
+  },
+  {
+    "id": "Q12",
+    "question": "Do you protect stored cardholder data?"
+  },
+  {
+    "id": "Q13",
+    "question": "How does your business store, process, and transmit cardholder data, and in what capacity?"
+  },
+  {
+    "id": "Q14",
+    "question": "In what capacity is your business otherwise involved in or has the ability to impact the security of cardholder data?"
+  },
+  {
+    "id": "Q15",
+    "question": "Do you encrypt the transmission of cardholder data across open, public networks?"
+  },
+  {
+    "id": "Q16",
+    "question": "Should vendor-supplied defaults for system passwords and other security parameters be avoided?"
+  },
+  {
+    "id": "Q17",
+    "question": "Which types of facilities, such as retail outlets, corporate offices, data centers, call centers, and so on are included in the Payment Card Industry Data Security Standard (PCI DSS) review, and could you provide a summary of their locations?"
+  },
+  {
+    "id": "Q18",
+    "question": "Can you list services that were included in the scope of the Payment Card Industry Data Security Standard (PCI DSS) Assessment?"
+  },
+  {
+    "id": "Q19",
+    "question": "Can you list services that are provided by the service provider but were not included in the scope of the Payment Card Industry Data Security Standard (PCI DSS) Assessment?"
+  },
+  {
+    "id": "Q20",
+    "question": "Are there additional Payment Card Industry Data Security Standard (PCI DSS) Requirements for Shared Hosting Providers?"
+  },
+  {
+    "id": "Q21",
+    "question": "Are there additional Payment Card Industry Data Security Standard (PCI DSS) Requirements for entities using Single Sign-On (SSL) or early Transport Layer Security (TLS) for Card-Present Point-of-Sales (POS), Point of Interaction (POI) Terminal Connections?"
+  },
+  {
+    "id": "Q22",
+    "question": "Does the organization have an established and documented set of principles for engineering secure systems throughout the secure development lifecycle?"
+  },
+  {
+    "id": "Q23",
+    "question": "Have you developed and implemented a program to execute the validation process that validates the information inputs? If yes, do you test the validation program to ensure it is functioning properly?\nHave you identified the types of errors that could occur in the validation system? If yes, do you test the system to ensure that the error messages are only revealed to the designated personnel or roles?"
+  },
+  {
+    "id": "Q24",
+    "question": "Does your company have a relationship with a Qualified Integrator and Reseller (QIR) for the purpose of the services being validated? If yes, can you provide the name of the Qualified Integrator and Reseller (QIR) company, the Qualified Integrator and Reseller (QIR) individual name, and a description of the services provided by Qualified Integrator and Reseller (QIR)?"
+  },
+  {
+    "id": "Q25",
+    "question": "Can you provide the name of the Qualified Integrator and Reseller (QIR) company, the Qualified Integrator and Reseller (QIR) individual name, and a description of the services provided by Qualified Integrator and Reseller (QIR)?"
+  },
+  {
+    "id": "Q26",
+    "question": "Do you maintain a policy that addresses information security for all personnel?"
+  }
+]
