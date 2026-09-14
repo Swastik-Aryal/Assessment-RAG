@@ -83,10 +83,10 @@ def answer_all(generator, questions: list[Question], get_targets, instructions="
             ans = _fallback()
             dump = ans.model_dump()
             dump.update(dump.pop("extra", {}) or {})
-        answers[q.id] = ans
-        llm_out[q.id] = dump
-        retrieval[q.id] = [_hit_dump(h) for h in hits]
-        prompts[q.id] = {"system": system, "user": user}
+        answers[q.key()] = ans
+        llm_out[q.key()] = dump
+        retrieval[q.key()] = [_hit_dump(h) for h in hits]
+        prompts[q.key()] = {"system": system, "user": user}
         if i == n or i % 10 == 0:
             log.info("answered %s/%s", i, n)
         if on_progress and i % 10 == 0:
@@ -95,10 +95,13 @@ def answer_all(generator, questions: list[Question], get_targets, instructions="
 
 
 def completion(mail, settings, msg, counts, extra="", attachments=()):
-    """Send Completed: <subject> with status counts and [ref:]."""
+    """Send Completed: <subject> with status counts, [ref:], and optional attachments."""
     bits = ", ".join(f"{k}={v}" for k, v in sorted(counts.items())) or "none"
     subject = f"Completed: {msg.subject}" + (f" {extra}" if extra else "")
-    body = f"Finished. Status counts: {bits}\n{ref(msg.id)}"
+    body = f"Finished. Status counts: {bits}."
+    if attachments:
+        body += " Completed questionnaire attached."
+    body += f"\n{ref(msg.id)}"
     return mail.send(settings.CLIENT_ADDRESS, subject, body, attachments)
 
 
@@ -170,16 +173,14 @@ def run_excel(msg, settings, watcher, gemini, generator, session_dir: Path, on_p
         if not watcher.ack_alive(snap):
             log.warning("mailbox reset mid-run, not sending %s", msg.id)
             return out
-        watcher.mail.send(
-            settings.CLIENT_ADDRESS,
-            f"Completed: {msg.subject}",
-            f"Please find the completed questionnaire attached.\n{ref(msg.id)}",
+        completion(
+            watcher.mail,
+            settings,
+            msg,
+            counts,
             attachments=[Attachment(dest.name, dest.read_bytes())],
         )
-        log.info("sent workbook %s", dest.name)
-        if watcher.ack_alive(snap):
-            completion(watcher.mail, settings, msg, counts, extra="(summary)")
-            log.info("sent completion for %s %s", msg.id, counts)
+        log.info("sent workbook %s %s", dest.name, counts)
         log.info("excel done %s", msg.id)
         return out
     finally:
@@ -190,7 +191,7 @@ def run_excel(msg, settings, watcher, gemini, generator, session_dir: Path, on_p
 def _portal_payload(qs, answers) -> dict[str, str]:
     out = {}
     for q in qs:
-        ans = answers.get(q.id)
+        ans = answers.get(q.key())
         text = portal_text(ans).strip() if ans else ""
         out[q.id] = text or PLACEHOLDER
     return out

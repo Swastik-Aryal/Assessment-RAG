@@ -21,12 +21,17 @@ class Question:
     section_label: str = ""
     table_id: str = ""
 
+    def key(self) -> str:
+        """Lookup by location. Control ids like 1.1.1 repeat across tables."""
+        if not self.row:
+            return self.id
+        return f"{self.sheet}!{self.table_id}!{self.row}" if self.table_id else f"{self.sheet}!{self.row}"
+
 
 class FieldFormat(BaseModel):
     """How a fillable cell is constrained: enum dropdown or free text."""
     type: Literal["enum", "free_text"]
     allowed_values: list[str] = Field(default_factory=list)
-    max_length: int | None = None
 
 
 class FillTarget(BaseModel):
@@ -39,7 +44,6 @@ class FillTarget(BaseModel):
     constant_value: str | None = None
     format: FieldFormat
     rule: str = ""
-    required: bool = False
 
 
 class GeneratedAnswer(BaseModel):

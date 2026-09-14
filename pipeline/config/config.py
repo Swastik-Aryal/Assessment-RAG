@@ -30,6 +30,7 @@ class Settings(BaseSettings):
     QDRANT_PATH: Path = Path("cache/qdrant")
     TOP_K: int = 5
     RETRIEVER: str = "dense"
+    DENSE_WEIGHT: float = 0.7
     POLL_INTERVAL_SECONDS: float = 3
     OUTPUT_DIR: Path = Path("outputs")
     LOG_LEVEL: str = "INFO"
