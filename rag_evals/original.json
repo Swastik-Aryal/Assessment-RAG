@@ -1,0 +1,470 @@
+[
+  {
+    "query": "What technology languages/platforms/stacks/components are utilized in the scope of the application? (AWS? MySQL? Ruby on Rails? Go? Javascript?)",
+    "relevant_id": "3.3"
+  },
+  {
+    "query": "Is your service run from your own: - A. Data Center - B. The Cloud - C. Deployed-On Premise Only - Not Applicable",
+    "relevant_id": "4.1"
+  },
+  {
+    "query": "Data Centre Location(s) (relative to services provided)",
+    "relevant_id": "4.2"
+  },
+  {
+    "query": "Which cloud providers do you rely on?",
+    "relevant_id": "4.3"
+  },
+  {
+    "query": "Have you researched your cloud providers best security practices?",
+    "relevant_id": "4.4"
+  },
+  {
+    "query": "Which data centers/countries/geographies are you deployed in?",
+    "relevant_id": "4.5"
+  },
+  {
+    "query": "On-premise solution only",
+    "relevant_id": "4.6"
+  },
+  {
+    "query": "Most recent Application Code Review or Penetration Testing Reports (carried out by independent third party)",
+    "relevant_id": "5.1"
+  },
+  {
+    "query": "Does the penetration test follow an industry approved methodology:",
+    "relevant_id": "5.2"
+  },
+  {
+    "query": "Information Security Policies and Procedures",
+    "relevant_id": "5.3"
+  },
+  {
+    "query": "Data Flow Diagram",
+    "relevant_id": "5.4"
+  },
+  {
+    "query": "Any other Documents supporting your responses in this questionnaire (Please provide a description for each document).",
+    "relevant_id": "5.5"
+  },
+  {
+    "query": "PCI, SOC2 type II or ISO27001 certification reports",
+    "relevant_id": "5.6"
+  },
+  {
+    "query": "Other Independent Audit report (please provide details)",
+    "relevant_id": "5.7"
+  },
+  {
+    "query": "Please describe the company/user data you require to provide your service: - A. Personal Information - B. Financial Data - C. Confidential/Sensitive Data - D. Government Data - Not Applicable",
+    "relevant_id": "6.1"
+  },
+  {
+    "query": "Do you encrypt customer data? If so, please upload relevant documentation and describe how you encrypt customer data.",
+    "relevant_id": "7.1"
+  },
+  {
+    "query": "Describe how your organization decides who does and does not have access to sensitive data",
+    "relevant_id": "8.1"
+  },
+  {
+    "query": "Do you have capabilities to anonymize data?",
+    "relevant_id": "8.2"
+  },
+  {
+    "query": "How is data anonymization implemented?",
+    "relevant_id": "8.3"
+  },
+  {
+    "query": "Please describe your general rules management in relation to role provisioning, deprovisioning, and recertification.",
+    "relevant_id": "8.5"
+  },
+  {
+    "query": "Which groups of staff (individual contractors and full-time) have access to personal and sensitive data handed to you?",
+    "relevant_id": "8.6"
+  },
+  {
+    "query": "Do you keep sensitive data (as defined by your data classification matrix) in hard copy (e.g. paper copies)? If so, please describe.",
+    "relevant_id": "8.7"
+  },
+  {
+    "query": "Do you have a procedure for securely destroying hard copy sensitive data?",
+    "relevant_id": "8.8"
+  },
+  {
+    "query": "Do you support secure deletion (e.g. degaussing/cryptographic wiping) of archived or backed-up data?",
+    "relevant_id": "8.9"
+  },
+  {
+    "query": "Describe the circumstances in which customer data is allowed leave your production systems?",
+    "relevant_id": "8.10"
+  },
+  {
+    "query": "Do you have an internal password policy?",
+    "relevant_id": "9.1"
+  },
+  {
+    "query": "Do you have complexity or length requirements for passwords?",
+    "relevant_id": "9.2"
+  },
+  {
+    "query": "Do you hash passwords? If so, please describe how passwords are hashed.",
+    "relevant_id": "9.3"
+  },
+  {
+    "query": "Do employees/contractors have ability to remotely connect to your production systems? (i.e. VPN)",
+    "relevant_id": "9.4"
+  },
+  {
+    "query": "Is MFA required for employees/contractors to log in to production systems?",
+    "relevant_id": "9.5"
+  },
+  {
+    "query": "Do internal applications leverage SSO for authentication?",
+    "relevant_id": "9.6"
+  },
+  {
+    "query": "Do processors (vendors) access your customer's information? If so, please list the processors (vendors) who access your customer's information.",
+    "relevant_id": "10.1"
+  },
+  {
+    "query": "Do these processors (vendors) contractually comply with your security standards for data processing?",
+    "relevant_id": "10.2"
+  },
+  {
+    "query": "Do you regularly audit your critical vendors?",
+    "relevant_id": "10.3"
+  },
+  {
+    "query": "(Only applicable if your company/data centers are based in the US) For the provision of services, do you process EU citizens' personal data?",
+    "relevant_id": "11.1"
+  },
+  {
+    "query": "Are you currently Privacy Shield certified? If so, please link to your certification.",
+    "relevant_id": "11.2"
+  },
+  {
+    "query": "Have you appointed a Data Protection Officer (DPO)?",
+    "relevant_id": "11.3"
+  },
+  {
+    "query": "Do you plan on being Privacy Shield certified withing the next 12 months?",
+    "relevant_id": "11.4"
+  },
+  {
+    "query": "Do you have a formal Information Security Program (InfoSec SP) in place?",
+    "relevant_id": "12.1"
+  },
+  {
+    "query": "Do you review your Information Security Policies at least once a year?",
+    "relevant_id": "12.2"
+  },
+  {
+    "query": "Do you have a Information security risk management program (InfoSec RMP)?",
+    "relevant_id": "12.3"
+  },
+  {
+    "query": "Do you have management support or a security management forum to evaluate and take action on security risks?",
+    "relevant_id": "12.4"
+  },
+  {
+    "query": "Do you have a dedicated information security team? If so, what is the composition and reporting structure?",
+    "relevant_id": "12.5"
+  },
+  {
+    "query": "Do your information security and privacy policies align with industry standards (ISO-27001, NIST Cyber Security Framework, ISO-22307, CoBIT, etc.)?",
+    "relevant_id": "13.1"
+  },
+  {
+    "query": "Do you have a policy exception process?",
+    "relevant_id": "13.2"
+  },
+  {
+    "query": "Is a formal disciplinary or sanction policy established for employees who have violated security policies and procedures?",
+    "relevant_id": "13.3"
+  },
+  {
+    "query": "Are all employment candidates, contractors and involved third parties subject to background verification (as allowed by local laws, regulations, ethics and contractual constraints)?",
+    "relevant_id": "14.1"
+  },
+  {
+    "query": "Are all personnel required to sign Confidentiality Agreements to protect customer information, as a condition of employment?",
+    "relevant_id": "15.1"
+  },
+  {
+    "query": "Are all personnel required to sign an Acceptable Use Policy? Please attach",
+    "relevant_id": "16.1"
+  },
+  {
+    "query": "Are documented procedures followed to govern change in employment and/or termination including for timely revocation of access and return of assets?",
+    "relevant_id": "17.1"
+  },
+  {
+    "query": "How is your network security testing performed? - A. Internal - B. Third parties - C. Both? If so, what is the cadence? Explain your methodology",
+    "relevant_id": "18.1"
+  },
+  {
+    "query": "How is your application security testing performed? - A. Internal - B. Third parties - C. Both? If so, what is the cadence? Explain your methodology",
+    "relevant_id": "18.2"
+  },
+  {
+    "query": "Do you have network vulnerability management processes and procedures? If so, please summarise or attach your network vulnerability management processes and procedures.",
+    "relevant_id": "19.1"
+  },
+  {
+    "query": "Do you have a timeframe for patching critical vulnerabilities? If so, please describe your timeframe for patching critical vulnerabilities.",
+    "relevant_id": "19.2"
+  },
+  {
+    "query": "Do you use tools for vulnerability managment? If so, please describe the tools you use for vulnerability managment.",
+    "relevant_id": "19.3"
+  },
+  {
+    "query": "Do you have application vulnerability management processes and procedures? If so, please summarise or attach your application vulnerability management processes and procedures.",
+    "relevant_id": "19.4"
+  },
+  {
+    "query": "Do you use tools for application vulnerability management? If so, please detail the tools you use for application vulnerability management.",
+    "relevant_id": "19.5"
+  },
+  {
+    "query": "Do you regularly evaluate patches and updates for your infrastructure?",
+    "relevant_id": "19.6"
+  },
+  {
+    "query": "Do you publish a path for responisble disclosure of security vulnerabilities (ie security@ or /security)?",
+    "relevant_id": "19.7"
+  },
+  {
+    "query": "Do you have an established bug bounty program?",
+    "relevant_id": "19.8"
+  },
+  {
+    "query": "Are all endpoint laptops that connect directly to production networks centrally managed?",
+    "relevant_id": "20.1"
+  },
+  {
+    "query": "Describe standard employee issued device security configuration/features. (Login Password, antimalware, Full Disk Encryption, Administrative Privileges, Firewall, Auto-lock, etc.)",
+    "relevant_id": "20.2"
+  },
+  {
+    "query": "Does sensitive or private data ever reside on endpoint devices? How is this policy enforced?",
+    "relevant_id": "20.3"
+  },
+  {
+    "query": "Do you limit data exfiltration from production endpoint devices? If so, please describe how you limit data exfiltration from production endpoint devices.",
+    "relevant_id": "21.1"
+  },
+  {
+    "query": "What systems do you have in place that mitigate classes of web application vulnerabilities? (e.g.: WAF, proxies, etc)",
+    "relevant_id": "21.2"
+  },
+  {
+    "query": "Do you have breach detection sytems and/or anomaly detection with alerting?",
+    "relevant_id": "21.3"
+  },
+  {
+    "query": "Are the hosts where the service is running uniformly configured?",
+    "relevant_id": "22.1"
+  },
+  {
+    "query": "Are changes to the production environment reviewed by at least two engineers/operations staff?",
+    "relevant_id": "22.2"
+  },
+  {
+    "query": "Describe your secrets management strategy:(auth tokens, passwords, API credentials, certificates)",
+    "relevant_id": "22.3"
+  },
+  {
+    "query": "Are all security events (authentication events, SSH session commands, privilege elevations) in production logged?",
+    "relevant_id": "22.4"
+  },
+  {
+    "query": "Is the production network segmented in to different zones based on security levels?",
+    "relevant_id": "22.5"
+  },
+  {
+    "query": "Do you have a process for making changes to network configuration? If so, please describe this process for making changes to network configuration.",
+    "relevant_id": "22.6"
+  },
+  {
+    "query": "Is all network traffic over public networks to the production infrastructure sent over cryptographically sound encrypted connections? (TLS, VPN, IPSEC, etc). If there are plaintext connections, what is sent unencrypted?",
+    "relevant_id": "22.7"
+  },
+  {
+    "query": "Do you use cryptographic frameworks to secure data in transit over public networks? If so, please describe the cryptographic frameworks you use.",
+    "relevant_id": "23.1"
+  },
+  {
+    "query": "Do you use cryptographic frameworks to secure data at rest? If so, please describe the cryptographic frameworks you use.",
+    "relevant_id": "23.2"
+  },
+  {
+    "query": "Do you use cryptographic frameworks to store passwords? If so, please describe the cryptographic frameworks you use.",
+    "relevant_id": "23.3"
+  },
+  {
+    "query": "Are any custom crypographic frameworks/implementations used? If so, have any custom cryptographic frameworks been reviewed by an independent 3rd party?",
+    "relevant_id": "23.4"
+  },
+  {
+    "query": "Are crytographic keys (key management system, etc) managed within your system? If so, please describe how crytographic keys(key management system, etc) are managed.",
+    "relevant_id": "23.5"
+  },
+  {
+    "query": "Do you have a security awareness program for personnel? If so, please describe the program.",
+    "relevant_id": "24.1"
+  },
+  {
+    "query": "Do you keep aware of potential security vulnerabilities and threats that may affect your service? If so, please describe how you keep aware of potential security vulnerabilities and threats that may affect your service.",
+    "relevant_id": "25.1"
+  },
+  {
+    "query": "Do you log and alert on relevant security events? (this includes the network and application layer)? If so, please describe how you log and alert on relevant security events.",
+    "relevant_id": "26.1"
+  },
+  {
+    "query": "Do you have a Security Incident Response Program? If so, please describe or attach your Security Incident Response Program.",
+    "relevant_id": "27.1"
+  },
+  {
+    "query": "Do you test your Incident Response Plan? If so, please describe how it is tested and include cadence.",
+    "relevant_id": "27.2"
+  },
+  {
+    "query": "Do you have a formal service level agreement (SLA) for incident response?",
+    "relevant_id": "27.3"
+  },
+  {
+    "query": "Do you have formally defined criteria for notifying a client during an incident that might impact the security of their data or systems? What are your SLAs for notification?",
+    "relevant_id": "28.1"
+  },
+  {
+    "query": "Do you do static code analysis?",
+    "relevant_id": "29.1"
+  },
+  {
+    "query": "Do you ensure code is being developed securely? If so, please describe how you ensure code is being developed securely.",
+    "relevant_id": "29.2"
+  },
+  {
+    "query": "Is threat modelling incorporated in the design phase of development? If so, please describe how threat modelling is incorporated in the design phase of development.",
+    "relevant_id": "29.3"
+  },
+  {
+    "query": "Do you train developers in SSDLC / Secure Coding Practices? If so, please describe how you train developers in SSDLC / Secure Coding Practices.",
+    "relevant_id": "29.4"
+  },
+  {
+    "query": "What percentage of your production code is covered by automated tests?",
+    "relevant_id": "30.1"
+  },
+  {
+    "query": "Is a staging/pre-production system used to validate build artifacts before promotion to production?",
+    "relevant_id": "30.2"
+  },
+  {
+    "query": "Do you maintain a bill of materials for third party libraries or code in your service?",
+    "relevant_id": "31.1"
+  },
+  {
+    "query": "Do you monitor vulnerabilities in dependencies? If so, please describe how you monitor vulnerabilities in dependencies.",
+    "relevant_id": "31.2"
+  },
+  {
+    "query": "Do you outsource development? (contracted with a 3rd party? open source project inclusion?)",
+    "relevant_id": "31.3"
+  },
+  {
+    "query": "What types of security reviews do you perform on custom-built software?",
+    "relevant_id": "31.4"
+  },
+  {
+    "query": "Please describe how you authenticate users: If passwords are used, describe complexity requirements, and how passwords are protected. If SSO is supported, please describe the available options",
+    "relevant_id": "32.1"
+  },
+  {
+    "query": "Does application allow user MFA to be enforced by admins?",
+    "relevant_id": "32.2"
+  },
+  {
+    "query": "Does application support IP whitelisting for user authentication?",
+    "relevant_id": "32.3"
+  },
+  {
+    "query": "Does your application support standardized roles and permissions for users (ie admin, user)?",
+    "relevant_id": "33.1"
+  },
+  {
+    "query": "Does your application enable custom granular permissions and roles to be created?",
+    "relevant_id": "33.2"
+  },
+  {
+    "query": "Which audit trails and logs are kept for systems and applications with access to customer data?",
+    "relevant_id": "34.1"
+  },
+  {
+    "query": "Does your application provide customer adminstrators with direct access to verbose audit logs (API, export, viewer etc)?",
+    "relevant_id": "34.2"
+  },
+  {
+    "query": "Does your application allow for custom data retention policy for customer data?",
+    "relevant_id": "35.1"
+  },
+  {
+    "query": "Does your application provide a change log?",
+    "relevant_id": "36.1"
+  },
+  {
+    "query": "Does your application provide a sandbox environment to customers for testing?",
+    "relevant_id": "36.2"
+  },
+  {
+    "query": "Does your API implement rate limiting?",
+    "relevant_id": "37.1"
+  },
+  {
+    "query": "Does your application store API keys? If so, please describe how your application stores API keys.",
+    "relevant_id": "37.2"
+  },
+  {
+    "query": "Does application support IP whitelisting for API access?",
+    "relevant_id": "37.3"
+  },
+  {
+    "query": "Do you conduct internal audits (audits lead by your personnel) of the service? If so, please describe the scope, remediation process and frequency of audits.",
+    "relevant_id": "38.1"
+  },
+  {
+    "query": "Do you conduct external (third-party) audits of the service? If so, please describe the scope and frequency of audits.",
+    "relevant_id": "39.1"
+  },
+  {
+    "query": "Please provide a copy of the most recent report.",
+    "relevant_id": "39.2"
+  },
+  {
+    "query": "Which IT operational, security, privacy related standards, certifications and/or regulations you do comply with?",
+    "relevant_id": "40.1"
+  },
+  {
+    "query": "Please provide a copy of the most recent certifications.",
+    "relevant_id": "40.2"
+  },
+  {
+    "query": "Are your confidential data acess controls in line with your data classification matrix?",
+    "relevant_id": "41.1"
+  },
+  {
+    "query": "Do you share customer data with, or enable direct access by, any third-party?",
+    "relevant_id": "41.2"
+  },
+  {
+    "query": "Do you seek a right to use or own customer derived data for your own purposes?",
+    "relevant_id": "41.3"
+  },
+  {
+    "query": "Is your Privacy Notice/ Privacy Policy externally available? Please provide us with the URL.",
+    "relevant_id": "41.4"
+  }
+]
