@@ -107,10 +107,11 @@ def _validations(ws) -> dict[str, list[str]]:
     return out
 
 
-def _col_stats(ws) -> dict[str, dict]:
-    """Per-column question-like / id-like / empty / mean-length stats over all rows."""
+def _col_stats(ws) -> tuple[dict[str, dict], int]:
+    """Per-column stats plus the last row that has any value."""
     stats = {}
-    n = max(ws.max_row, 1)
+    n = max(ws.max_row or 0, 1)
+    last_ne = 0
     for c in range(1, (ws.max_column or 1) + 1):
         empty = qlike = idlike = total_len = 0
         for r in range(1, n + 1):
@@ -118,6 +119,7 @@ def _col_stats(ws) -> dict[str, dict]:
             if not t:
                 empty += 1
             else:
+                last_ne = max(last_ne, r)
                 total_len += len(t)
                 qlike += int(is_question_like(t))
                 idlike += int(is_id_like(t))
@@ -128,17 +130,22 @@ def _col_stats(ws) -> dict[str, dict]:
             "pct_empty": round(100 * empty / n, 1),
             "pct_id_like": round(100 * idlike / n, 1),
         }
-    return stats
+    return stats, last_ne
 
 
 def render_wb(wb, full: bool = False) -> str:
     """Turn a workbook into text the analyzer LLM can read (compact or full)."""
-    parts = []
+    sheets = []
+    for ws in wb.worksheets:
+        stats, last_ne = _col_stats(ws)
+        sheets.append((ws, stats, last_ne))
+    wb_last = max((n for _, _, n in sheets), default=0)
+    parts = [f"workbook: last_nonempty_row={wb_last}"]
     row_cap = None if full else COMPACT_ROWS
     cell_cap = None if full else COMPACT_CELL
-    for ws in wb.worksheets:
+    for ws, stats, last_ne in sheets:
         parts.append(f"# Sheet: {ws.title}")
-        parts.append(f"dims: {ws.max_row}x{ws.max_column}")
+        parts.append(f"dims: {ws.max_row}x{ws.max_column} last_nonempty_row={last_ne}")
         merged = [str(m) for m in ws.merged_cells.ranges]
         if merged:
             parts.append("merged: " + ", ".join(merged))
@@ -148,7 +155,6 @@ def render_wb(wb, full: bool = False) -> str:
                 "validations: "
                 + "; ".join(f"{c}={' | '.join(v)}" for c, v in vals.items())
             )
-        stats = _col_stats(ws)
         parts.append(
             "col_stats: "
             + "; ".join(
@@ -195,6 +201,7 @@ def render(path, full: bool = False) -> str:
 
 
 if __name__ == "__main__":
+    from pipeline.config.config import load_settings
     from pipeline.config.logging_setup import setup_logging
 
     p = argparse.ArgumentParser()
@@ -202,6 +209,11 @@ if __name__ == "__main__":
     p.add_argument("--full", action="store_true")
     a = p.parse_args()
     setup_logging()
+    s = load_settings()
     text = render(a.path, full=a.full)
-    print(text)
+    out = s.OUTPUT_DIR / "excel"
+    out.mkdir(parents=True, exist_ok=True)
+    dest = out / "render.txt"
+    dest.write_text(text, encoding="utf-8")
+    print("wrote", dest)
     print("sheets", text.count("# Sheet:"), "chars", len(text), "full", a.full)

@@ -15,7 +15,6 @@ class TableSchema(BaseModel):
     last_col: str
     question_col: str
     id_col: str | None = None
-    id_regex: str | None = None
     section_label_col: str | None = None
     fill_targets: list[FillTarget]
 

@@ -40,17 +40,13 @@ def _write_cell(ws, row: int, col: str, value: str):
 
 
 def _table_for(schema: WorkbookSchema, q: Question) -> TableSchema | None:
-    """Find the table that owns this question (by table_id, else by row range)."""
+    """Table that extracted this question."""
     for sheet in schema.sheets:
         if sheet.sheet_name != q.sheet:
             continue
         for t in sheet.tables:
-            if q.table_id and t.table_id == q.table_id:
+            if t.table_id == q.table_id:
                 return t
-            if not q.table_id:
-                last = t.last_data_row or 10**9
-                if t.first_data_row <= q.row <= last:
-                    return t
     return None
 
 
@@ -87,13 +83,13 @@ def write_workbook(
             table = _table_for(schema, q)
             if table is None:
                 continue
-            got = cell_values(answers[q.id], table.fill_targets) if q.id in answers else {}
+            got = cell_values(answers[q.key()], table.fill_targets) if q.key() in answers else {}
             for t in table.fill_targets:
-                if t.strategy == "skip":
+                if t.strategy == "skip" or t.col == table.question_col:
                     continue
                 if t.strategy == "constant":
                     val = t.constant_value or ""
-                elif placeholder and q.id not in answers:
+                elif placeholder and q.key() not in answers:
                     val = ""
                 elif t.target_id in got:
                     val = got[t.target_id]
@@ -109,7 +105,7 @@ def write_workbook(
         cell = sm.cell(1, i, h)
         cell.font = Font(bold=True)
     for i, q in enumerate(questions, 2):
-        ans = answers.get(q.id)
+        ans = answers.get(q.key())
         sm.cell(i, 1, q.sheet)
         sm.cell(i, 2, q.id)
         sm.cell(i, 3, q.text)
@@ -155,71 +151,84 @@ if __name__ == "__main__":
     p.add_argument("--placeholder", action="store_true")
     p.add_argument("--out")
     a = p.parse_args()
-    src = Path(a.path)
+    folder = Path(a.path)
+    files = sorted(p for p in folder.glob("*.xlsx") if not p.name.startswith("~$"))
     settings = load_settings()
-    run_id = datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%SZ") + "_excel_" + src.stem
-    out = Path(a.out) if a.out else settings.OUTPUT_DIR / run_id
-    out.mkdir(parents=True, exist_ok=True)
-    setup_logging(settings.LOG_LEVEL, out / "run.log")
-    dest = out / f"Completed - {src.name}"
-    if dest.resolve() == src.resolve():
-        raise SystemExit("refusing to overwrite the original workbook")
-
-    schema = infer_schema(src, GeminiClient(settings), out_dir=out)
-    wb = load_workbook(src, data_only=False)
-    try:
-        qs = extract(wb, schema)
-    finally:
-        wb.close()
-    (out / "questions.json").write_text(
-        json.dumps([q.__dict__ for q in qs], indent=2), encoding="utf-8"
-    )
-    log.info("extracted %s questions", len(qs))
-    print("extracted", len(qs), "questions")
-
-    answers: dict[str, GeneratedAnswer] = {}
-    retrieval: dict[str, list] = {}
-    prompts: dict[str, dict] = {}
-    llm_out: dict[str, dict] = {}
-    if a.placeholder:
-        write_workbook(src, schema, qs, {}, dest, placeholder=True)
-    else:
+    gemini = GeminiClient(settings)
+    retriever = None
+    gen = None
+    if not a.placeholder:
         retriever = build_retriever(settings)
-        try:
-            gen = Generator(OllamaClient(settings), retriever)
-            for i, q in enumerate(qs, 1):
-                table = _table_for(schema, q)
-                targets = table.fill_targets if table else []
-                log.info("[%s/%s] %s %s", i, len(qs), q.id, q.text[:80])
-                print(f"[{i}/{len(qs)}] {q.id}", flush=True)
-                hits, system, user = [], "", ""
-                try:
-                    ans, hits, system, user, dump = gen.answer(q, targets, schema.instructions_text)
-                except Exception:
-                    log.exception("answer failed %s", q.id)
-                    hits = retriever.retrieve(q.text)
-                    system = build_system(targets, schema.instructions_text)
-                    user = build_user(q, hits)
-                    ans = _fallback()
-                    dump = ans.model_dump()
-                    dump.update(dump.pop("extra", {}))
-                answers[q.id] = ans
-                llm_out[q.id] = dump
-                retrieval[q.id] = [_hit_dump(h) for h in hits]
-                prompts[q.id] = {"system": system, "user": user}
-        finally:
-            retriever.close()
-        (out / "answers.json").write_text(
-            json.dumps(llm_out, indent=2),
-            encoding="utf-8",
-        )
-        (out / "retrieval.json").write_text(json.dumps(retrieval, indent=2), encoding="utf-8")
-        (out / "prompts.json").write_text(json.dumps(prompts, indent=2), encoding="utf-8")
-        write_workbook(src, schema, qs, answers, dest)
+        gen = Generator(OllamaClient(settings), retriever)
+    try:
+        for src in files:
+            run_id = datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%SZ") + "_excel_" + src.stem
+            out = (Path(a.out) / run_id) if a.out else settings.OUTPUT_DIR / run_id
+            out.mkdir(parents=True, exist_ok=True)
+            setup_logging(settings.LOG_LEVEL, out / "run.log")
+            dest = out / f"Completed - {src.name}"
+            if dest.resolve() == src.resolve():
+                raise SystemExit("refusing to overwrite the original workbook")
 
-    counts = {}
-    for ans in answers.values():
-        counts[ans.ans_status] = counts.get(ans.ans_status, 0) + 1
-    print("wrote", dest)
-    print("counts", counts or "placeholder")
-    print("run", out)
+            schema = infer_schema(src, gemini, out_dir=out)
+            wb = load_workbook(src, data_only=False)
+            try:
+                qs = extract(wb, schema)
+            finally:
+                wb.close()
+            (out / "questions.json").write_text(
+                json.dumps([q.__dict__ for q in qs], indent=2), encoding="utf-8"
+            )
+            log.info("extracted %s questions from %s", len(qs), src.name)
+            print("extracted", len(qs), "questions from", src.name)
+
+            answers: dict[str, GeneratedAnswer] = {}
+            retrieval: dict[str, list] = {}
+            prompts: dict[str, dict] = {}
+            llm_out: dict[str, dict] = {}
+            if a.placeholder:
+                write_workbook(src, schema, qs, {}, dest, placeholder=True)
+            else:
+                for i, q in enumerate(qs, 1):
+                    table = _table_for(schema, q)
+                    targets = table.fill_targets if table else []
+                    log.info("[%s/%s] %s %s", i, len(qs), q.id, q.text[:80])
+                    print(f"[{i}/{len(qs)}] {q.id}", flush=True)
+                    hits, system, user = [], "", ""
+                    try:
+                        ans, hits, system, user, dump = gen.answer(
+                            q, targets, schema.instructions_text
+                        )
+                    except Exception:
+                        log.exception("answer failed %s", q.id)
+                        hits = retriever.retrieve(q.text)
+                        system = build_system(targets, schema.instructions_text)
+                        user = build_user(q, hits)
+                        ans = _fallback()
+                        dump = ans.model_dump()
+                        dump.update(dump.pop("extra", {}))
+                    answers[q.key()] = ans
+                    llm_out[q.key()] = dump
+                    retrieval[q.key()] = [_hit_dump(h) for h in hits]
+                    prompts[q.key()] = {"system": system, "user": user}
+                (out / "answers.json").write_text(
+                    json.dumps(llm_out, indent=2),
+                    encoding="utf-8",
+                )
+                (out / "retrieval.json").write_text(
+                    json.dumps(retrieval, indent=2), encoding="utf-8"
+                )
+                (out / "prompts.json").write_text(
+                    json.dumps(prompts, indent=2), encoding="utf-8"
+                )
+                write_workbook(src, schema, qs, answers, dest)
+
+            counts = {}
+            for ans in answers.values():
+                counts[ans.ans_status] = counts.get(ans.ans_status, 0) + 1
+            print("wrote", dest)
+            print("counts", counts or "placeholder")
+            print("run", out)
+    finally:
+        if retriever:
+            retriever.close()
