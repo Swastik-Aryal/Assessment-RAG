@@ -22,12 +22,14 @@ class Hit:
     score: float
 
 
-def rrf(rankings: list[list[str]], k: int = RRF_K) -> list[tuple[str, float]]:
+def rrf(rankings: list[list[str]], k: int = RRF_K, weights: list[float] | None = None) -> list[tuple[str, float]]:
     """Reciprocal rank fusion. k=60. Docs only in one list still get a score."""
+    if weights is None:
+        weights = [1.0] * len(rankings)
     scores: dict[str, float] = {}
-    for ranking in rankings:
+    for ranking, w in zip(rankings, weights):
         for rank, doc_id in enumerate(ranking, start=1):
-            scores[doc_id] = scores.get(doc_id, 0.0) + 1.0 / (k + rank)
+            scores[doc_id] = scores.get(doc_id, 0.0) + w / (k + rank)
     return sorted(scores.items(), key=lambda x: -x[1])
 
 
@@ -127,10 +129,11 @@ class Retriever:
         return hits
 
     def _hybrid(self, question: str, k: int) -> list[Hit]:
-        """RRF of top-20 dense and BM25 lists."""
+        """RRF of top-20 dense and BM25 lists, weighted by DENSE_WEIGHT."""
         dense = self._dense(question, HYBRID_POOL)
         bm25 = self._bm25_query(question, HYBRID_POOL)
-        fused = rrf([[h.chunk.id for h in dense], [h.chunk.id for h in bm25]])
+        dw = self.settings.DENSE_WEIGHT
+        fused = rrf([[h.chunk.id for h in dense], [h.chunk.id for h in bm25]], weights=[dw, 1 - dw])
         by_id = {h.chunk.id: h.chunk for h in dense + bm25}
         return [Hit(by_id[i], s) for i, s in fused[:k]]
 

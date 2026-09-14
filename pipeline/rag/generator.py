@@ -28,6 +28,7 @@ Always fill these four keys first, in this order:
 - sources: the id values shown on retrieved rows you actually used. Empty list if you used none. Never cite anything not shown as [id=...].
 
 Then fill any extra workbook keys listed below. Follow each column's rule.
+IMPORTANT: If you are asked to fill an enum column, you must use the exact spelling from the allowed values list. Do not invent or modify the spelling.
 Always cite the retrieved rows you actually used in any comment/description/explanatory field, and in answer if that column has no restriction.
 """
 
@@ -50,7 +51,7 @@ def extra_key(t: FillTarget) -> str:
 
 
 def llm_answer_model(targets: list[FillTarget]):
-    """Core four fields first, then one required string per extra llm fill_target."""
+    """Core four fields first, then one string per extra llm fill_target."""
     fields = {
         "ans_status": (
             Literal["answerable", "needs_review", "unanswerable"],
@@ -69,12 +70,12 @@ def llm_answer_model(targets: list[FillTarget]):
     for t in targets:
         if t.strategy != "llm" or t.role == "answer":
             continue
-        desc = f"Table column, fill after the four core keys. {t.header or t.target_id}"
+        desc = f"Table column, fill after the four core keys if you have something to write. {t.header or t.target_id}"
         if t.rule:
             desc += ". " + t.rule
         if t.format.type == "enum" and t.format.allowed_values:
             desc += " Allowed values: " + ", ".join(t.format.allowed_values)
-        fields[extra_key(t)] = (str, Field(description=desc))
+        fields[extra_key(t)] = (str, Field(default="", description=desc))
     return create_model("LlmAnswer", **fields)
 
 
@@ -146,6 +147,41 @@ def build_user(question: Question, hits: list[Hit]) -> str:
         parts.append("")
     parts.append("Fill ans_status, confidence, answer, sources first, then any extra keys.")
     return "\n".join(parts).rstrip()
+
+
+def _enum_misses(raw, targets: list[FillTarget]) -> list[tuple[str, str, list[str]]]:
+    """Enum llm fields whose value is not in allowed_values (case-insensitive)."""
+    data = raw.model_dump()
+    nested = data.pop("extra", None) or {}
+    misses = []
+    for t in targets:
+        if t.strategy != "llm" or t.format.type != "enum" or not t.format.allowed_values:
+            continue
+        if t.role == "answer":
+            val, name = str(data.get("answer") or "").strip(), "answer"
+        else:
+            k = extra_key(t)
+            val = data.get(k, nested.get(t.target_id, nested.get(k, "")))
+            val = "" if val is None else str(val).strip()
+            name = k
+        if _canon(val, t.format.allowed_values):
+            continue
+        if not val:
+            continue
+        misses.append((name, val, t.format.allowed_values))
+    return misses
+
+
+def _enum_retry_user(user: str, misses: list[tuple[str, str, list[str]]]) -> str:
+    lines = [
+        user,
+        "",
+        "Your previous JSON used values that are not allowed. Reply with the same JSON keys.",
+        "Each listed field must be exactly one of the allowed values (same spelling):",
+    ]
+    for name, got, allowed in misses:
+        lines.append(f"- {name}: you wrote {got!r}; allowed: {', '.join(allowed)}")
+    return "\n".join(lines)
 
 
 def finalize(ans, hits: list[Hit], targets: list[FillTarget]) -> GeneratedAnswer:
@@ -220,7 +256,14 @@ class Generator:
         hits = self.retriever.retrieve(question.text)
         system = build_system(targets, instructions)
         user = build_user(question, hits)
-        raw = call_structured(self.llm, system, user, llm_answer_model(targets))
+        model = llm_answer_model(targets)
+        raw = call_structured(self.llm, system, user, model)
+        misses = _enum_misses(raw, targets)
+        if misses:
+            log.warning("enum mismatch, retrying once: %s", misses)
+            raw = call_structured(
+                self.llm, system, _enum_retry_user(user, misses), model, max_attempts=1
+            )
         return finalize(raw, hits, targets), hits, system, user, raw.model_dump()
 
 
@@ -230,8 +273,7 @@ def _portal_target() -> FillTarget:
         target_id="answer",
         header="Answer",
         role="answer",
-        format=FieldFormat(type="free_text", max_length=1000),
-        required=True,
+        format=FieldFormat(type="free_text"),
     )
 
 
@@ -324,6 +366,18 @@ def _check_finalize():
     assert "answerable" in text and "OID-1" in text
     prompt = build_user(Question(id="q", text="MFA?"), hits)
     assert "OID-1" in prompt and "c1" not in prompt
+    assert _enum_misses(raw, [enum_t, comment, appl, evidence]) == []
+    bad = M(
+        ans_status="answerable",
+        confidence="high",
+        answer="yeah we do",
+        sources=["OID-1"],
+        c="ok",
+        ni_applicable="maybe",
+        ni_evidence="x",
+    )
+    misses = _enum_misses(bad, [enum_t, comment, appl, evidence])
+    assert [m[0] for m in misses] == ["answer", "ni_applicable"]
     print("finalize ok")
 
 
