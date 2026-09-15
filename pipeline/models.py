@@ -1,3 +1,4 @@
+"""Shared domain models: Scenario, Question, FieldFormat, FillTarget, GeneratedAnswer."""
 from dataclasses import dataclass
 from typing import Literal
 

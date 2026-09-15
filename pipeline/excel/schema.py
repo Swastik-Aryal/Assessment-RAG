@@ -1,3 +1,4 @@
+"""Pydantic schemas describing workbook layout: tables, sheets, fill targets, response keys."""
 from typing import Literal
 
 from pydantic import BaseModel, Field

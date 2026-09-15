@@ -1,3 +1,4 @@
+"""Local Ollama /api/chat client with retries and optional JSON schema output."""
 import logging
 import re
 import time

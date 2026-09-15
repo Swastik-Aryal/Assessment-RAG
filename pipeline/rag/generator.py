@@ -1,3 +1,4 @@
+"""RAG answer generation: build prompts, call LLM, finalize with enum correction and source validation."""
 import argparse
 import json
 import logging

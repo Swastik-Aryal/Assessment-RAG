@@ -1,3 +1,4 @@
+"""HTTP client for the mock mailbox API (inbox, send, sent, status, reset)."""
 import argparse
 import base64
 import json

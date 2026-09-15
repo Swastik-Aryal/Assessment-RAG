@@ -1,3 +1,4 @@
+"""Render an Excel workbook to a compact or full text representation for LLM analysis."""
 import argparse
 import logging
 import re

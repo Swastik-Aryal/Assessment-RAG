@@ -1,3 +1,4 @@
+"""Gemini API client with rate limiting, retries, and optional JSON schema output."""
 import logging
 import time
 

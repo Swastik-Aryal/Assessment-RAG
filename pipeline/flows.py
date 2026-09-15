@@ -1,7 +1,13 @@
+"""End-to-end flows for Excel and portal questionnaire scenarios.
+
+Orchestrates schema inference, question extraction, RAG answering, and
+delivery back to the client mailbox.
+"""
 import json
 import logging
 import re
 import time
+import traceback
 from datetime import datetime, timezone
 from pathlib import Path
 
@@ -22,11 +28,14 @@ _PW = re.compile(r"password is:\s*([A-Za-z0-9]+)", re.I)
 PLACEHOLDER = "Needs review."
 
 
+
 def seconds_until_rotation() -> float:
+    """Seconds until the next epoch-hour portal password rotation."""
     return 3600 - (time.time() % 3600)
 
 
 def _run_dir(session_dir: Path, scenario: str, msg) -> tuple[Path, list]:
+    """Create a timestamped run folder, attach a file logger, and dump request metadata."""
     gen_id = datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%SZ") + f"_{scenario}_{msg.id}"
     out = session_dir / gen_id
     out.mkdir(parents=True, exist_ok=True)
@@ -50,6 +59,7 @@ def _run_dir(session_dir: Path, scenario: str, msg) -> tuple[Path, list]:
 
 
 def _counts(answers: dict[str, GeneratedAnswer]) -> dict[str, int]:
+    """Tally ans_status values across all answers."""
     c: dict[str, int] = {}
     for a in answers.values():
         c[a.ans_status] = c.get(a.ans_status, 0) + 1
@@ -57,6 +67,7 @@ def _counts(answers: dict[str, GeneratedAnswer]) -> dict[str, int]:
 
 
 def _write_answers(out: Path, llm_out, retrieval, prompts):
+    """Persist raw LLM output, retrieval hits, and prompts to the run folder."""
     (out / "answers.json").write_text(json.dumps(llm_out, indent=2), encoding="utf-8")
     (out / "retrieval.json").write_text(json.dumps(retrieval, indent=2), encoding="utf-8")
     (out / "prompts.json").write_text(json.dumps(prompts, indent=2), encoding="utf-8")
@@ -66,6 +77,7 @@ def answer_all(generator, questions: list[Question], get_targets, instructions="
     """Answer each question. Generation failure -> needs_review. on_progress every 10."""
     answers, llm_out, retrieval, prompts = {}, {}, {}, {}
     n = len(questions)
+    log.info("answering %s questions", n)
     for i, q in enumerate(questions, 1):
         targets = get_targets(q)
         log.debug("[%s/%s] %s %s", i, n, q.id, q.text[:80])
@@ -85,12 +97,12 @@ def answer_all(generator, questions: list[Question], get_targets, instructions="
             dump.update(dump.pop("extra", {}) or {})
         answers[q.key()] = ans
         llm_out[q.key()] = dump
-        retrieval[q.key()] = [_hit_dump(h) for h in hits]
+        retrieval[q.text] = [_hit_dump(h) for h in hits]
         prompts[q.key()] = {"system": system, "user": user}
-        if i == n or i % 10 == 0:
+        if n <= 10 or i==1 or i == n or i % (n // 10) == 0:
             log.info("answered %s/%s", i, n)
-        if on_progress and i % 10 == 0:
-            on_progress()
+            if on_progress:
+                on_progress()
     return answers, llm_out, retrieval, prompts
 
 
@@ -106,6 +118,7 @@ def completion(mail, settings, msg, counts, extra="", attachments=()):
 
 
 def request_password(mail, settings) -> str:
+    """Email the portal access desk and return the password from the reply."""
     seen = {m["id"] for m in mail.list_inbox()}
     mail.send(
         settings.PORTAL_ACCESS_ADDRESS,
@@ -122,6 +135,7 @@ def request_password(mail, settings) -> str:
 
 
 def _login(browser, mail, settings, req, tries=3):
+    """Request a password and log in, retrying up to `tries` times on bad credentials."""
     for i in range(tries):
         pw = request_password(mail, settings)
         if browser.login(req.portal_url, req.username, pw) == "ok":
@@ -132,6 +146,7 @@ def _login(browser, mail, settings, req, tries=3):
 
 
 def run_excel(msg, settings, watcher, gemini, generator, session_dir: Path, on_progress=None):
+    """Full Excel flow: save attachment, infer schema, extract, answer, write, deliver."""
     out, fhs = _run_dir(session_dir, "excel", msg)
     try:
         snap = watcher.sent_ack(msg.id)
@@ -189,6 +204,7 @@ def run_excel(msg, settings, watcher, gemini, generator, session_dir: Path, on_p
 
 
 def _portal_payload(qs, answers) -> dict[str, str]:
+    """Map question ids to portal_text answers, substituting placeholder for blanks."""
     out = {}
     for q in qs:
         ans = answers.get(q.key())
@@ -198,6 +214,7 @@ def _portal_payload(qs, answers) -> dict[str, str]:
 
 
 def run_portal(msg, settings, watcher, generator, session_dir: Path, on_progress=None):
+    """Full portal flow: login, read questions, answer, submit, handle expiry, deliver."""
     out, fhs = _run_dir(session_dir, "portal", msg)
     browser = None
     try:
@@ -205,6 +222,9 @@ def run_portal(msg, settings, watcher, generator, session_dir: Path, on_progress
         req = parse_portal_request(msg, settings)
         log.info("opening portal")
         browser = PortalBrowser(settings, out_dir=out)
+        if not watcher.ack_alive(snap):
+            log.warning("mailbox reset before initial login, aborting %s", msg.id)
+            return out
         _login(browser, watcher.mail, settings, req)
         qs = browser.questions()
         (out / "questions.json").write_text(
@@ -230,13 +250,18 @@ def run_portal(msg, settings, watcher, generator, session_dir: Path, on_progress
         log.info("submitting portal answers")
         browser = PortalBrowser(settings, out_dir=out)
         for _ in range(3):
+            if not watcher.ack_alive(snap):
+                log.warning("mailbox reset before submit login, aborting %s", msg.id)
+                return out
             _login(browser, watcher.mail, settings, req)
             state = browser.submit(payload)
             if state == "incomplete":
-                log.info("portal incomplete, filling blanks")
+                i_count = 0
                 for q in browser.questions():
                     if not (payload.get(q.id) or "").strip():
                         payload[q.id] = PLACEHOLDER
+                        i_count += 1
+                log.info(f"portal incomplete, auto-filling {i_count} blanks with '{PLACEHOLDER}'")
                 state = browser.submit(payload)
             if state == "submitted":
                 log.info("portal submitted")
@@ -261,3 +286,23 @@ def run_portal(msg, settings, watcher, generator, session_dir: Path, on_progress
             browser.close()
         for fh in fhs:
             remove_run_log(fh)
+            
+            
+def record_failure(session_dir: Path, msg, kind: str, exc: Exception):
+    """Append a failure entry to session_dir/failure.json with full message and traceback."""
+    failure = {
+        "id": msg.id,
+        "from": msg.sender,
+        "subject": msg.subject,
+        "body": msg.body,
+        "received_at": msg.received_at,
+        "attachments": [a.filename for a in msg.attachments],
+        "kind": kind,
+        "error": str(exc),
+        "error_type": type(exc).__qualname__,
+        "traceback": traceback.format_exc(),
+    }
+    fp = session_dir / "failure.json"
+    existing = json.loads(fp.read_text(encoding="utf-8")) if fp.exists() else []
+    existing.append(failure)
+    fp.write_text(json.dumps(existing, indent=2), encoding="utf-8")

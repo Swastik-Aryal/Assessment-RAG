@@ -1,3 +1,4 @@
+"""Structured LLM output: generate JSON, validate against a Pydantic model, retry on failure."""
 import json
 import logging
 import re

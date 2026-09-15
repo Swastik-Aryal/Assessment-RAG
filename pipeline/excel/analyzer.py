@@ -1,3 +1,4 @@
+"""Infer workbook schema via Gemini with sheet/header validation and retry."""
 import argparse
 import json
 import logging

@@ -1,3 +1,4 @@
+"""Parse portal HTML: extract questions from the questionnaire and detect page state."""
 import argparse
 import re
 

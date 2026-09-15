@@ -1,3 +1,4 @@
+"""Load the Knowledge Base xlsx into retrieval-ready Chunk objects (one per Q&A row)."""
 import logging
 import re
 from dataclasses import dataclass

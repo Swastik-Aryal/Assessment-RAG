@@ -1,3 +1,4 @@
+"""Playwright-based browser automation for the vendor portal (login, read, submit)."""
 import argparse
 import json
 import logging

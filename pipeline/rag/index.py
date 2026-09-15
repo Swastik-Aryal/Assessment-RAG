@@ -1,3 +1,4 @@
+"""Retriever: dense (Qdrant), BM25, or weighted-RRF hybrid over KB chunks."""
 import logging
 from dataclasses import dataclass
 from uuid import NAMESPACE_URL, uuid5

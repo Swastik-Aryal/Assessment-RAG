@@ -1,3 +1,4 @@
+"""Extract questions from an Excel workbook using a WorkbookSchema."""
 import logging
 
 from openpyxl.utils import column_index_from_string

@@ -1,3 +1,4 @@
+"""Shared logging: console + session file + per-run file handlers."""
 import logging
 from pathlib import Path
 

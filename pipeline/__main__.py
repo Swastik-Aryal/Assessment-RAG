@@ -1,3 +1,27 @@
+"""Watch loop entry point: poll inbox, classify, ack, and dispatch excel/portal flows.
+
+Usage: python -m pipeline
+
+Logging:
+    outputs/<session>/                  created at startup (<session> = UTC timestamp)
+        runs.log                        session-level log (INFO by default, set LOG_LEVEL in .env)
+        <run_id>/                       one folder per questionnaire processed
+            run.log                     per-run log (DEBUG, captures every question + LLM call)
+            request.json, answers.json, retrieval.json, prompts.json, schema.json, ...
+
+    OUTPUT_DIR in .env controls the root (default: outputs/).
+    Console mirrors the session log at the same level.
+
+IMPORTANT: 
+
+- MAIL SERVER NEEDS TO BE UP FOR THIS TO WORK!
+
+DESIGN DECISION:
+- If on EXCEL mode and the question processing begins, 
+    THEN switching to PORTAL MODE will not stop the current process BUT NO Confirmation email will be sent. (AND VICE VERSA)
+    This is to ensure we never send blind emails that were never acknowledged.
+
+"""
 import logging
 import time
 from datetime import datetime, timezone
@@ -21,7 +45,7 @@ def main():
         raise SystemExit("mail server down")
     log.info("mail server up")
 
-    from pipeline.flows import run_excel, run_portal
+    from pipeline.flows import record_failure, run_excel, run_portal
     from pipeline.llm.gemini import GeminiClient
     from pipeline.llm.ollama import OllamaClient
     from pipeline.mail.client import MailClient
@@ -71,9 +95,10 @@ def main():
                         )
                     else:
                         log.warning("skip unknown %s", msg.id)
-                except Exception:
+                except Exception as exc:
                     log.exception("failed %s", msg.id)
                     watcher.failed.add((msg.id, msg.received_at))
+                    record_failure(session_dir, msg, kind, exc)
                 st = mail.status()
                 log.info(
                     "mailbox ack=%s delivered=%s",

@@ -1,3 +1,4 @@
+"""Write RAG answers into a copy of the original workbook and append a summary sheet."""
 import argparse
 import json
 import logging

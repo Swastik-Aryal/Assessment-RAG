@@ -1,3 +1,4 @@
+"""Jina v5 nano embedding model: separate query/document prompts, normalized 768-d vectors."""
 import logging
 
 from sentence_transformers import SentenceTransformer

@@ -1,3 +1,4 @@
+"""Inbox watcher: classify requests, track ack/completed state via sent mail markers."""
 import logging
 import re
 from dataclasses import dataclass
