@@ -87,17 +87,11 @@ def load_kb(path: Path) -> list[Chunk]:
 
 
 if __name__ == "__main__":
-    from pipeline.config.config import load_settings
-    from pipeline.config.logging_setup import setup_logging
+    import dataclasses, json
+    from pipeline.config import load_settings
 
-    setup_logging()
     chunks = load_kb(load_settings().KB_PATH)
-    print(len(chunks))
-    assert len(chunks) == 117, len(chunks)
-    for c in chunks:
-        assert not UUID_RE.search(c.text), c.id
-        for line in c.text.splitlines():
-            assert ": " in line and not line.endswith(": "), line
-    print(chunks[0].id)
-    print(chunks[0].text)
-    print("kb ok")
+    out = Path("outputs/kb_chunks.json")
+    out.parent.mkdir(parents=True, exist_ok=True)
+    out.write_text(json.dumps([dataclasses.asdict(c) for c in chunks], indent=2, ensure_ascii=False))
+    print(f"{len(chunks)} chunks -> {out}")

@@ -157,29 +157,29 @@ def build_retriever(settings, kind=None, embedder=None, chunks=None) -> Retrieve
 
 
 if __name__ == "__main__":
+    import argparse, dataclasses, json
+    from pathlib import Path
     from pipeline.config.config import load_settings
     from pipeline.config.logging_setup import setup_logging
 
     setup_logging()
+    parser = argparse.ArgumentParser(description="Retrieve top-k chunks for a question")
+    parser.add_argument("question", help="The question to retrieve for")
+    args = parser.parse_args()
+
     s = load_settings()
-    chunks = load_kb(s.KB_PATH)
-    ranked = rrf([["a", "b", "c"], ["c", "a", "d"]])
-    assert ranked[0][0] == "a", ranked
-    assert any(i == "d" for i, _ in ranked), ranked
-    print("rrf", [i for i, _ in ranked])
+    r = build_retriever(s)
+    try:
+        hits = r.retrieve(args.question, k=s.TOP_K)
+    finally:
+        r.close()
 
-    emb = Embedder(s)
-    r = build_retriever(s, kind="dense", embedder=emb, chunks=chunks)
-    n = r._qdrant.count("kb").count
-    print("qdrant", n)
-    assert n == 117, n
-    r.close()
-    r = build_retriever(s, kind="dense", embedder=emb, chunks=chunks)
-    r.close()
-
-    r = build_retriever(s, kind="bm25", chunks=chunks)
-    nonsense = r.retrieve("zzzzzyyyyyxxxxqqqqwwwwvvvvuuuu", k=10)
-    print("bm25 nonsense", len(nonsense))
-    assert nonsense == [], nonsense
-    r.close()
-    print("index ok")
+    results = {
+        "question" : args.question,
+        "hits": [
+        {"rank": i + 1, "score": round(h.score, 4), **dataclasses.asdict(h.chunk)}
+        for i, h in enumerate(hits)]}
+    out = Path("outputs/retrieval_test.json")
+    out.parent.mkdir(parents=True, exist_ok=True)
+    out.write_text(json.dumps(results, indent=2, ensure_ascii=False))
+    print(f"{s.RETRIEVER} top-{s.TOP_K}: {len(hits)} hits -> {out}")

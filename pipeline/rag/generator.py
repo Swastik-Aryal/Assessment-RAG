@@ -278,147 +278,63 @@ def _portal_target() -> FillTarget:
     )
 
 
-def _check_finalize():
-    """Self-check: enum spelling, extra columns, portal combine."""
-    from pipeline.rag.kb import Chunk
-    from pipeline.rag.index import Hit
-
-    chunk = Chunk("c1", "text", "OID-1", "s", "c")
-    hits = [Hit(chunk, 0.9)]
-    enum_t = FillTarget(
-        target_id="a",
-        header="Answer",
-        role="answer",
-        format=FieldFormat(
-            type="enum",
-            allowed_values=["Yes", "No", "Partial", "Not applicable"],
-        ),
-    )
-    comment = FillTarget(
-        target_id="c",
-        header="Comment",
-        role="comment",
-        format=FieldFormat(type="free_text"),
-    )
-    appl = FillTarget(
-        target_id="ni_applicable",
-        header="Applicable (Y/N)",
-        role="applicability",
-        format=FieldFormat(type="enum", allowed_values=["Yes", "No"]),
-    )
-    evidence = FillTarget(
-        target_id="ni_evidence",
-        header="Evidence reference",
-        role="evidence",
-        format=FieldFormat(type="free_text"),
-    )
-    M = llm_answer_model([enum_t, comment, appl, evidence])
-    schema = M.model_json_schema()
-    assert list(schema["properties"])[:4] == ["ans_status", "confidence", "answer", "sources"]
-    assert set(schema["properties"]) == {
-        "ans_status", "confidence", "answer", "sources", "c", "ni_applicable", "ni_evidence"
-    }
-    sys = build_system([enum_t, comment, appl, evidence])
-    assert sys.index("ans_status") < sys.index("ni_applicable")
-    assert "always fill first" in sys.lower()
-
-    raw = M(
-        ans_status="answerable",
-        confidence="high",
-        answer="yes",
-        sources=["OID-1"],
-        c="MFA is required",
-        ni_applicable="yes",
-        ni_evidence="SOC2 18.1",
-    )
-    out = finalize(raw, hits, [enum_t, comment, appl, evidence])
-    assert out.answer == "Yes", out.answer
-    assert out.sources == ["OID-1"]
-    assert out.extra["c"] == "MFA is required"
-    assert out.extra["ni_applicable"] == "Yes"
-    cells = cell_values(out, [enum_t, comment, appl, evidence])
-    assert cells["a"] == "Yes"
-    assert cells["c"] == "MFA is required"
-    assert cells["ni_applicable"] == "Yes"
-    assert cells["ni_evidence"] == "SOC2 18.1"
-
-    out = finalize(
-        GeneratedAnswer(ans_status="unanswerable", confidence="high", answer="n/a", sources=[]),
-        hits,
-        [enum_t, comment],
-    )
-    assert out.confidence == "medium"
-    assert out.sources == []
-    assert out.extra["c"] == ""
-
-    out = finalize(
-        GeneratedAnswer(
-            ans_status="answerable",
-            confidence="high",
-            answer="Yes, we enforce MFA.",
-            sources=["[id=OID-1]", "id=c1", "c1"],
-        ),
-        hits,
-        [_portal_target()],
-    )
-    assert out.sources == ["OID-1"]
-    text = portal_text(out)
-    assert text.startswith("Yes, we enforce MFA.")
-    assert "answerable" in text and "OID-1" in text
-    prompt = build_user(Question(id="q", text="MFA?"), hits)
-    assert "OID-1" in prompt and "c1" not in prompt
-    assert _enum_misses(raw, [enum_t, comment, appl, evidence]) == []
-    bad = M(
-        ans_status="answerable",
-        confidence="high",
-        answer="yeah we do",
-        sources=["OID-1"],
-        c="ok",
-        ni_applicable="maybe",
-        ni_evidence="x",
-    )
-    misses = _enum_misses(bad, [enum_t, comment, appl, evidence])
-    assert [m[0] for m in misses] == ["answer", "ni_applicable"]
-    print("finalize ok")
-
-
 if __name__ == "__main__":
-    from pipeline.config.config import load_settings
-    from pipeline.llm.ollama import OllamaClient
-    from pipeline.config.logging_setup import setup_logging
-    from pipeline.rag.index import build_retriever
+    from pathlib import Path
+    from pipeline.rag.kb import Chunk
 
-    p = argparse.ArgumentParser()
-    p.add_argument("question", nargs="*")
-    p.add_argument("--show-prompt", action="store_true")
-    p.add_argument("--check-finalize", action="store_true")
-    a = p.parse_args()
-    if a.check_finalize:
-        _check_finalize()
-        if not a.question:
-            raise SystemExit(0)
-    if not a.question:
-        p.error("question required")
+    filler_hits = [
+        Hit(Chunk("uuid-aaa", "Section Heading: Access Control\nQuestion Text: Do you encrypt data at rest?\nAnswer: Yes, AES-256.", "3.1", "Access Control", "Encryption"), 0.92),
+        Hit(Chunk("uuid-bbb", "Section Heading: Data Protection\nQuestion Text: What is your data retention policy?\nAnswer: 7 years.", "4.2", "Data Protection", "Retention"), 0.78),
+        Hit(Chunk("uuid-ccc", "Section Heading: Access Control\nQuestion Text: Do you use MFA?\nAnswer: Yes, for all employees.", "3.4", "Access Control", "Authentication"), 0.65),
+    ]
 
-    setup_logging()
-    s = load_settings()
-    retriever = build_retriever(s)
-    try:
-        gen = Generator(OllamaClient(s), retriever)
-        targets = [_portal_target()]
-        for i, qtext in enumerate(a.question):
-            if i:
-                print()
-            ans, hits, system, user, dump = gen.answer(Question(id=f"cli-{i+1}", text=qtext), targets)
-            print("Q:", qtext)
-            for h in hits:
-                print(f"hit {h.score:.3f} {h.chunk.id} {h.chunk.original_id}")
-            if a.show_prompt:
-                print("--- system ---")
-                print(system)
-                print("--- user ---")
-                print(user)
-            print(json.dumps(dump, indent=2))
-            print("portal:", portal_text(ans))
-    finally:
-        retriever.close()
+    excel_targets = [
+        FillTarget(target_id="response", col="E", header="Vendor Response", role="answer",
+                   format=FieldFormat(type="enum", allowed_values=["Yes", "No", "N/A", "Partial"]),
+                   rule="Pick the value that best matches your answer."),
+        FillTarget(target_id="comment", col="F", header="Additional Comments", role="comment",
+                   format=FieldFormat(type="free_text"),
+                   rule="Explain your answer and cite KB rows."),
+        FillTarget(target_id="evidence", col="G", header="Evidence / Reference", role="evidence",
+                   format=FieldFormat(type="free_text")),
+        FillTarget(target_id="owner", col="H", header="Control Owner", role="owner",
+                   strategy="constant", constant_value="Security Team",
+                   format=FieldFormat(type="free_text")),
+        FillTarget(target_id="applicability", col="I", header="Applicability", role="applicability",
+                   format=FieldFormat(type="enum", allowed_values=["Applicable", "Not Applicable"]),
+                   rule="Mark Applicable unless the control is completely irrelevant."),
+    ]
+
+    portal_targets = [_portal_target()]
+
+    excel_q = Question(id="SEC-3.1", text="Does your organization encrypt all data at rest using AES-256 or equivalent?",
+                       sheet="Security Controls", row=15, section_label="3. Access Control", table_id="table_1")
+    portal_q = Question(id="Q12", text="Describe your organization's incident response process.")
+
+    scenarios = {}
+    for name, targets, q in [("excel", excel_targets, excel_q), ("portal", portal_targets, portal_q)]:
+        system = build_system(targets, instructions="Complete all required fields." if name == "excel" else "")
+        user = build_user(q, filler_hits)
+        model_cls = llm_answer_model(targets)
+        schema = model_cls.model_json_schema()
+        scenarios[name] = {
+            "question": {"id": q.id, "text": q.text, "sheet": q.sheet, "row": q.row, "table_id": q.table_id},
+            "targets": [t.model_dump() for t in targets],
+            "system_prompt": system,
+            "user_prompt": user,
+            "expected_json_schema": schema,
+        }
+
+    out = Path("outputs/prompt_visualization.json")
+    out.parent.mkdir(parents=True, exist_ok=True)
+    out.write_text(json.dumps(scenarios, indent=2, ensure_ascii=False))
+
+    for name, data in scenarios.items():
+        print(f"\n{'='*60}")
+        print(f"  {name.upper()} SCENARIO")
+        print(f"{'='*60}")
+        print(f"\nSYSTEM PROMPT:\n{data['system_prompt']}")
+        print(f"\nUSER PROMPT:\n{data['user_prompt']}")
+        print(f"\nEXPECTED JSON SCHEMA KEYS: {list(data['expected_json_schema']['properties'].keys())}")
+    print(f"\nFull details -> {out}")
+

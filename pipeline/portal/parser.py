@@ -42,35 +42,3 @@ def detect_state(url: str, html: str) -> str:
     return "login"
 
 
-if __name__ == "__main__":
-    import json
-
-    from pipeline.config.config import load_settings
-    from pipeline.config.logging_setup import setup_logging
-    from pipeline.portal.browser import PortalBrowser
-
-    p = argparse.ArgumentParser()
-    p.add_argument("--password", required=True)
-    p.add_argument("--url")
-    a = p.parse_args()
-    setup_logging()
-    s = load_settings()
-    out = s.OUTPUT_DIR / "portal"
-    out.mkdir(parents=True, exist_ok=True)
-    b = PortalBrowser(s)
-    try:
-        status = b.login(a.url or s.PORTAL_BASE_URL, s.PORTAL_USERNAME, a.password)
-        print("login", status)
-        if status != "ok":
-            raise SystemExit(1)
-        print("state", b.state())
-        qs = b.questions()
-        (out / "questions.json").write_text(
-            json.dumps([q.__dict__ for q in qs], indent=2), encoding="utf-8"
-        )
-        print("n", len(qs))
-        for q in qs:
-            print(f"{q.id}\t{q.text}")
-        print("wrote", out / "questions.json")
-    finally:
-        b.close()

@@ -73,21 +73,3 @@ class OllamaClient:
                 delay *= 2
         raise RuntimeError("unreachable")
 
-
-if __name__ == "__main__":
-    from typing import Literal
-
-    from pydantic import BaseModel
-
-    from pipeline.config.config import load_settings
-    from pipeline.llm.structured import call_structured
-    from pipeline.config.logging_setup import setup_logging
-
-    class Toy(BaseModel):
-        name: str
-        count: int
-        status: Literal["ok", "no"]
-
-    setup_logging("DEBUG")
-    c = OllamaClient(load_settings())
-    print(call_structured(c, "Return JSON matching the schema.", "name=widget, count=7, status=ok", Toy))

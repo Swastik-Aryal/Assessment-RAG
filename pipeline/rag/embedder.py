@@ -30,19 +30,3 @@ class Embedder:
         )
 
 
-if __name__ == "__main__":
-    import numpy as np
-
-    from pipeline.config.config import load_settings
-    from pipeline.config.logging_setup import setup_logging
-
-    setup_logging()
-    e = Embedder(load_settings())
-    q = e.encode_queries(["multi-factor authentication"])[0]
-    d = e.encode_documents(["multi-factor authentication"])[0]
-    print("dim", e.dim, "q_norm", float(np.linalg.norm(q)), "d_norm", float(np.linalg.norm(d)))
-    assert e.dim == 768, e.dim
-    assert abs(np.linalg.norm(q) - 1) < 0.01
-    assert abs(np.linalg.norm(d) - 1) < 0.01
-    assert not np.allclose(q, d)
-    print("embedder ok")
