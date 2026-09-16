@@ -9,7 +9,7 @@ from pipeline.models import FillTarget
 class TableSchema(BaseModel):
     """One question table: header, data range, question/id columns, and cells we fill."""
     table_id: str
-    header_row: int
+    header_row: int | None = None
     first_data_row: int
     last_data_row: int | None = None
     first_col: str

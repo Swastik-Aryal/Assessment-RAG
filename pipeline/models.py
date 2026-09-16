@@ -40,7 +40,7 @@ class FillTarget(BaseModel):
     target_id: str
     col: str = ""
     header: str = ""
-    role: Literal["answer", "comment", "applicability", "evidence", "owner", "other"]
+    role: Literal["answer", "notes", "citations", "other"]
     strategy: Literal["llm", "constant", "skip"] = "llm"
     constant_value: str | None = None
     format: FieldFormat

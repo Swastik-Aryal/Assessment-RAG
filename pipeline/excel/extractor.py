@@ -31,12 +31,11 @@ def table_last_row(ws, table: TableSchema, stop_before: int | None = None) -> in
 def extract_table(ws, table: TableSchema, stop_before: int | None = None) -> list[Question]:
     """Pull questions from one table. Section banners update metadata only."""
     qcol = col_idx(table.question_col)
-    header_q = cell_str(ws.cell(table.header_row, qcol).value)
     last = table_last_row(ws, table, stop_before)
     idcol = col_idx(table.id_col) if table.id_col else None
     seccol = col_idx(table.section_label_col) if table.section_label_col else None
     section = ""
-    if seccol:
+    if seccol and table.header_row > 0 and table.first_data_row > table.header_row:
         for r in range(table.header_row + 1, table.first_data_row):
             lab = cell_str(ws.cell(r, seccol).value)
             if lab:
@@ -49,8 +48,6 @@ def extract_table(ws, table: TableSchema, stop_before: int | None = None) -> lis
                 lab = cell_str(ws.cell(r, seccol).value)
                 if lab:
                     section = lab
-            continue
-        if q == header_q:
             continue
         rid = cell_str(ws.cell(r, idcol).value) if idcol else ""
         out.append(
@@ -99,7 +96,7 @@ if __name__ == "__main__":
     setup_logging()
     s = load_settings()
     out = s.OUTPUT_DIR / "excel"
-    schema = infer_schema(a.path, GeminiClient(s), out_dir=out, force_full=a.force_full)
+    schema = infer_schema(a.path, GeminiClient(s), out_dir=out, force_full=True)
     wb = load_workbook(a.path, data_only=False)
     try:
         qs = extract(wb, schema)

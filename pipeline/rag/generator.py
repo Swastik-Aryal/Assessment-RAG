@@ -23,8 +23,8 @@ RULES = """You answer security questionnaire questions on behalf of the vendor.
 Use only the provided knowledge-base rows.
 
 Always fill these four keys first, in this order:
-- ans_status: answerable when a row directly answers the question; needs_review when a row is on the same control but only partly answers, or any part of a multi-part question is unsupported; unanswerable when no row answers the question.
-- confidence: high only for a near-paraphrase match, and never unless ans_status=answerable. Otherwise medium or low.
+- ans_status: answerable when a the retrieved context directly answers the question; needs_review when the retrived context only partly answers the question, or any part of a multi-part question is unsupported; unanswerable when the context doesnot the question.
+- confidence: high only for a near-paraphrase match, and never unless ans_status=answerable. Otherwise medium or low based on the retrieval and/or your ability.
 - answer: the answer to the question. Follow the answer-column rule and allowed values when given.
 - sources: the id values shown on retrieved rows you actually used. Empty list if you used none. Never cite anything not shown as [id=...].
 

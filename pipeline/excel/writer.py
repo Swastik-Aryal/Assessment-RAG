@@ -210,7 +210,7 @@ if __name__ == "__main__":
                         dump.update(dump.pop("extra", {}))
                     answers[q.key()] = ans
                     llm_out[q.key()] = dump
-                    retrieval[q.key()] = [_hit_dump(h) for h in hits]
+                    retrieval[q.text] = [_hit_dump(h) for h in hits]
                     prompts[q.key()] = {"system": system, "user": user}
                 (out / "answers.json").write_text(
                     json.dumps(llm_out, indent=2),

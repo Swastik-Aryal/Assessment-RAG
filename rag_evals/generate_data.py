@@ -61,7 +61,7 @@ def build_original(chunks) -> list[dict]:
 
 
 def generate_synthetic(chunks, llm, k: int) -> list[dict]:
-    """For each chunk: include original question + k synthetic rephrasings (single LLM call)."""
+    """For each chunk: k synthetic rephrasings (single LLM call)."""
     entries = []
     for idx, c in enumerate(chunks):
         question = ""
@@ -72,7 +72,7 @@ def generate_synthetic(chunks, llm, k: int) -> list[dict]:
         if not question:
             continue
 
-        entries.append({"query": question, "relevant_id": c.original_id})
+        #entries.append({"query": question, "relevant_id": c.original_id})
 
         user = (
             f"Context:\n{c.text}\n\n"

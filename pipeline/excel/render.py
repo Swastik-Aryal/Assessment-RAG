@@ -28,12 +28,6 @@ def is_question_like(s: str) -> bool:
     return bool(s) and (s.endswith("?") or len(s) > 40)
 
 
-def is_id_like(s: str) -> bool:
-    """True if text looks like a short control id (e.g. 1.1.1, A12)."""
-    s = s.strip()
-    return bool(re.fullmatch(r"[A-Za-z]{0,8}\d+(?:\.\d+)*", s))
-
-
 def fill_flag(cell) -> str:
     """Return a fill marker for the LLM render, or '' if the cell has no useful fill."""
     try:
@@ -114,7 +108,7 @@ def _col_stats(ws) -> tuple[dict[str, dict], int]:
     n = max(ws.max_row or 0, 1)
     last_ne = 0
     for c in range(1, (ws.max_column or 1) + 1):
-        empty = qlike = idlike = total_len = 0
+        empty = qlike = total_len = 0
         for r in range(1, n + 1):
             t = cell_str(ws.cell(r, c).value)
             if not t:
@@ -123,13 +117,11 @@ def _col_stats(ws) -> tuple[dict[str, dict], int]:
                 last_ne = max(last_ne, r)
                 total_len += len(t)
                 qlike += int(is_question_like(t))
-                idlike += int(is_id_like(t))
         letter = get_column_letter(c)
         stats[letter] = {
             "pct_question_like": round(100 * qlike / n, 1),
             "mean_length": round(total_len / n, 1),
             "pct_empty": round(100 * empty / n, 1),
-            "pct_id_like": round(100 * idlike / n, 1),
         }
     return stats, last_ne
 
@@ -159,7 +151,7 @@ def render_wb(wb, full: bool = False) -> str:
         parts.append(
             "col_stats: "
             + "; ".join(
-                f"{c} q={s['pct_question_like']}% id={s['pct_id_like']}% empty={s['pct_empty']}% mean={s['mean_length']}"
+                f"{c} q={s['pct_question_like']}% empty={s['pct_empty']}% mean={s['mean_length']}"
                 for c, s in stats.items()
             )
         )

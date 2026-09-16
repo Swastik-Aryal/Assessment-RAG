@@ -13,23 +13,23 @@ from pipeline.llm.structured import call_structured
 
 log = logging.getLogger(__name__)
 
-SYSTEM = """You describe the layout of a messy security-questionnaire Excel workbook.
+SYSTEM = """You describe the layout of a messy security-questionnaire Excel workbook for a RAG-based answering system.
 The rendering lists every non-empty cell, merged ranges, dropdowns, and per-column stats.
 Do not assume a fixed header row or column. Layouts vary: banners, grey section bands, inconsistent headers, stacked or side-by-side tables.
 
-needs_full_render: IMPORTANT:Always set to true if any schema rendering has less no of rows than 'last_nonempty_row'. more_info_reason says what you think is missing. Still fill sheets as far as you can. RECOMMNEDED even if a single sheet is incomplete.
+IMPORTANT: needs_full_render: Always set to true if any schema rendering has less no of rows than 'last_nonempty_row'. more_info_reason says what you think is missing. Still fill sheets as far as you can. RECOMMNEDED even if a single sheet is incomplete.
 
 Identify:
 - cover / instructions / response-key sheets (tables empty)
-- every question table: header_row, first_data_row, last_data_row or null, first_col, last_col as letters
+- every question table: header_row (some may not have header, in which case header_row=null), first_data_row(highest priority, make sure it is correct, can be 1 if header is not there), last_data_row or null, first_col, last_col as letters
 - question_col: the column whose cells are actually questions (end with ? or long text). col_stats.pct_question_like is evidence. Never pick Domain/Category/Section label columns.
 - id_col if a column is mostly short ids like 1.1.1; else null. Do not invent an id_regex.
 - section_label_col if empty question rows carry a section banner; null if unsure
 - fill_targets: every column a human respondent/security personnel would type into. No extra instruction
-  on the sheet is required. Exactly one role=answer. Other fillable columns (applicability, comments,
-  extra closed fields) are their own targets. 
-- strategy=llm for (answer, applicability, comments, evidence, notes, extras, and other easily fillable columns).
-- strategy = skip only for totally irrelevant/unfillable columns.
+  on the sheet is required. You can only have one column with role=answer. Other fillable columns (applicability, comments,
+  extra closed fields) are their own targets(set role = other if unsure).
+- strategy=llm for (answer, applicability, comments, evidence, notes, extras, i.e. columns that can be filled with knowledge, or can be filled with citations and notes or extremely simple instruction following).
+- strategy = skip only for totally irrelevant/unfillable columns likw owner which the rag might not be able to answer.
 - For each fill_target you decide format, allowed_values, and rule.
   Enums are always a priority. Enforce as much as possible. ALWAYS use them to ADHERE TO global instructions.
   If there is an explicit global rule/format/enum for a column name, always use that. Never override it.
