@@ -27,6 +27,13 @@ source .venv/bin/activate
 ### 2. Install dependencies
 
 ```bash
+# For linux/windows users if you wish to run the embedding model on GPU:
+
+# See https://pytorch.org/get-started/locally/ for the appropriate command
+pip install torch torchvision --index-url https://download.pytorch.org/whl/cuXXX
+```
+
+```bash
 pip install -r requirements.txt -r requirements-pipeline.txt
 python -m playwright install chromium
 ```
@@ -34,7 +41,7 @@ python -m playwright install chromium
 `requirements.txt` is for the mock servers. `requirements-pipeline.txt` is for the pipeline itself.
 
 
-### 3. Pull ad serve the Ollama model
+### 3. Pull and serve the Ollama model
 
 ```bash
 ollama pull qwen3.5:4b
@@ -54,7 +61,7 @@ Then set `GEMINI_API_KEY`. The defaults work out of the box for everything else.
 | Variable | Default | Notes |
 |----------|---------|-------|
 | `GEMINI_API_KEY` | (required) | Your Google AI Studio key |
-| `GEMINI_MODEL` | `gemini-2.5-flash` | Any Gemini model that supports structured output |
+| `GEMINI_MODEL` | `gemini-3.5-flash-lite` | Any Gemini model that supports structured output |
 | `GEMINI_MIN_INTERVAL_SECONDS` | `0` | Set to `6` for free-tier 10 RPM pacing |
 | `OLLAMA_MODEL` | `qwen3.5:4b` | Any Ollama model name |
 | `RETRIEVER` | `dense` | `dense`, `bm25`, or `hybrid` |
@@ -107,6 +114,12 @@ The pipeline is a single-process poll loop that watches the mock mailbox. When a
 4. **Answer** : for each question, retrieve top-k KB chunks, generate a structured JSON answer via Ollama (status, confidence, answer, citations, plus extra workbook columns), validate citations and canonicalize enum values.
 
 5. **Deliver** -- Excel: write answers into a copy of the original workbook, append a summary sheet, email back as `Completed: <subject>` with the file attached. Portal: open a new browser, login with a fresh password, submit the form, send `Completed: <subject>` (no attachment). Before sending, the pipeline checks `ack_alive` -- if a mailbox reset wiped the acknowledgement mid-run, delivery is skipped. Failed runs go to `failure.json` and are not retried in the same session.
+
+> ![IMPORTANT]
+> - It is recommended not to `/reset` the mailbox during the processing of a mail and before the delivered mail is sent.
+> - If you do so, the `ack_alive` flag will be set to `false` and the current process will complete but the final **completed** email will not be sent to the client. This is an intended action.
+> - The previous email will be sent to `failed`.
+> - The watcher will keep running and will acknowledge and work on the new state's mails.
 
 
 ---
