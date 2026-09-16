@@ -1,27 +1,27 @@
 # Excel parsing + writing
-openpyxl
+openpyxl>=3.1.5
 
 # Config + structured models
-pydantic>=2
-pydantic-settings
+pydantic>=2.12.5
+pydantic-settings>=2.10.1
 
 # HTTP (mail client, Ollama client)
-requests
+requests>=2.34.2
 
 # Portal HTML parsing
-beautifulsoup4
+beautifulsoup4>=4.13.3
 
 # Portal browser automation
-playwright
+playwright>=1.62.0
 
 # Gemini LLM client (Excel schema analysis)
-google-genai
+google-genai>=2.11.0
 
 # Vector store
-qdrant-client
+qdrant-client>=1.19.0
 
 # BM25 retrieval
-bm25s
+bm25s>=0.3.9
 
 # Embedding model
-sentence-transformers
+sentence-transformers>=5.5.1
