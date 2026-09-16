@@ -1,0 +1,27 @@
+# Excel parsing + writing
+openpyxl
+
+# Config + structured models
+pydantic>=2
+pydantic-settings
+
+# HTTP (mail client, Ollama client)
+requests
+
+# Portal HTML parsing
+beautifulsoup4
+
+# Portal browser automation
+playwright
+
+# Gemini LLM client (Excel schema analysis)
+google-genai
+
+# Vector store
+qdrant-client
+
+# BM25 retrieval
+bm25s
+
+# Embedding model
+sentence-transformers

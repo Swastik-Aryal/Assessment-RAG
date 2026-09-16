@@ -1,0 +1,11 @@
+# Dependencies to run the provided mock system (mocks/).
+fastapi>=0.110
+uvicorn>=0.29
+python-multipart>=0.0.9
+
+# Used only by the example snippets in mocks/README.md (optional).
+requests>=2.31
+
+# Your pipeline will need its own libraries (an LLM client, a vector store, an
+# Excel parser such as openpyxl, a browser driver such as playwright, etc.).
+# Keep those in your own requirements file.
