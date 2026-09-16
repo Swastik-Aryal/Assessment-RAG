@@ -105,15 +105,26 @@ curl http://127.0.0.1:8025/admin/status
 
 The pipeline is a single-process poll loop that watches the mock mailbox. When a new email arrives from the client:
 
-1. **Classify** : `.xlsx`/`.xlsm` attachment means Excel, a URL and `portal` in the body means portal, anything else is skipped.
+### 1. **Classify** 
+- `.xlsx`/`.xlsm` attachment means Excel, a URL and `portal` in the body means portal, anything else is skipped.
 
-2. **Acknowledge** : before any processing, reply with `Re: <subject>` containing a `[ref:<msg_id>]` marker. All state is derived from the mailbox using these markers: "acknowledged" if `/sent` has a mail with the ref, "completed" if that mail's subject starts with `Completed:`. No database or local state file. Mid-run arrivals are also acknowledged via the `ack_pending` callback at ~10% progress intervals.
+### 2. **Acknowledge**
+- Before any processing, reply with `Re: <subject>` containing a `[ref:<msg_id>]` marker. 
+- All state is derived from the mailbox using these markers: "acknowledged" if `/sent` has a mail with the ref, "completed" if that mail's subject starts with `Completed:`. 
+- No database or local state file. 
+- Mid-run arrivals are also acknowledged via the `ack_pending` callback at ~10% progress intervals.
 
-3. **Ingest** : Excel: render workbook to text, Gemini infers the sheet/table schema (with validation retries), then extract questions. Portal: email the access desk for the current password, log in via Playwright, parse questions from HTML, close the browser.
+### 3. **Ingest** 
+  - Excel: render workbook to text, Gemini infers the sheet/table schema (with validation retries), then extract questions. 
+  - Portal: email the access desk for the current password, log in via Playwright, parse questions from HTML, close the browser.
 
-4. **Answer** : for each question, retrieve top-k KB chunks, generate a structured JSON answer via Ollama (status, confidence, answer, citations, plus extra workbook columns), validate citations and canonicalize enum values.
+### 4. **Answer** 
+- For each question, retrieve top-k KB chunks, generate a structured JSON answer via Ollama (status, confidence, answer, citations, plus extra workbook columns), validate citations and canonicalize enum values.
 
-5. **Deliver** : Excel: write answers into a copy of the original workbook, append a summary sheet, email back as `Completed: <subject>` with the file attached. Portal: open a new browser, login with a fresh password, submit the form, send `Completed: <subject>` (no attachment). Before sending, the pipeline checks `ack_alive` -- if a mailbox reset wiped the acknowledgement mid-run, delivery is skipped. Failed runs go to `failure.json` and are not retried in the same session.
+### 5. **Deliver**
+  - Excel: write answers into a copy of the original workbook, append a summary sheet, email back as `Completed: <subject>` with the file attached.
+  - Portal: open a new browser, login with a fresh password, submit the form, send `Completed: <subject>` (no attachment). 
+  - Failed runs go to `failure.json` and are not retried in the same session.
 
 > [!IMPORTANT]
 > - It is recommended not to `/reset` the mailbox during the processing of a mail and before the delivered mail is sent.
