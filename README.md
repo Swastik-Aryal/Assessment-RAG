@@ -2,6 +2,10 @@
 
 Autonomous, email-triggered pipeline that receives security questionnaires (Excel or web portal), answers them from a Knowledge Base via RAG, and delivers the completed questionnaire back with no human in the loop.
 
+**Useful Links:** 
+
+**[Demo Video](https://drive.google.com/file/d/1lpxW6kDYXIdkDSVt0Ukt1fBbps560YR1/view?usp=sharing)** | **[Report](https://drive.google.com/file/d/1OyF7eKFMOvdXjk9eQ9kCDps7R_xSMTQa/view?usp=sharing)**
+
 ---
 
 ## Quick start
@@ -184,7 +188,7 @@ mocks/                 Mock mail + portal servers (do not modify)
 
 ## Architecture
 
-For detailed architecture, design and evaluations, goto [Report.pdf](https://drive.google.com/file/d/1OyF7eKFMOvdXjk9eQ9kCDps7R_xSMTQa/view?usp=sharing)
+For detailed architecture, design and evaluations, goto [Swastik-Report.pdf](https://drive.google.com/file/d/1OyF7eKFMOvdXjk9eQ9kCDps7R_xSMTQa/view?usp=sharing)
 
 **Here is a summary:**
 
@@ -396,7 +400,7 @@ Dense retrieval dominates on synthetic rephrasings where BM25 keyword overlap dr
 
 
 
-**For further information on evaluations : [Report.pdf](https://drive.google.com/file/d/1OyF7eKFMOvdXjk9eQ9kCDps7R_xSMTQa/view?usp=sharing)** 
+**For further information on evaluations : [Swastik-Report.pdf](https://drive.google.com/file/d/1OyF7eKFMOvdXjk9eQ9kCDps7R_xSMTQa/view?usp=sharing)** 
 
 ---
 
