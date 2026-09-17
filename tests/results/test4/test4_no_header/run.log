@@ -1,0 +1,12 @@
+13:55:11 | INFO | extracted 11 questions from no_header.xlsx
+13:55:11 | INFO | [1/11] Sheet1!1 Do you restrict access to cardholder data by business need to know?
+13:55:34 | INFO | [2/11] Sheet1!2 Do you identify and authenticate access to system components?
+13:55:45 | INFO | [3/11] Sheet1!3 Do you restrict physical access to cardholders data?
+13:56:01 | INFO | [4/11] Sheet1!4 Does your business use network segmentation to affect the scope of your Payment 
+13:56:14 | INFO | [5/11] Sheet1!5 Do you install and maintain a firewall configuration to protect cardholder data?
+13:56:27 | INFO | [6/11] Sheet1!6 What information do you have about the service provider organization?
+13:56:40 | INFO | [7/11] Sheet1!7 Does the organization use one or more Payment Applications?
+13:56:52 | INFO | [8/11] Sheet1!8 Do you protect all systems against malware and regularly update anti-virus softw
+13:57:07 | INFO | [9/11] Sheet1!9 Do you regularly test security systems and processes?
+13:57:20 | INFO | [10/11] Sheet1!10 Do you track and monitor all access to network resources and cardholder data?
+13:57:36 | INFO | [11/11] Sheet1!11 Do you protect stored cardholder data?

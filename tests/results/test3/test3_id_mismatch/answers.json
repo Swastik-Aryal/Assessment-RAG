@@ -1,0 +1,105 @@
+{
+  "1. Access & Identity Management!table_1_1!6": {
+    "ans_status": "unanswerable",
+    "confidence": "low",
+    "answer": "Not applicable",
+    "sources": [],
+    "t1_d": "The retrieved context addresses third-party data sharing, processor access, data ownership, data classification, and access control policies. However, none of the provided rows explicitly state whether access to cardholder data is restricted by 'business need to know'. Row [id=8.1] mentions role-based access control (RBAC) and least privilege for sensitive data but does not confirm if this specifically applies to cardholder data under a business need to know framework."
+  },
+  "1. Access & Identity Management!table_1_1!9": {
+    "ans_status": "answerable",
+    "confidence": "high",
+    "answer": "Yes",
+    "sources": [
+      "[id=22.5]"
+    ],
+    "t1_d": "The retrieved context explicitly states that the production network is segmented into different zones based on security levels, utilizing VPCs/VNets with security groups to isolate data and prevent inbound internet access."
+  },
+  "1. Access & Identity Management!table_1_2!14": {
+    "ans_status": "answerable",
+    "confidence": "high",
+    "answer": "Yes",
+    "sources": [
+      "[id=18.1]"
+    ],
+    "t2_f": "Row [id=18.1] states that the 'ClientABC' production environment is subject to an external penetration test by a nationally recognized security firm at least once per calendar year, confirming the performance of network security testing."
+  },
+  "1. Access & Identity Management!table_1_2!17": {
+    "ans_status": "answerable",
+    "confidence": "high",
+    "answer": "Yes",
+    "sources": [
+      "[id=12.2]",
+      "[id=21.2]"
+    ],
+    "t2_f": "Row [id=12.2] confirms annual review of Information Security Policies. Row [id=21.2] confirms the use of a firewall to protect the entire platform."
+  },
+  "1. Access & Identity Management!table_1_2!22": {
+    "ans_status": "unanswerable",
+    "confidence": "low",
+    "answer": "",
+    "sources": [],
+    "t2_f": "The retrieved context does not contain information regarding the maintenance of an asset inventory. Row [id=17.1] mentions 'returning organizationally-owned assets' and 'asset return procedures', but this refers to the process of returning assets upon termination, not the maintenance of a general asset inventory."
+  },
+  "1. Access & Identity Management!table_1_2!26": {
+    "ans_status": "answerable",
+    "confidence": "high",
+    "answer": "No",
+    "sources": [
+      "[id=20.1]"
+    ],
+    "t2_f": "Row [id=20.1] explicitly answers 'No' to the question, noting that direct connections to backend production environments are not permitted."
+  },
+  "3. Data Protection & Resilience!table_3_1!9": {
+    "ans_status": "answerable",
+    "confidence": "high",
+    "answer": "Yes",
+    "sources": [
+      "id=24.1"
+    ],
+    "t3_e": "Owner",
+    "t3_f": "The retrieved context explicitly states that all employees and contractors undergo security awareness training annually, which directly answers the question."
+  },
+  "3. Data Protection & Resilience!table_3_1!10": {
+    "ans_status": "answerable",
+    "confidence": "high",
+    "answer": "Yes",
+    "sources": [
+      "id=24.1"
+    ],
+    "t3_e": "Owner",
+    "t3_f": "The retrieved context confirms that all employees and contractors undergo regular security awareness training appropriate to their role, which is conducted upon hire and annually."
+  },
+  "3. Data Protection & Resilience!table_3_1!13": {
+    "ans_status": "answerable",
+    "confidence": "high",
+    "answer": "Yes",
+    "sources": [
+      "[id=20.2]",
+      "[id=20.3]"
+    ],
+    "t3_e": "Owner",
+    "t3_f": "The vendor enforces a BYOD policy that prohibits storing confidential data on personal mobile devices, including customer cluster data which resides in the cloud rather than onsite. Additionally, all business-issued devices are managed via MDM with enforced screen locks, passwords, anti-malware software, and full disk encryption."
+  },
+  "3. Data Protection & Resilience!table_3_1!15": {
+    "ans_status": "answerable",
+    "confidence": "high",
+    "answer": "Yes",
+    "sources": [
+      "id=23.5"
+    ],
+    "t3_e": "Owner",
+    "t3_f": "The retrieved context confirms that 'ClientABC' manages encryption keys on behalf of the customer and offers integration with a KMS service for customers to manage their own keys. While the specific term 'configuration management' is not explicitly used in the provided rows, managing cryptographic keys and enforcing security baselines (NIST, OWASP) constitutes a form of configuration management for protecting client data."
+  },
+  "3. Data Protection & Resilience!table_3_1!20": {
+    "ans_status": "answerable",
+    "confidence": "high",
+    "answer": "Yes",
+    "sources": [
+      "id=23.2",
+      "id=7.1"
+    ],
+    "t3_e": "Owner",
+    "t3_f": "The vendor confirms encryption at rest using AES-256 in multiple retrieved contexts (rows id=23.2 and id=7.1). Additionally, the vendor manages encryption keys on behalf of customers or allows customer integration with a KMS service."
+  }
+}

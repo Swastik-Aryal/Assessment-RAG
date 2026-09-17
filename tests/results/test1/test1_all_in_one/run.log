@@ -1,0 +1,111 @@
+11:55:01 | INFO | extracted 106 questions from all_in_one.xlsx
+11:55:01 | INFO | [1/106] 1.1.1 Do you restrict access to cardholder data by business need to know?
+11:55:24 | INFO | [2/106] 1.1.2 Do you identify and authenticate access to system components?
+11:55:41 | INFO | [3/106] 1.1.3 Do you restrict physical access to cardholders data?
+11:55:57 | INFO | [4/106] 1.1.4 Does your business use network segmentation to affect the scope of your Payment 
+11:56:15 | INFO | [5/106] 1.1.5 Do you install and maintain a firewall configuration to protect cardholder data?
+11:56:31 | INFO | [6/106] 1.1.6 What information do you have about the service provider organization?
+11:56:52 | WARNING | enum mismatch (retry 1/3): [('answer', 'We operate as a cloud service provider utilizing AWS, GCP, and Azure infrastructure to host our data centers.', ['Yes', 'No', 'Partial', 'Not applicable'])]
+11:57:12 | INFO | [7/106] 1.1.7 Does the organization use one or more Payment Applications?
+11:57:26 | INFO | [8/106] 1.1.8 Do you protect all systems against malware and regularly update anti-virus softw
+11:57:50 | INFO | [9/106] 1.1.9 Is there information available about the Qualified Security Assessor (QSA) compa
+11:58:05 | INFO | [10/106] 1.1.10 Do you regularly test security systems and processes?
+11:58:29 | INFO | [11/106] 1.1.11 Do you track and monitor all access to network resources and cardholder data?
+11:58:56 | INFO | [12/106] 1.1.12 Do you protect stored cardholder data?
+11:59:11 | INFO | [13/106] 1.2.1 How does your business store, process, and transmit cardholder data, and in what
+11:59:39 | WARNING | enum mismatch (retry 1/3): [('answer', 'The business stores cardholder data in production systems encrypted at rest using AES-256 and transmits it encrypted in transit using TLS 1.2 or higher. Data is processed by vendors who contractually comply with security standards, and sensitive data is also kept in hard copy form (e.g., contracts, legal forms) which are shredded securely after retention periods.', ['Yes', 'No', 'Partial', 'Not applicable'])]
+12:00:02 | INFO | [14/106] 1.2.2 In what capacity is your business otherwise involved in or has the ability to im
+12:00:21 | INFO | [15/106] 1.2.3 Do you encrypt the transmission of cardholder data across open, public networks?
+12:00:39 | INFO | [16/106] 1.2.4 Should vendor-supplied defaults for system passwords and other security paramete
+12:00:58 | INFO | [17/106] 1.2.5 Which types of facilities, such as retail outlets, corporate offices, data cente
+12:01:26 | WARNING | enum mismatch (retry 1/3): [('answer', 'The vendor (ClientABC) is PCI DSS certified and hosts services within Amazon Web Services (AWS), Google Cloud Platform (GCP), and Microsoft Azure cloud platforms, offering over 70 regions including Northeast, West, Southeast, and Canada.', ['Yes', 'No', 'Partial', 'Not applicable'])]
+12:01:44 | INFO | [18/106] 1.2.6 Can you list services that were included in the scope of the Payment Card Indust
+12:02:03 | INFO | [19/106] 1.2.7 Can you list services that are provided by the service provider but were not inc
+12:02:18 | INFO | [20/106] 1.2.8 Are there additional Payment Card Industry Data Security Standard (PCI DSS) Requ
+12:02:32 | INFO | [21/106] 1.2.9 Are there additional Payment Card Industry Data Security Standard (PCI DSS) Requ
+12:02:52 | INFO | [22/106] 1.2.10 Does the organization have an established and documented set of principles for e
+12:03:14 | INFO | [23/106] 1.2.11 Have you developed and implemented a program to execute the validation process t
+12:03:32 | INFO | [24/106] 1.2.12 Does your company have a relationship with a Qualified Integrator and Reseller (
+12:03:49 | INFO | [25/106] 1.3.1 Can you provide the name of the Qualified Integrator and Reseller (QIR) company,
+12:04:06 | INFO | [26/106] 1.3.2 Do you maintain a policy that addresses information security for all personnel?
+12:04:25 | INFO | [27/106] 1.3.3 Do you have an Acceptable Use Policy (AUP) that requires annual attestation?
+12:04:45 | INFO | [28/106] 1.3.4 Do you have properly defined roles and responsibilities within the organization?
+12:05:02 | INFO | [29/106] 1.3.5 Do you adhere to the principle of least privilege for access?
+12:05:17 | INFO | [30/106] 1.3.6 Do you have a defined procedure for rules management in relation to role provisi
+12:05:34 | INFO | [31/106] 1.3.7 Do you secure access with lock and key to client-sensitive data as defined by yo
+12:05:51 | INFO | [32/106] 1.3.8 Do you perform Security Access Reviews at least quarterly?
+12:06:06 | INFO | [33/106] 1.3.9 Do you restrict remote maintenance to authorized users?
+12:06:22 | INFO | [34/106] 1.3.10 Do you have the capability to provide audit trails on activity related to unauth
+12:06:43 | INFO | [35/106] 2.1.1 Do you perform network security testing?
+12:07:03 | INFO | [36/106] 2.1.2 Is all network traffic over public networks to the production infrastructure sen
+12:07:21 | INFO | [37/106] 2.1.3 Is the production network segmented into different zones based on security level
+12:07:37 | INFO | [38/106] 2.1.4 Do you have firewalls and firewall policies in place? If yes, are these policies
+12:07:55 | INFO | [39/106] 2.1.5 Do you have a process to implement and maintain content filters to monitor conne
+12:08:23 | INFO | [40/106] 2.1.6 Do you perform cybersecurity tabletop exercises at least annually?
+12:08:39 | INFO | [41/106] 2.1.7 Does your information security team perform risk assessments at least annually?
+12:08:57 | INFO | [42/106] 2.1.8 When performing risk assessments, is there a formal process to report such mater
+12:09:19 | INFO | [43/106] 2.1.9 Do you maintain asset inventory?
+12:09:40 | INFO | [44/106] 2.1.10 Do you use a tool for asset discovery to maintain a proper listing of all intern
+12:10:05 | INFO | [45/106] 2.1.11 Do your endpoints have proper configurations in place to prevent the connection 
+12:10:20 | INFO | [46/106] 2.1.12 Is there a process for securely disposing of paper and other media?
+12:10:38 | INFO | [47/106] 2.1.13 Are all endpoint laptops that connect directly to production networks centrally 
+12:10:55 | INFO | [48/106] 2.2.1 Do all endpoint laptops have full disk encryption?
+12:11:15 | INFO | [49/106] 2.2.2 Do all endpoints have malware protection software?
+12:11:35 | INFO | [50/106] 2.2.3 Do all endpoints have an idle time screen lock policy?
+12:11:55 | INFO | [51/106] 2.2.4 Is there an alerting process for confirmed or suspected information security inc
+12:12:17 | INFO | [52/106] 2.2.5 Do you have a process to detect anomalous activity and events within the environ
+12:12:39 | INFO | [53/106] 2.2.6 Do you have formally defined criteria for notifying a client during an incident 
+12:13:02 | INFO | [54/106] 2.2.7 Do you have a formalized Security Incident Response Program?
+12:13:17 | INFO | [55/106] 2.2.8 Do you have a formal Incident Response (IR) team?
+12:13:31 | INFO | [56/106] 2.2.9 As a part of your Incident Response (IR) framework, do you perform lessons learn
+12:13:49 | INFO | [57/106] 2.2.10 Do you have a Business Continuity and Disaster Recovery (BCDR) program and if so
+12:14:08 | INFO | [58/106] 2.2.11 Do you review and update your Business Continuity and Disaster Recovery (BCDR) p
+12:14:25 | INFO | [59/106] 2.2.12 Do you have systems in place to mitigate classes of web application vulnerabilit
+12:14:44 | INFO | [60/106] 2.2.13 Do you have a process for infrastructure or enterprise vulnerability management?
+12:15:08 | INFO | [61/106] 2.3.1 Do you have a patch management process to keep devices used to access confidenti
+12:15:31 | INFO | [62/106] 2.3.2 Do you have a documented procedure for granting privileged access to users?
+12:15:51 | INFO | [63/106] 2.3.3 Do you have controls to prevent malicious software from being downloaded by user
+12:16:11 | INFO | [64/106] 2.3.4 Do you have proper change management procedures in place?
+12:16:30 | INFO | [65/106] 2.3.5 Is all access to client data logged? If yes, is all access to client data review
+12:16:49 | INFO | [66/106] 2.3.6 Do you have a process to monitor for Computer Emergency Response Team (CERT) not
+12:17:15 | INFO | [67/106] 2.3.7 Do you log and alert on relevant security events?
+12:17:35 | INFO | [68/106] 2.3.8 Are local admin privileges removed from all endpoint users?
+12:17:50 | INFO | [69/106] 2.3.9 Is there a policy and technical control in place for monitoring unauthorized sof
+12:18:13 | INFO | [70/106] 2.3.10 Do you have a security operations team or personnel to establish log monitoring 
+12:18:36 | INFO | [71/106] 3.1.1 Do you require all employees take security awareness training at least anually?
+12:18:54 | INFO | [72/106] 3.1.2 Do you have a program in place to test employee security awareness at least anua
+12:19:10 | INFO | [73/106] 3.1.3 Are contractors required to take the same security awareness training as full ti
+12:19:27 | INFO | [74/106] 3.1.4 Do you have focused training specific to users with privileged accounts & data?
+12:19:44 | INFO | [75/106] 3.1.5 Is there a policy or control in place that prevents vendors or employees from us
+12:20:06 | INFO | [76/106] 3.1.6 Is there a training process in place to make employees aware of being discreet w
+12:20:23 | INFO | [77/106] 3.1.7 Do you use configuration management to protect client data?
+12:20:41 | INFO | [78/106] 3.1.8 Do you have controls in place to limit data exfiltration from production endpoin
+12:21:01 | INFO | [79/106] 3.1.9 Do you have a documented process to handle Confidential information in accordanc
+12:21:19 | INFO | [80/106] 3.1.10 Do you have a data classification policy?
+12:21:35 | INFO | [81/106] 3.1.11 Other than when performed by persons who have access rights to the organization 
+12:21:55 | INFO | [82/106] 3.1.12 Do you encrypt data when sharing or emailing Confidential information externally
+12:22:20 | INFO | [83/106] 3.1.13 Can you explain if you encrypt customer data for each type of system on which it
+12:22:44 | WARNING | enum mismatch (retry 1/3): [('answer', 'Yes, customer data is encrypted for all system types where it resides (using AES-256 at rest and TLS 1.2+ in transit). Customer data is not encrypted on any system; it always resides in the production environment in an encrypted manner.', ['Yes', 'No', 'Partial', 'Not applicable'])]
+12:23:02 | INFO | [84/106] 3.2.1 Do you encrypt client data at rest?
+12:23:24 | INFO | [85/106] 3.2.2 Do you encrypt client data in Transit?
+12:23:45 | INFO | [86/106] 3.2.3 Is data on removable media that's used to handle Confidential information both h
+12:24:01 | INFO | [87/106] 3.2.4 Do you have safeguards to protect employees before sending emails containing con
+12:24:24 | INFO | [88/106] 3.2.5 Do you have a documented password policy?
+12:24:50 | INFO | [89/106] 3.2.6 Are users required to rotate passwords at least every 120 days?
+12:25:11 | INFO | [90/106] 3.2.7 Do you have a process to keep users, passwords, and Personal Identification Numb
+12:25:35 | INFO | [91/106] 3.2.8 Do you test password strength through password cracking activities or other meth
+12:25:56 | INFO | [92/106] 3.2.9 Do you utilize Single Sign-On (SSO) for internal use?
+12:26:15 | INFO | [93/106] 3.2.10 Do you support Single Sign-On (SSO) or Security Assertion Markup Language (SAML)
+12:26:38 | INFO | [94/106] 3.2.11 Do you require Multi-Factor Authentication (MFA) for employee user authenticatio
+12:27:00 | INFO | [95/106] 3.2.12 Do you require Multi-Factor Authentication (MFA) for the administration of your 
+12:27:19 | INFO | [96/106] 3.2.13 Do you have an established Secure Development Lifecycle policy?
+12:27:42 | INFO | [97/106] 3.3.1 Do you have multiple environments for the services provided to the organization?
+12:28:02 | INFO | [98/106] 3.3.2 Do employees or contractors have the ability to remotely connect to your product
+12:28:20 | INFO | [99/106] 3.3.3 Do you test the script to ensure it is functioning correctly?
+12:28:35 | INFO | [100/106] 3.3.4 Do you perform Application Security testing?
+12:28:52 | INFO | [101/106] 3.3.5 Do you have a secure backup process that includes restoration of assets in case 
+12:29:23 | INFO | [102/106] 3.3.6 Do you have an individual with overall responsibility for information security?
+12:29:40 | INFO | [103/106] 3.3.7 Do you have a formal Information Security Program in place?
+12:29:56 | INFO | [104/106] 3.3.8 Do you review your Information Security Policies at least anually?
+12:30:12 | INFO | [105/106] 3.3.9 Do you have an Information Security Risk Management Program (InfoSec RMP)?
+12:30:28 | INFO | [106/106] 3.3.10 Do you have at least an annual review process of all information security contro

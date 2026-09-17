@@ -1,0 +1,464 @@
+{
+  "Do you restrict access to cardholder data by business need to know?": [
+    {
+      "id": "8cc3691c-13ba-4207-a0b7-ad355f18f6ee",
+      "original_id": "41.2",
+      "score": 0.5833322010879634,
+      "section": "Compliance",
+      "control": "Privacy",
+      "text": "Section Heading: Compliance\nControl Heading: Privacy\nQuestion Text: Do you share customer data with, or enable direct access by, any third-party?\nAnswer: No"
+    },
+    {
+      "id": "524c7279-09b4-4598-9a00-781c74db95e4",
+      "original_id": "10.1",
+      "score": 0.5700757341124978,
+      "section": "Data Protection & Access Control",
+      "control": "Third Party Data Processing",
+      "text": "Section Heading: Data Protection & Access Control\nControl Heading: Third Party Data Processing\nQuestion Text: Do processors (vendors) access your customer's information? If so, please list the processors (vendors) who access your customer's information.\nAnswer: Yes"
+    },
+    {
+      "id": "e8cc1b62-78e7-4d19-bc35-58a61faa2ecb",
+      "original_id": "41.3",
+      "score": 0.5259741010806176,
+      "section": "Compliance",
+      "control": "Privacy",
+      "text": "Section Heading: Compliance\nControl Heading: Privacy\nQuestion Text: Do you seek a right to use or own customer derived data for your own purposes?\nAnswer: No"
+    },
+    {
+      "id": "9f66bb47-0958-42ac-bda3-547b437535cb",
+      "original_id": "6.1",
+      "score": 0.5238816590948057,
+      "section": "Data Protection & Access Control",
+      "control": "Data Classification",
+      "text": "Section Heading: Data Protection & Access Control\nControl Heading: Data Classification\nQuestion Text: Please describe the company/user data you require to provide your service: - A. Personal Information - B. Financial Data - C. Confidential/Sensitive Data - D. Government Data - Not Applicable\nAnswer: A. Personal Information\nNotes/Comment: We collect basic PII i.e. First name, Last name, Email address, IP address, device identifier, or other persistent identifier, Phone number, Fax number."
+    },
+    {
+      "id": "ce1d3c66-92fa-4ebd-9a52-3c8ac6f9022b",
+      "original_id": "8.1",
+      "score": 0.5096243609228952,
+      "section": "Data Protection & Access Control",
+      "control": "Data Access & Handling",
+      "text": "Section Heading: Data Protection & Access Control\nControl Heading: Data Access & Handling\nQuestion Text: Describe how your organization decides who does and does not have access to sensitive data\nAnswer: \"ClientABC\"\u2019s policies and procedures regarding access to \"ClientABC\" Systems adhere to the principles of role-based access control (RBAC), least privilege, and separation of duties."
+    }
+  ],
+  "Does your business use network segmentation to affect the scope of your Payment Card Industry Data Security Standard (PCI DSS) environment?": [
+    {
+      "id": "f68f587b-5e46-4373-a3ab-d4a2a8a7ac7e",
+      "original_id": "22.5",
+      "score": 0.48754973653290845,
+      "section": "Proactive Security",
+      "control": "Infrastructure Security",
+      "text": "Section Heading: Proactive Security\nControl Heading: Infrastructure Security\nQuestion Text: Is the production network segmented in to different zones based on security levels?\nAnswer: Yes\nNotes/Comment: You may choose to deploy your Clusters in a dedicated virtual environment or a shared multi-tenant system. Dedicated Clusters are deployed in a VPC (for AWS and GCP) or VNet (for Azure) that fully isolates your data and is configured to prevent inbound network access from the internet. Each such VPC or VNet utilizes security groups that act as a virtual firewall for your dedicated \"ClientABC\" Clusters."
+    },
+    {
+      "id": "afa9f3db-4153-4bb7-8632-12e992cc7479",
+      "original_id": "18.1",
+      "score": 0.4141277491778554,
+      "section": "Proactive Security",
+      "control": "Independent Third-Party Penetration Testing",
+      "text": "Section Heading: Proactive Security\nControl Heading: Independent Third-Party Penetration Testing\nQuestion Text: How is your network security testing performed? - A. Internal - B. Third parties - C. Both? If so, what is the cadence? Explain your methodology\nAnswer: B.Third Parties\nNotes/Comment: Our \"ClientABC\" production environment is subject to an external penetration test by a nationally recognized security firm at least once per calendar year. Upon request, we will provide you with a summary letter of engagement that includes the number of high, medium, and low issues identified."
+    },
+    {
+      "id": "b37e31e1-7c67-4d41-8d6d-5c1d83671283",
+      "original_id": "40.1",
+      "score": 0.39871736065335905,
+      "section": "Compliance",
+      "control": "Certifications",
+      "text": "Section Heading: Compliance\nControl Heading: Certifications\nQuestion Text: Which IT operational, security, privacy related standards, certifications and/or regulations you do comply with?\nAnswer: \"ClientABC\" is ISO 27001:2013 and PCI DSS certified. We are also GDPR and CCPA certified. We have attained CSA STAR Level 2, ISO 27017, and ISO 27018 certifications for \"ClientABC\" . Additionally, \"ClientABC\"\u2019s Information Security Program complies with applicable data protection laws and is aligned with the NIST Cyber Security Framework (NIST)."
+    },
+    {
+      "id": "f5c6bcf0-1970-4c7d-9394-5d0d2e21162f",
+      "original_id": "23.1",
+      "score": 0.39362811697042444,
+      "section": "Proactive Security",
+      "control": "Cryptography",
+      "text": "Section Heading: Proactive Security\nControl Heading: Cryptography\nQuestion Text: Do you use cryptographic frameworks to secure data in transit over public networks? If so, please describe the cryptographic frameworks you use.\nAnswer: Yes\nNotes/Comment: In transit, our data is encrypted with TLS 1.2."
+    },
+    {
+      "id": "75276c14-c991-4498-915a-0b495f5da3b0",
+      "original_id": "22.1",
+      "score": 0.3864953023435549,
+      "section": "Proactive Security",
+      "control": "Infrastructure Security",
+      "text": "Section Heading: Proactive Security\nControl Heading: Infrastructure Security\nQuestion Text: Are the hosts where the service is running uniformly configured?\nAnswer: Yes\nNotes/Comment: \"ClientABC\" utilizes a proprietary baseline that was developed following guidance from NIST, OWASP and industry best practices."
+    }
+  ],
+  "Do you perform network security testing?": [
+    {
+      "id": "afa9f3db-4153-4bb7-8632-12e992cc7479",
+      "original_id": "18.1",
+      "score": 0.7122566217840017,
+      "section": "Proactive Security",
+      "control": "Independent Third-Party Penetration Testing",
+      "text": "Section Heading: Proactive Security\nControl Heading: Independent Third-Party Penetration Testing\nQuestion Text: How is your network security testing performed? - A. Internal - B. Third parties - C. Both? If so, what is the cadence? Explain your methodology\nAnswer: B.Third Parties\nNotes/Comment: Our \"ClientABC\" production environment is subject to an external penetration test by a nationally recognized security firm at least once per calendar year. Upon request, we will provide you with a summary letter of engagement that includes the number of high, medium, and low issues identified."
+    },
+    {
+      "id": "f26edd8f-d500-4d3b-8abd-b10bdc2bb09e",
+      "original_id": "25.1",
+      "score": 0.6235376663306301,
+      "section": "Reactive Security",
+      "control": "Threat Intelligence",
+      "text": "Section Heading: Reactive Security\nControl Heading: Threat Intelligence\nQuestion Text: Do you keep aware of potential security vulnerabilities and threats that may affect your service? If so, please describe how you keep aware of potential security vulnerabilities and threats that may affect your service.\nAnswer: Yes\nNotes/Comment: To help identify potential security vulnerabilities on the production network, security management performs network vulnerability scans on at least a quarterly basis. In addition, a qualified third party conducts a penetration test on at least an annual basis. Also, \"ClientABC\" Systems have IDS/IPS systems deployed, which are monitored 24/7. We utilize firewalls, host-based IDS, and IP gateways to protect Clusters."
+    },
+    {
+      "id": "f956017c-fac1-44d9-94a0-b56d20dfad03",
+      "original_id": "18.2",
+      "score": 0.5696292964892482,
+      "section": "Proactive Security",
+      "control": "Independent Third-Party Penetration Testing",
+      "text": "Section Heading: Proactive Security\nControl Heading: Independent Third-Party Penetration Testing\nQuestion Text: How is your application security testing performed? - A. Internal - B. Third parties - C. Both? If so, what is the cadence? Explain your methodology\nAnswer: A. Internal; B. Thrid Parties\nNotes/Comment: \"ClientABC\" utilizes Veracode for dynamic and static application security testing. Coverity and Snyk are also used for static testing."
+    },
+    {
+      "id": "e2eb95a2-c712-40a7-b992-70d517cdfec8",
+      "original_id": "19.1",
+      "score": 0.5477680172866286,
+      "section": "Proactive Security",
+      "control": "Vulnerability Management/Patching",
+      "text": "Section Heading: Proactive Security\nControl Heading: Vulnerability Management/Patching\nQuestion Text: Do you have network vulnerability management processes and procedures? If so, please summarise or attach your network vulnerability management processes and procedures.\nAnswer: Yes\nNotes/Comment: \"ClientABC\" maintains a documented vulnerability enumeration and management program that identifies internet-accessible company assets, scans for known vulnerabilities, evaluates risk, and tracks issue remediation. We conduct quarterly scans of both the underlying systems upon which \"ClientABC\" is hosted, as well as all third-party code integrated into our products. \"ClientABC\"\u2019s vulnerability management policy requires individual engineering teams to identify known vulnerabilities in system components, and develop remediation timeframes commensurate to the severity of an identified issue. We also utilize automated tooling in conjunction with monitoring security bulletins for relevant software and libraries, and implement patches if security issues are discovered."
+    },
+    {
+      "id": "2b160c78-4c6e-4e7c-8298-e766c12c2167",
+      "original_id": "19.3",
+      "score": 0.5107364352388832,
+      "section": "Proactive Security",
+      "control": "Vulnerability Management/Patching",
+      "text": "Section Heading: Proactive Security\nControl Heading: Vulnerability Management/Patching\nQuestion Text: Do you use tools for vulnerability managment? If so, please describe the tools you use for vulnerability managment.\nAnswer: Yes\nNotes/Comment: \"ClientABC\" uses Nessus to perform cyber vulnerability scans."
+    }
+  ],
+  "Do you have firewalls and firewall policies in place? If yes, are these policies at least anually": [
+    {
+      "id": "0f09ba9e-eddb-440d-8c00-9e313c1e5ba9",
+      "original_id": "12.2",
+      "score": 0.6095027394257728,
+      "section": "Policies & Standards",
+      "control": "Management Program",
+      "text": "Section Heading: Policies & Standards\nControl Heading: Management Program\nQuestion Text: Do you review your Information Security Policies at least once a year?\nAnswer: Yes"
+    },
+    {
+      "id": "155c1247-7cb5-49c9-8043-3650e4fa61e3",
+      "original_id": "21.2",
+      "score": 0.5160519562631029,
+      "section": "Proactive Security",
+      "control": "Endpoint Security - Production Server",
+      "text": "Section Heading: Proactive Security\nControl Heading: Endpoint Security - Production Server\nQuestion Text: What systems do you have in place that mitigate classes of web application vulnerabilities? (e.g.: WAF, proxies, etc)\nAnswer: The entire platform is protected by a firewall."
+    },
+    {
+      "id": "f26edd8f-d500-4d3b-8abd-b10bdc2bb09e",
+      "original_id": "25.1",
+      "score": 0.4918424151196653,
+      "section": "Reactive Security",
+      "control": "Threat Intelligence",
+      "text": "Section Heading: Reactive Security\nControl Heading: Threat Intelligence\nQuestion Text: Do you keep aware of potential security vulnerabilities and threats that may affect your service? If so, please describe how you keep aware of potential security vulnerabilities and threats that may affect your service.\nAnswer: Yes\nNotes/Comment: To help identify potential security vulnerabilities on the production network, security management performs network vulnerability scans on at least a quarterly basis. In addition, a qualified third party conducts a penetration test on at least an annual basis. Also, \"ClientABC\" Systems have IDS/IPS systems deployed, which are monitored 24/7. We utilize firewalls, host-based IDS, and IP gateways to protect Clusters."
+    },
+    {
+      "id": "cfa4ac9a-717d-4aef-8c6e-6e48fc706abc",
+      "original_id": "12.4",
+      "score": 0.47555238127014726,
+      "section": "Policies & Standards",
+      "control": "Management Program",
+      "text": "Section Heading: Policies & Standards\nControl Heading: Management Program\nQuestion Text: Do you have management support or a security management forum to evaluate and take action on security risks?\nAnswer: Yes"
+    },
+    {
+      "id": "c117f0ab-28b4-4f91-b7a4-3c52eece0e47",
+      "original_id": "19.6",
+      "score": 0.4740312319279917,
+      "section": "Proactive Security",
+      "control": "Vulnerability Management/Patching",
+      "text": "Section Heading: Proactive Security\nControl Heading: Vulnerability Management/Patching\nQuestion Text: Do you regularly evaluate patches and updates for your infrastructure?\nAnswer: Yes"
+    }
+  ],
+  "Do you maintain asset inventory?": [
+    {
+      "id": "40cf9539-9219-4cf2-83a4-c9ec335c7ccc",
+      "original_id": "31.1",
+      "score": 0.4260382974305882,
+      "section": "Software Supply Chain",
+      "control": "Dependency Management",
+      "text": "Section Heading: Software Supply Chain\nControl Heading: Dependency Management\nQuestion Text: Do you maintain a bill of materials for third party libraries or code in your service?\nAnswer: Yes\nNotes/Comment: There is an established and maintained security management program that validates the identity (authenticity and origins) as well as integrity (uncompromised) of third-party hardware, firmware and software including open source code software."
+    },
+    {
+      "id": "bb9f2e28-5690-40eb-971e-b3055af3adf0",
+      "original_id": "17.1",
+      "score": 0.3713985854335754,
+      "section": "Policies & Standards",
+      "control": "Job Changes and Termination",
+      "text": "Section Heading: Policies & Standards\nControl Heading: Job Changes and Termination\nQuestion Text: Are documented procedures followed to govern change in employment and/or termination including for timely revocation of access and return of assets?\nAnswer: Yes\nNotes/Comment: Upon termination of contract or business relationship, employees and business partners are adequately informed of their obligations for returning organizationally-owned assets. We have asset return procedures outlining how assets should be returned within an established period."
+    },
+    {
+      "id": "e2eb95a2-c712-40a7-b992-70d517cdfec8",
+      "original_id": "19.1",
+      "score": 0.3553356919656881,
+      "section": "Proactive Security",
+      "control": "Vulnerability Management/Patching",
+      "text": "Section Heading: Proactive Security\nControl Heading: Vulnerability Management/Patching\nQuestion Text: Do you have network vulnerability management processes and procedures? If so, please summarise or attach your network vulnerability management processes and procedures.\nAnswer: Yes\nNotes/Comment: \"ClientABC\" maintains a documented vulnerability enumeration and management program that identifies internet-accessible company assets, scans for known vulnerabilities, evaluates risk, and tracks issue remediation. We conduct quarterly scans of both the underlying systems upon which \"ClientABC\" is hosted, as well as all third-party code integrated into our products. \"ClientABC\"\u2019s vulnerability management policy requires individual engineering teams to identify known vulnerabilities in system components, and develop remediation timeframes commensurate to the severity of an identified issue. We also utilize automated tooling in conjunction with monitoring security bulletins for relevant software and libraries, and implement patches if security issues are discovered."
+    },
+    {
+      "id": "7fb86268-6b63-4619-8be6-e7ab10bc41b0",
+      "original_id": "31.2",
+      "score": 0.332708384878826,
+      "section": "Software Supply Chain",
+      "control": "Dependency Management",
+      "text": "Section Heading: Software Supply Chain\nControl Heading: Dependency Management\nQuestion Text: Do you monitor vulnerabilities in dependencies? If so, please describe how you monitor vulnerabilities in dependencies.\nAnswer: Yes\nNotes/Comment: We conduct quarterly scans of both the underlying systems upon which \"ClientABC\" is hosted, as well as all third-party code integrated into our products. We also utilize automated tooling in conjunction with monitoring security bulletins for relevant software and libraries, and implement patches if security issues are discovered."
+    },
+    {
+      "id": "2edcd9f8-e811-40d0-a072-2ffe05bea75c",
+      "original_id": "8.7",
+      "score": 0.33263823901095235,
+      "section": "Data Protection & Access Control",
+      "control": "Data Access & Handling",
+      "text": "Section Heading: Data Protection & Access Control\nControl Heading: Data Access & Handling\nQuestion Text: Do you keep sensitive data (as defined by your data classification matrix) in hard copy (e.g. paper copies)? If so, please describe.\nAnswer: Yes\nNotes/Comment: There is a small range of paper-based information assets in use within \"ClientABC\", including \"ClientABC\" contracts, legal and procurement forms, general working information (printed documents, e-mails etc.). Paper information (e.g customer contracts) are generally retained and eventually shredded at the end of their retention period in a secure manner."
+    }
+  ],
+  "Are all endpoint laptops that connect directly to production networks centrally managed?": [
+    {
+      "id": "e0f4d07f-bc93-457d-8654-43bee97da1bc",
+      "original_id": "20.1",
+      "score": 0.8815201908895826,
+      "section": "Proactive Security",
+      "control": "Endpoint Security - End User",
+      "text": "Section Heading: Proactive Security\nControl Heading: Endpoint Security - End User\nQuestion Text: Are all endpoint laptops that connect directly to production networks centrally managed?\nAnswer: No\nNotes/Comment: We do not permit direct connections to our backend production environment."
+    },
+    {
+      "id": "3206b849-f6c7-4db1-9d71-682261f8381c",
+      "original_id": "21.1",
+      "score": 0.50058634643497,
+      "section": "Proactive Security",
+      "control": "Endpoint Security - Production Server",
+      "text": "Section Heading: Proactive Security\nControl Heading: Endpoint Security - Production Server\nQuestion Text: Do you limit data exfiltration from production endpoint devices? If so, please describe how you limit data exfiltration from production endpoint devices.\nAnswer: Yes\nNotes/Comment: The data our customers store in is arbitrary and unstructured. Also, we do not inspect this data. Therefore a traditional \u2018DLP Tool\u2019 which operates off structured data and patterns and must be able to inspect data would not function properly. Alternatively, we have implemented strong technical and procedural controls to minimize the possibility of data loss. To maintain compliance with various standards and certification such as ISO 27001:2013 and PCI DSS, these controls are reviewed on an annual basis by an independent third party."
+    },
+    {
+      "id": "65ce60ae-4f60-444a-afed-a22de722dcfa",
+      "original_id": "9.4",
+      "score": 0.4829729225682023,
+      "section": "Data Protection & Access Control",
+      "control": "Authentication",
+      "text": "Section Heading: Data Protection & Access Control\nControl Heading: Authentication\nQuestion Text: Do employees/contractors have ability to remotely connect to your production systems? (i.e. VPN)\nAnswer: Yes\nNotes/Comment: An encrypted VPN is utilized for remote access to help ensure the privacy and integrity of the data passing over the public network."
+    },
+    {
+      "id": "f68f587b-5e46-4373-a3ab-d4a2a8a7ac7e",
+      "original_id": "22.5",
+      "score": 0.462711666801372,
+      "section": "Proactive Security",
+      "control": "Infrastructure Security",
+      "text": "Section Heading: Proactive Security\nControl Heading: Infrastructure Security\nQuestion Text: Is the production network segmented in to different zones based on security levels?\nAnswer: Yes\nNotes/Comment: You may choose to deploy your Clusters in a dedicated virtual environment or a shared multi-tenant system. Dedicated Clusters are deployed in a VPC (for AWS and GCP) or VNet (for Azure) that fully isolates your data and is configured to prevent inbound network access from the internet. Each such VPC or VNet utilizes security groups that act as a virtual firewall for your dedicated \"ClientABC\" Clusters."
+    },
+    {
+      "id": "7e5aaa64-bca7-4422-8de8-8bc18cb1fe14",
+      "original_id": "20.3",
+      "score": 0.44524328212014347,
+      "section": "Proactive Security",
+      "control": "Endpoint Security - End User",
+      "text": "Section Heading: Proactive Security\nControl Heading: Endpoint Security - End User\nQuestion Text: Does sensitive or private data ever reside on endpoint devices? How is this policy enforced?\nAnswer: No\nNotes/Comment: Our BYOD policy prohibits storing confidential data on mobile devices, this includes any data that our customers store in their Clusters. Our Customer's data will reside in the cloud and not onsite."
+    }
+  ],
+  "Do you require all employees take security awareness training at least anually?": [
+    {
+      "id": "84feedb7-4d27-4e97-9eb4-bd7c0a2c20a8",
+      "original_id": "24.1",
+      "score": 0.751433521928643,
+      "section": "Proactive Security",
+      "control": "Security Awareness",
+      "text": "Section Heading: Proactive Security\nControl Heading: Security Awareness\nQuestion Text: Do you have a security awareness program for personnel? If so, please describe the program.\nAnswer: Yes\nNotes/Comment: All employees and contractors undergo regular security awareness training appropriate to their role and function within the organization upon hire and annually."
+    },
+    {
+      "id": "49d63ceb-3402-46ab-8351-5d1466698e19",
+      "original_id": "20.2",
+      "score": 0.5077206454783226,
+      "section": "Proactive Security",
+      "control": "Endpoint Security - End User",
+      "text": "Section Heading: Proactive Security\nControl Heading: Endpoint Security - End User\nQuestion Text: Describe standard employee issued device security configuration/features. (Login Password, antimalware, Full Disk Encryption, Administrative Privileges, Firewall, Auto-lock, etc.)\nAnswer: All devices utilized for business purposes are required to have a screen lock and a set password. Also, all \"ClientABC\" managed workstations run up to date anti-virus and anti-malware software. Full disk encryption is enforced too. This is enforced via MDM for \"ClientABC\"-owned devices and via compliance with our BYOD policy for personal devices not owned by \"ClientABC\"."
+    },
+    {
+      "id": "0f09ba9e-eddb-440d-8c00-9e313c1e5ba9",
+      "original_id": "12.2",
+      "score": 0.48130989651051725,
+      "section": "Policies & Standards",
+      "control": "Management Program",
+      "text": "Section Heading: Policies & Standards\nControl Heading: Management Program\nQuestion Text: Do you review your Information Security Policies at least once a year?\nAnswer: Yes"
+    },
+    {
+      "id": "de80c244-60c7-46a0-b73a-9f218911e35f",
+      "original_id": "38.1",
+      "score": 0.47736980089945225,
+      "section": "Compliance",
+      "control": "Internal Audits",
+      "text": "Section Heading: Compliance\nControl Heading: Internal Audits\nQuestion Text: Do you conduct internal audits (audits lead by your personnel) of the service? If so, please describe the scope, remediation process and frequency of audits.\nAnswer: Yes\nNotes/Comment: \"ClientABC\" Infrastructure and Application Security Policy, which is part of the ISO 27001:2013 ISMS for , includes sections addressing operational change management and change control. This policy is reviewed and approved annually by \"ClientABC\"'s CISO and is available to all personnel via \"ClientABC\"'s internal wiki. Finally, \"ClientABC\"'s mandatory annual security training includes content that covers our ISMS policies and procedures."
+    },
+    {
+      "id": "6f516dea-2867-4fea-83ec-dccdc677bb40",
+      "original_id": "15.1",
+      "score": 0.47275252235392173,
+      "section": "Policies & Standards",
+      "control": "Confidentiality",
+      "text": "Section Heading: Policies & Standards\nControl Heading: Confidentiality\nQuestion Text: Are all personnel required to sign Confidentiality Agreements to protect customer information, as a condition of employment?\nAnswer: Yes\nNotes/Comment: All employees and contingent workers to execute NDA or other confidentiality agreements."
+    }
+  ],
+  "Do you have a program in place to test employee security awareness at least anually?": [
+    {
+      "id": "84feedb7-4d27-4e97-9eb4-bd7c0a2c20a8",
+      "original_id": "24.1",
+      "score": 0.7902475418312818,
+      "section": "Proactive Security",
+      "control": "Security Awareness",
+      "text": "Section Heading: Proactive Security\nControl Heading: Security Awareness\nQuestion Text: Do you have a security awareness program for personnel? If so, please describe the program.\nAnswer: Yes\nNotes/Comment: All employees and contractors undergo regular security awareness training appropriate to their role and function within the organization upon hire and annually."
+    },
+    {
+      "id": "5f65697c-a25c-4451-be33-d9823c295993",
+      "original_id": "27.2",
+      "score": 0.5611289444085125,
+      "section": "Reactive Security",
+      "control": "Incident Response",
+      "text": "Section Heading: Reactive Security\nControl Heading: Incident Response\nQuestion Text: Do you test your Incident Response Plan? If so, please describe how it is tested and include cadence.\nAnswer: Yes\nNotes/Comment: The security incident response plan is reviewed, updated, and tested annually, including a security tabletop exercise at least once per year."
+    },
+    {
+      "id": "be834476-782a-4af5-9aca-351f0d1507d1",
+      "original_id": "12.1",
+      "score": 0.5494884588687406,
+      "section": "Policies & Standards",
+      "control": "Management Program",
+      "text": "Section Heading: Policies & Standards\nControl Heading: Management Program\nQuestion Text: Do you have a formal Information Security Program (InfoSec SP) in place?\nAnswer: Yes"
+    },
+    {
+      "id": "0f09ba9e-eddb-440d-8c00-9e313c1e5ba9",
+      "original_id": "12.2",
+      "score": 0.5461999930632973,
+      "section": "Policies & Standards",
+      "control": "Management Program",
+      "text": "Section Heading: Policies & Standards\nControl Heading: Management Program\nQuestion Text: Do you review your Information Security Policies at least once a year?\nAnswer: Yes"
+    },
+    {
+      "id": "cfa4ac9a-717d-4aef-8c6e-6e48fc706abc",
+      "original_id": "12.4",
+      "score": 0.5388907620874328,
+      "section": "Policies & Standards",
+      "control": "Management Program",
+      "text": "Section Heading: Policies & Standards\nControl Heading: Management Program\nQuestion Text: Do you have management support or a security management forum to evaluate and take action on security risks?\nAnswer: Yes"
+    }
+  ],
+  "Is there a policy or control in place that prevents vendors or employees from using unauthorized personal instant messaging services, personal email accounts, and personal applications on company managed devices with access to the client data? If no, can you please explain which of the controls is not being met?": [
+    {
+      "id": "49d63ceb-3402-46ab-8351-5d1466698e19",
+      "original_id": "20.2",
+      "score": 0.5784861590952093,
+      "section": "Proactive Security",
+      "control": "Endpoint Security - End User",
+      "text": "Section Heading: Proactive Security\nControl Heading: Endpoint Security - End User\nQuestion Text: Describe standard employee issued device security configuration/features. (Login Password, antimalware, Full Disk Encryption, Administrative Privileges, Firewall, Auto-lock, etc.)\nAnswer: All devices utilized for business purposes are required to have a screen lock and a set password. Also, all \"ClientABC\" managed workstations run up to date anti-virus and anti-malware software. Full disk encryption is enforced too. This is enforced via MDM for \"ClientABC\"-owned devices and via compliance with our BYOD policy for personal devices not owned by \"ClientABC\"."
+    },
+    {
+      "id": "7e5aaa64-bca7-4422-8de8-8bc18cb1fe14",
+      "original_id": "20.3",
+      "score": 0.5702783873473267,
+      "section": "Proactive Security",
+      "control": "Endpoint Security - End User",
+      "text": "Section Heading: Proactive Security\nControl Heading: Endpoint Security - End User\nQuestion Text: Does sensitive or private data ever reside on endpoint devices? How is this policy enforced?\nAnswer: No\nNotes/Comment: Our BYOD policy prohibits storing confidential data on mobile devices, this includes any data that our customers store in their Clusters. Our Customer's data will reside in the cloud and not onsite."
+    },
+    {
+      "id": "9f66bb47-0958-42ac-bda3-547b437535cb",
+      "original_id": "6.1",
+      "score": 0.4965818203037608,
+      "section": "Data Protection & Access Control",
+      "control": "Data Classification",
+      "text": "Section Heading: Data Protection & Access Control\nControl Heading: Data Classification\nQuestion Text: Please describe the company/user data you require to provide your service: - A. Personal Information - B. Financial Data - C. Confidential/Sensitive Data - D. Government Data - Not Applicable\nAnswer: A. Personal Information\nNotes/Comment: We collect basic PII i.e. First name, Last name, Email address, IP address, device identifier, or other persistent identifier, Phone number, Fax number."
+    },
+    {
+      "id": "65ce60ae-4f60-444a-afed-a22de722dcfa",
+      "original_id": "9.4",
+      "score": 0.48883823221195133,
+      "section": "Data Protection & Access Control",
+      "control": "Authentication",
+      "text": "Section Heading: Data Protection & Access Control\nControl Heading: Authentication\nQuestion Text: Do employees/contractors have ability to remotely connect to your production systems? (i.e. VPN)\nAnswer: Yes\nNotes/Comment: An encrypted VPN is utilized for remote access to help ensure the privacy and integrity of the data passing over the public network."
+    },
+    {
+      "id": "ce1d3c66-92fa-4ebd-9a52-3c8ac6f9022b",
+      "original_id": "8.1",
+      "score": 0.48461471174622045,
+      "section": "Data Protection & Access Control",
+      "control": "Data Access & Handling",
+      "text": "Section Heading: Data Protection & Access Control\nControl Heading: Data Access & Handling\nQuestion Text: Describe how your organization decides who does and does not have access to sensitive data\nAnswer: \"ClientABC\"\u2019s policies and procedures regarding access to \"ClientABC\" Systems adhere to the principles of role-based access control (RBAC), least privilege, and separation of duties."
+    }
+  ],
+  "Do you use configuration management to protect client data?": [
+    {
+      "id": "bc8cefe5-b723-4038-9935-da1ba5128919",
+      "original_id": "22.3",
+      "score": 0.5983937210629509,
+      "section": "Proactive Security",
+      "control": "Infrastructure Security",
+      "text": "Section Heading: Proactive Security\nControl Heading: Infrastructure Security\nQuestion Text: Describe your secrets management strategy:(auth tokens, passwords, API credentials, certificates)\nAnswer: \"ClientABC\" uses centrally managed SSO for authentication. Complex passwords and 2FA are mandatory for all personnel."
+    },
+    {
+      "id": "7aebec3d-91ab-4b79-a0fd-ede0dd210f9f",
+      "original_id": "23.5",
+      "score": 0.590721948867153,
+      "section": "Proactive Security",
+      "control": "Cryptography",
+      "text": "Section Heading: Proactive Security\nControl Heading: Cryptography\nQuestion Text: Are crytographic keys (key management system, etc) managed within your system? If so, please describe how crytographic keys(key management system, etc) are managed.\nAnswer: Yes\nNotes/Comment: \"ClientABC\" platform manages encryption keys on behalf of the Customer. Customers may elect to restrict the access of \"ClientABC\" support personnel to their \"ClientABC\" database clusters. Customers may also elect to manage their encryption keys via integration with a KMS service. See the following links for further details: \"ClientABC\" KMS Integrations:"
+    },
+    {
+      "id": "75276c14-c991-4498-915a-0b495f5da3b0",
+      "original_id": "22.1",
+      "score": 0.5832551103927789,
+      "section": "Proactive Security",
+      "control": "Infrastructure Security",
+      "text": "Section Heading: Proactive Security\nControl Heading: Infrastructure Security\nQuestion Text: Are the hosts where the service is running uniformly configured?\nAnswer: Yes\nNotes/Comment: \"ClientABC\" utilizes a proprietary baseline that was developed following guidance from NIST, OWASP and industry best practices."
+    },
+    {
+      "id": "90ab2978-b968-4602-9db9-564beaeadd0c",
+      "original_id": "22.6",
+      "score": 0.5624577327266456,
+      "section": "Proactive Security",
+      "control": "Infrastructure Security",
+      "text": "Section Heading: Proactive Security\nControl Heading: Infrastructure Security\nQuestion Text: Do you have a process for making changes to network configuration? If so, please describe this process for making changes to network configuration.\nAnswer: Yes\nNotes/Comment: Cloud Engineering personnel and executive management participate in a change management meeting on a weekly basis to discuss security of the \"ClientABC\" Cloud environment and the business impact of potential changes to the system. Each change must be discussed, prioritized, and approved during this meeting in order to be implemented. The ability to implement changes is restricted to user accounts accessible by authorized Cloud Engineering personnel and the production environment is logically and physically segmented from the development and test environments. Management and engineers are notified of changes and ongoing and upcoming projects that affect the in-scope systems via the monthly change management prioritization meetings."
+    },
+    {
+      "id": "49d63ceb-3402-46ab-8351-5d1466698e19",
+      "original_id": "20.2",
+      "score": 0.5275185325435283,
+      "section": "Proactive Security",
+      "control": "Endpoint Security - End User",
+      "text": "Section Heading: Proactive Security\nControl Heading: Endpoint Security - End User\nQuestion Text: Describe standard employee issued device security configuration/features. (Login Password, antimalware, Full Disk Encryption, Administrative Privileges, Firewall, Auto-lock, etc.)\nAnswer: All devices utilized for business purposes are required to have a screen lock and a set password. Also, all \"ClientABC\" managed workstations run up to date anti-virus and anti-malware software. Full disk encryption is enforced too. This is enforced via MDM for \"ClientABC\"-owned devices and via compliance with our BYOD policy for personal devices not owned by \"ClientABC\"."
+    }
+  ],
+  "Do you encrypt client data at rest?": [
+    {
+      "id": "24a5271c-5cd7-403e-b936-c20a8adb1a57",
+      "original_id": "23.2",
+      "score": 0.7407346310766008,
+      "section": "Proactive Security",
+      "control": "Cryptography",
+      "text": "Section Heading: Proactive Security\nControl Heading: Cryptography\nQuestion Text: Do you use cryptographic frameworks to secure data at rest? If so, please describe the cryptographic frameworks you use.\nAnswer: Yes\nNotes/Comment: All data at rest is encrypted using AES-256."
+    },
+    {
+      "id": "599957a7-c975-4fe8-b880-714a204969dc",
+      "original_id": "7.1",
+      "score": 0.7359241659822986,
+      "section": "Data Protection & Access Control",
+      "control": "Encryption",
+      "text": "Section Heading: Data Protection & Access Control\nControl Heading: Encryption\nQuestion Text: Do you encrypt customer data? If so, please upload relevant documentation and describe how you encrypt customer data.\nAnswer: Yes\nNotes/Comment: All data in transit is encrypted using TLS 1.2 or higher and all data at rest is encrypted using AES-256."
+    },
+    {
+      "id": "f5c6bcf0-1970-4c7d-9394-5d0d2e21162f",
+      "original_id": "23.1",
+      "score": 0.6012207665506719,
+      "section": "Proactive Security",
+      "control": "Cryptography",
+      "text": "Section Heading: Proactive Security\nControl Heading: Cryptography\nQuestion Text: Do you use cryptographic frameworks to secure data in transit over public networks? If so, please describe the cryptographic frameworks you use.\nAnswer: Yes\nNotes/Comment: In transit, our data is encrypted with TLS 1.2."
+    },
+    {
+      "id": "aead86a1-ed0c-4bcb-a66e-34c2b68898c1",
+      "original_id": "23.3",
+      "score": 0.5552521584129241,
+      "section": "Proactive Security",
+      "control": "Cryptography",
+      "text": "Section Heading: Proactive Security\nControl Heading: Cryptography\nQuestion Text: Do you use cryptographic frameworks to store passwords? If so, please describe the cryptographic frameworks you use.\nAnswer: Yes\nNotes/Comment: User credentials for the \"ClientABC\" UI are stored using industry standard and audited one-way hashes."
+    },
+    {
+      "id": "7aebec3d-91ab-4b79-a0fd-ede0dd210f9f",
+      "original_id": "23.5",
+      "score": 0.5522630147587226,
+      "section": "Proactive Security",
+      "control": "Cryptography",
+      "text": "Section Heading: Proactive Security\nControl Heading: Cryptography\nQuestion Text: Are crytographic keys (key management system, etc) managed within your system? If so, please describe how crytographic keys(key management system, etc) are managed.\nAnswer: Yes\nNotes/Comment: \"ClientABC\" platform manages encryption keys on behalf of the Customer. Customers may elect to restrict the access of \"ClientABC\" support personnel to their \"ClientABC\" database clusters. Customers may also elect to manage their encryption keys via integration with a KMS service. See the following links for further details: \"ClientABC\" KMS Integrations:"
+    }
+  ]
+}

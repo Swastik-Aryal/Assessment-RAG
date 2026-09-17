@@ -1,0 +1,7 @@
+10:26:15 | INFO | extracted 6 questions from multiple_tables.xlsx
+10:26:15 | INFO | [1/6] 1.1.1 Do you restrict access to cardholder data by business need to know?
+10:26:30 | INFO | [2/6] 1.1.2 Do you identify and authenticate access to system components?
+10:26:47 | INFO | [3/6] 2.1.1 Do you perform network security testing?
+10:27:12 | INFO | [4/6] 2.1.1 Do you perform network security testing?
+10:27:30 | INFO | [5/6] 3.1.1 Do you require all employees take security awareness training at least anually?
+10:27:48 | INFO | [6/6] 3.2.1 Do you encrypt client data at rest?

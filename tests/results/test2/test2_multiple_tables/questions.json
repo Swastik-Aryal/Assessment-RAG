@@ -1,0 +1,50 @@
+[
+  {
+    "id": "1.1.1",
+    "text": "Do you restrict access to cardholder data by business need to know?",
+    "sheet": "1. Access & Identity Management",
+    "row": 7,
+    "section_label": "",
+    "table_id": "t1_1"
+  },
+  {
+    "id": "1.1.2",
+    "text": "Do you identify and authenticate access to system components?",
+    "sheet": "1. Access & Identity Management",
+    "row": 8,
+    "section_label": "",
+    "table_id": "t1_1"
+  },
+  {
+    "id": "2.1.1",
+    "text": "Do you perform network security testing?",
+    "sheet": "1. Access & Identity Management",
+    "row": 13,
+    "section_label": "",
+    "table_id": "t1_2"
+  },
+  {
+    "id": "2.1.1",
+    "text": "Do you perform network security testing?",
+    "sheet": "2. Network & Infrastructure",
+    "row": 7,
+    "section_label": "",
+    "table_id": "t2_1"
+  },
+  {
+    "id": "3.1.1",
+    "text": "Do you require all employees take security awareness training at least anually?",
+    "sheet": "3. Data Protection & Resilience",
+    "row": 9,
+    "section_label": "",
+    "table_id": "t3_1"
+  },
+  {
+    "id": "3.2.1",
+    "text": "Do you encrypt client data at rest?",
+    "sheet": "3. Data Protection & Resilience",
+    "row": 23,
+    "section_label": "",
+    "table_id": "t3_1"
+  }
+]

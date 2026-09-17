@@ -1,0 +1,12 @@
+10:16:52 | INFO | extracted 11 questions from id_mismatch.xlsx
+10:16:52 | INFO | [1/11] 1.1.1 Do you restrict access to cardholder data by business need to know?
+10:17:09 | INFO | [2/11] 1.1.4 Does your business use network segmentation to affect the scope of your Payment 
+10:17:27 | INFO | [3/11] 2.1.1 Do you perform network security testing?
+10:17:47 | INFO | [4/11] 2.1.4 Do you have firewalls and firewall policies in place? If yes, are these policies
+10:18:00 | INFO | [5/11] 2.1.9 Do you maintain asset inventory?
+10:18:16 | INFO | [6/11] 2.1.13 Are all endpoint laptops that connect directly to production networks centrally 
+10:18:33 | INFO | [7/11] 3.1.1 Do you require all employees take security awareness training at least anually?
+10:18:55 | INFO | [8/11] 3.1.2 Do you have a program in place to test employee security awareness at least anua
+10:19:14 | INFO | [9/11] 3. Data Protection & Resilience!13 Is there a policy or control in place that prevents vendors or employees from us
+10:19:33 | INFO | [10/11] 3.1.7 Do you use configuration management to protect client data?
+10:19:55 | INFO | [11/11] 3.2.1 Do you encrypt client data at rest?

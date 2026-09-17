@@ -1,0 +1,90 @@
+[
+  {
+    "id": "Sheet1!1",
+    "text": "Do you restrict access to cardholder data by business need to know?",
+    "sheet": "Sheet1",
+    "row": 1,
+    "section_label": "",
+    "table_id": "Sheet1_table1"
+  },
+  {
+    "id": "Sheet1!2",
+    "text": "Do you identify and authenticate access to system components?",
+    "sheet": "Sheet1",
+    "row": 2,
+    "section_label": "",
+    "table_id": "Sheet1_table1"
+  },
+  {
+    "id": "Sheet1!3",
+    "text": "Do you restrict physical access to cardholders data?",
+    "sheet": "Sheet1",
+    "row": 3,
+    "section_label": "",
+    "table_id": "Sheet1_table1"
+  },
+  {
+    "id": "Sheet1!4",
+    "text": "Does your business use network segmentation to affect the scope of your Payment Card Industry Data Security Standard (PCI DSS) environment?",
+    "sheet": "Sheet1",
+    "row": 4,
+    "section_label": "",
+    "table_id": "Sheet1_table1"
+  },
+  {
+    "id": "Sheet1!5",
+    "text": "Do you install and maintain a firewall configuration to protect cardholder data?",
+    "sheet": "Sheet1",
+    "row": 5,
+    "section_label": "",
+    "table_id": "Sheet1_table1"
+  },
+  {
+    "id": "Sheet1!6",
+    "text": "What information do you have about the service provider organization?",
+    "sheet": "Sheet1",
+    "row": 6,
+    "section_label": "",
+    "table_id": "Sheet1_table1"
+  },
+  {
+    "id": "Sheet1!7",
+    "text": "Does the organization use one or more Payment Applications?",
+    "sheet": "Sheet1",
+    "row": 7,
+    "section_label": "",
+    "table_id": "Sheet1_table1"
+  },
+  {
+    "id": "Sheet1!8",
+    "text": "Do you protect all systems against malware and regularly update anti-virus software or programs?",
+    "sheet": "Sheet1",
+    "row": 8,
+    "section_label": "",
+    "table_id": "Sheet1_table1"
+  },
+  {
+    "id": "Sheet1!9",
+    "text": "Do you regularly test security systems and processes?",
+    "sheet": "Sheet1",
+    "row": 9,
+    "section_label": "",
+    "table_id": "Sheet1_table1"
+  },
+  {
+    "id": "Sheet1!10",
+    "text": "Do you track and monitor all access to network resources and cardholder data?",
+    "sheet": "Sheet1",
+    "row": 10,
+    "section_label": "",
+    "table_id": "Sheet1_table1"
+  },
+  {
+    "id": "Sheet1!11",
+    "text": "Do you protect stored cardholder data?",
+    "sheet": "Sheet1",
+    "row": 11,
+    "section_label": "",
+    "table_id": "Sheet1_table1"
+  }
+]

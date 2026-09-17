@@ -1,0 +1,95 @@
+{
+  "1. Access & Identity Management!t1!8": {
+    "ans_status": "answerable",
+    "confidence": "high",
+    "answer": "Yes",
+    "sources": [
+      "id=10.1"
+    ],
+    "t1_d": "The retrieved context indicates that processors (vendors) do access customer information, which implies a need to restrict such access based on business need to know. The document explicitly states vendors access customer data, necessitating controls like role-based access control (RBAC) and least privilege as described in other retrieved rows."
+  },
+  "1. Access & Identity Management!t1!9": {
+    "ans_status": "answerable",
+    "confidence": "high",
+    "answer": "Yes",
+    "sources": [
+      "id=9.1",
+      "id=9.6",
+      "id=22.3",
+      "id=9.5"
+    ],
+    "t1_d": "The organization identifies and authenticates access through an internal password policy, mandatory MFA for production systems, centralized SSO usage, and role-based access control (RBAC) with least privilege principles."
+  },
+  "1. Access & Identity Management!t1!11": {
+    "ans_status": "answerable",
+    "confidence": "high",
+    "answer": "Yes",
+    "sources": [
+      "[id=22.5]"
+    ],
+    "t1_d": "The production network is segmented into different zones based on security levels. Dedicated Clusters are deployed in a VPC (for AWS and GCP) or VNet (for Azure) that fully isolates data and prevents inbound internet access, utilizing security groups as virtual firewalls."
+  },
+  "1. Access & Identity Management!t1!14": {
+    "ans_status": "answerable",
+    "confidence": "high",
+    "answer": "Yes",
+    "sources": [
+      "id=10.1",
+      "id=7.1",
+      "id=8.7",
+      "id=8.10",
+      "id=10.2"
+    ],
+    "t1_d": "The business stores and processes cardholder data in production systems using AES-256 encryption at rest and TLS 1.2 or higher for data in transit. Data is never allowed to leave the production environment. Cardholder data may be processed by third-party vendors who contractually comply with security standards, though specific vendor names were not listed in the retrieved context. Sensitive data including customer contracts is also kept in hard copy (paper) within secure environments."
+  },
+  "1. Access & Identity Management!t1!16": {
+    "ans_status": "answerable",
+    "confidence": "high",
+    "answer": "Yes",
+    "sources": [
+      "[id=23.1]",
+      "[id=22.7]"
+    ],
+    "t1_d": "Row [id=23.1] confirms the use of TLS 1.2 for data in transit over public networks. Row [id=22.7] further states that all network traffic over public networks to production infrastructure is sent over cryptographically sound encrypted connections."
+  },
+  "2. Network & Infrastructure!t2!7": {
+    "ans_status": "answerable",
+    "confidence": "high",
+    "answer": "Yes",
+    "sources": [
+      "id=18.1"
+    ],
+    "t2_d": "Y",
+    "t2_f": "id=18.1 states that the production environment is subject to an external penetration test by a nationally recognized security firm at least once per calendar year."
+  },
+  "2. Network & Infrastructure!t2!22": {
+    "ans_status": "answerable",
+    "confidence": "high",
+    "answer": "Yes",
+    "sources": [
+      "[id=20.2]"
+    ],
+    "t2_d": "Y",
+    "t2_f": "Row [id=20.2] states: 'Also, all \"ClientABC\" managed workstations run up to date anti-virus and anti-malware software.' This confirms the presence of malware protection on managed endpoints."
+  },
+  "2. Network & Infrastructure!t2!26": {
+    "ans_status": "answerable",
+    "confidence": "high",
+    "answer": "Yes",
+    "sources": [
+      "id=28.1"
+    ],
+    "t2_d": "Y",
+    "t2_f": "Reference supporting evidence: id=28.1 states that 'ClientABC' will notify the client without undue delay if a Data Breach is detected, including details on nature, cause, and resolution time."
+  },
+  "2. Network & Infrastructure!t2!27": {
+    "ans_status": "answerable",
+    "confidence": "high",
+    "answer": "Yes",
+    "sources": [
+      "[id=27.1]"
+    ],
+    "t2_d": "Y",
+    "t2_f": "Evidence reference: [id=27.1] states 'Do you have a Security Incident Response Program? If so, please describe or attach your Security Incident Response Program.' Answer: Yes."
+  }
+}

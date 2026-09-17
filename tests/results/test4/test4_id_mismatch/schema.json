@@ -1,0 +1,399 @@
+{
+  "attempts": [
+    {
+      "full": true,
+      "instructions_text": "Reminder: use the Response Key tab for valid Status values.",
+      "response_key": [
+        {
+          "value": "Yes",
+          "meaning": "Fully compliant"
+        },
+        {
+          "value": "No",
+          "meaning": "Not compliant"
+        },
+        {
+          "value": "Partial",
+          "meaning": "Partially compliant"
+        },
+        {
+          "value": "Not applicable",
+          "meaning": "Not applicable"
+        }
+      ],
+      "sheets": [
+        {
+          "sheet_name": "1. Access & Identity Management",
+          "role": "questions",
+          "tables": [
+            {
+              "table_id": "table_1_1",
+              "header_row": 4,
+              "first_data_row": 5,
+              "last_data_row": 10,
+              "first_col": "A",
+              "last_col": "D",
+              "question_col": "B",
+              "id_col": "A",
+              "section_label_col": "A",
+              "fill_targets": [
+                {
+                  "target_id": "t1_c",
+                  "col": "C",
+                  "header": "response",
+                  "role": "answer",
+                  "strategy": "llm",
+                  "constant_value": null,
+                  "format": {
+                    "type": "enum",
+                    "allowed_values": [
+                      "Yes",
+                      "No",
+                      "Partial",
+                      "Not applicable"
+                    ]
+                  },
+                  "rule": "Choose from Yes | No | Partial | Not applicable"
+                },
+                {
+                  "target_id": "t1_d",
+                  "col": "D",
+                  "header": "comment",
+                  "role": "notes",
+                  "strategy": "llm",
+                  "constant_value": null,
+                  "format": {
+                    "type": "free_text",
+                    "allowed_values": []
+                  },
+                  "rule": "Provide comments or evidence notes."
+                }
+              ]
+            },
+            {
+              "table_id": "table_1_2",
+              "header_row": 12,
+              "first_data_row": 13,
+              "last_data_row": 26,
+              "first_col": "A",
+              "last_col": "F",
+              "question_col": "C",
+              "id_col": "A",
+              "section_label_col": "A",
+              "fill_targets": [
+                {
+                  "target_id": "t2_d",
+                  "col": "D",
+                  "header": "Applicable (Y/N)",
+                  "role": "other",
+                  "strategy": "llm",
+                  "constant_value": null,
+                  "format": {
+                    "type": "enum",
+                    "allowed_values": [
+                      "Y",
+                      "N"
+                    ]
+                  },
+                  "rule": "Indicate if applicable using Y or N"
+                },
+                {
+                  "target_id": "t2_e",
+                  "col": "E",
+                  "header": "Response",
+                  "role": "answer",
+                  "strategy": "llm",
+                  "constant_value": null,
+                  "format": {
+                    "type": "enum",
+                    "allowed_values": [
+                      "Yes",
+                      "No",
+                      "Partial",
+                      "Not applicable"
+                    ]
+                  },
+                  "rule": "Choose from Yes | No | Partial | Not applicable"
+                },
+                {
+                  "target_id": "t2_f",
+                  "col": "F",
+                  "header": "Evidence reference",
+                  "role": "citations",
+                  "strategy": "llm",
+                  "constant_value": null,
+                  "format": {
+                    "type": "free_text",
+                    "allowed_values": []
+                  },
+                  "rule": "Provide evidence reference."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sheet_name": "3. Data Protection & Resilience",
+          "role": "questions",
+          "tables": [
+            {
+              "table_id": "table_3_1",
+              "header_row": 7,
+              "first_data_row": 8,
+              "last_data_row": 20,
+              "first_col": "A",
+              "last_col": "F",
+              "question_col": "C",
+              "id_col": "A",
+              "section_label_col": "A",
+              "fill_targets": [
+                {
+                  "target_id": "t3_d",
+                  "col": "D",
+                  "header": "Status",
+                  "role": "answer",
+                  "strategy": "llm",
+                  "constant_value": null,
+                  "format": {
+                    "type": "enum",
+                    "allowed_values": [
+                      "Yes",
+                      "No",
+                      "Partial",
+                      "Not applicable"
+                    ]
+                  },
+                  "rule": "Choose from Yes | No | Partial | Not applicable"
+                },
+                {
+                  "target_id": "t3_e",
+                  "col": "E",
+                  "header": "Owner",
+                  "role": "other",
+                  "strategy": "llm",
+                  "constant_value": null,
+                  "format": {
+                    "type": "free_text",
+                    "allowed_values": []
+                  },
+                  "rule": "Specify the owner of the control."
+                },
+                {
+                  "target_id": "t3_f",
+                  "col": "F",
+                  "header": "Notes",
+                  "role": "notes",
+                  "strategy": "llm",
+                  "constant_value": null,
+                  "format": {
+                    "type": "free_text",
+                    "allowed_values": []
+                  },
+                  "rule": "Provide notes or remarks."
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "needs_full_render": false,
+      "more_info_reason": ""
+    }
+  ],
+  "schema": {
+    "instructions_text": "Reminder: use the Response Key tab for valid Status values.",
+    "response_key": [
+      {
+        "value": "Yes",
+        "meaning": "Fully compliant"
+      },
+      {
+        "value": "No",
+        "meaning": "Not compliant"
+      },
+      {
+        "value": "Partial",
+        "meaning": "Partially compliant"
+      },
+      {
+        "value": "Not applicable",
+        "meaning": "Not applicable"
+      }
+    ],
+    "sheets": [
+      {
+        "sheet_name": "1. Access & Identity Management",
+        "role": "questions",
+        "tables": [
+          {
+            "table_id": "table_1_1",
+            "header_row": 4,
+            "first_data_row": 5,
+            "last_data_row": 10,
+            "first_col": "A",
+            "last_col": "D",
+            "question_col": "B",
+            "id_col": "A",
+            "section_label_col": "A",
+            "fill_targets": [
+              {
+                "target_id": "t1_c",
+                "col": "C",
+                "header": "response",
+                "role": "answer",
+                "strategy": "llm",
+                "constant_value": null,
+                "format": {
+                  "type": "enum",
+                  "allowed_values": [
+                    "Yes",
+                    "No",
+                    "Partial",
+                    "Not applicable"
+                  ]
+                },
+                "rule": "Choose from Yes | No | Partial | Not applicable"
+              },
+              {
+                "target_id": "t1_d",
+                "col": "D",
+                "header": "comment",
+                "role": "notes",
+                "strategy": "llm",
+                "constant_value": null,
+                "format": {
+                  "type": "free_text",
+                  "allowed_values": []
+                },
+                "rule": "Provide comments or evidence notes."
+              }
+            ]
+          },
+          {
+            "table_id": "table_1_2",
+            "header_row": 12,
+            "first_data_row": 13,
+            "last_data_row": 26,
+            "first_col": "A",
+            "last_col": "F",
+            "question_col": "C",
+            "id_col": "A",
+            "section_label_col": "A",
+            "fill_targets": [
+              {
+                "target_id": "t2_d",
+                "col": "D",
+                "header": "Applicable (Y/N)",
+                "role": "other",
+                "strategy": "llm",
+                "constant_value": null,
+                "format": {
+                  "type": "enum",
+                  "allowed_values": [
+                    "Y",
+                    "N"
+                  ]
+                },
+                "rule": "Indicate if applicable using Y or N"
+              },
+              {
+                "target_id": "t2_e",
+                "col": "E",
+                "header": "Response",
+                "role": "answer",
+                "strategy": "llm",
+                "constant_value": null,
+                "format": {
+                  "type": "enum",
+                  "allowed_values": [
+                    "Yes",
+                    "No",
+                    "Partial",
+                    "Not applicable"
+                  ]
+                },
+                "rule": "Choose from Yes | No | Partial | Not applicable"
+              },
+              {
+                "target_id": "t2_f",
+                "col": "F",
+                "header": "Evidence reference",
+                "role": "citations",
+                "strategy": "llm",
+                "constant_value": null,
+                "format": {
+                  "type": "free_text",
+                  "allowed_values": []
+                },
+                "rule": "Provide evidence reference."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "sheet_name": "3. Data Protection & Resilience",
+        "role": "questions",
+        "tables": [
+          {
+            "table_id": "table_3_1",
+            "header_row": 7,
+            "first_data_row": 8,
+            "last_data_row": 20,
+            "first_col": "A",
+            "last_col": "F",
+            "question_col": "C",
+            "id_col": "A",
+            "section_label_col": "A",
+            "fill_targets": [
+              {
+                "target_id": "t3_d",
+                "col": "D",
+                "header": "Status",
+                "role": "answer",
+                "strategy": "llm",
+                "constant_value": null,
+                "format": {
+                  "type": "enum",
+                  "allowed_values": [
+                    "Yes",
+                    "No",
+                    "Partial",
+                    "Not applicable"
+                  ]
+                },
+                "rule": "Choose from Yes | No | Partial | Not applicable"
+              },
+              {
+                "target_id": "t3_e",
+                "col": "E",
+                "header": "Owner",
+                "role": "other",
+                "strategy": "llm",
+                "constant_value": null,
+                "format": {
+                  "type": "free_text",
+                  "allowed_values": []
+                },
+                "rule": "Specify the owner of the control."
+              },
+              {
+                "target_id": "t3_f",
+                "col": "F",
+                "header": "Notes",
+                "role": "notes",
+                "strategy": "llm",
+                "constant_value": null,
+                "format": {
+                  "type": "free_text",
+                  "allowed_values": []
+                },
+                "rule": "Provide notes or remarks."
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

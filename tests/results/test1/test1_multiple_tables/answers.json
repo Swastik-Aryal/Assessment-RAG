@@ -1,0 +1,63 @@
+{
+  "1. Access & Identity Management!t1_1!7": {
+    "ans_status": "answerable",
+    "confidence": "high",
+    "answer": "Yes",
+    "sources": [
+      "[id=8.1]"
+    ],
+    "f1_2": "The organization uses role-based access control (RBAC), least privilege, and separation of duties to restrict access to sensitive data based on business need."
+  },
+  "1. Access & Identity Management!t1_1!8": {
+    "ans_status": "answerable",
+    "confidence": "high",
+    "answer": "Yes",
+    "sources": [
+      "id=9.1",
+      "id=9.6",
+      "id=22.3"
+    ],
+    "f1_2": "The organization identifies and authenticates access through an internal password policy, mandatory MFA for production systems, centralized SSO, and role-based access control (RBAC) with least privilege principles."
+  },
+  "1. Access & Identity Management!t1_2!13": {
+    "ans_status": "answerable",
+    "confidence": "high",
+    "answer": "Yes",
+    "sources": [
+      "[id=18.1]"
+    ],
+    "f1_3": "Y",
+    "f1_5": "ClientABC production environment is subject to an external penetration test by a nationally recognized security firm at least once per calendar year."
+  },
+  "2. Network & Infrastructure!t2_1!7": {
+    "ans_status": "answerable",
+    "confidence": "high",
+    "answer": "Yes",
+    "sources": [
+      "id=18.1"
+    ],
+    "f2_1": "Y",
+    "f2_3": "ClientABC production environment is subject to an external penetration test by a nationally recognized security firm at least once per calendar year."
+  },
+  "3. Data Protection & Resilience!t3_1!9": {
+    "ans_status": "answerable",
+    "confidence": "high",
+    "answer": "Yes",
+    "sources": [
+      "id=24.1"
+    ],
+    "f3_2": "Security Awareness Program",
+    "f3_3": "All employees and contractors undergo regular security awareness training appropriate to their role and function within the organization upon hire and annually."
+  },
+  "3. Data Protection & Resilience!t3_1!23": {
+    "ans_status": "answerable",
+    "confidence": "high",
+    "answer": "Yes",
+    "sources": [
+      "id=23.2",
+      "id=7.1"
+    ],
+    "f3_2": "ClientABC Platform / Customer",
+    "f3_3": "Data at rest is encrypted using AES-256. The platform manages encryption keys on behalf of the customer, though customers may elect to manage their own keys via KMS integration."
+  }
+}

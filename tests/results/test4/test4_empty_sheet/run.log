@@ -1,0 +1,11 @@
+11:37:29 | INFO | extracted 9 questions from empty_sheet.xlsx
+11:37:29 | INFO | [1/9] 1.1.1 Do you restrict access to cardholder data by business need to know?
+11:37:45 | INFO | [2/9] 1. Access & Identity Management!9 Do you identify and authenticate access to system components?
+11:38:01 | INFO | [3/9] 1. Access & Identity Management!11 Does your business use network segmentation to affect the scope of your Payment 
+11:38:20 | INFO | [4/9] 1.2.1 How does your business store, process, and transmit cardholder data, and in what
+11:38:49 | WARNING | enum mismatch (retry 1/3): [('answer', 'The business stores and processes cardholder data in production systems using AES-256 encryption at rest and TLS 1.2 or higher for data in transit. Data is never allowed to leave the production environment. Cardholder data may be processed by third-party vendors who contractually comply with security standards, though specific vendor names were not listed in the retrieved context. Sensitive data including customer contracts is also kept in hard copy (paper) within secure environments.', ['Yes', 'No', 'Partial', 'Not applicable'])]
+11:39:13 | INFO | [5/9] 1.2.3 Do you encrypt the transmission of cardholder data across open, public networks?
+11:39:32 | INFO | [6/9] 2.1.1 Do you perform network security testing?
+11:39:52 | INFO | [7/9] 2.2.2 Do all endpoints have malware protection software?
+11:40:11 | INFO | [8/9] 2.2.6 Do you have formally defined criteria for notifying a client during an incident 
+11:40:33 | INFO | [9/9] 2.2.7 Do you have a formalized Security Incident Response Program?

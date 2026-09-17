@@ -1,0 +1,74 @@
+[
+  {
+    "id": "1.1.1",
+    "text": "Do you restrict access to cardholder data by business need to know?",
+    "sheet": "1. Access & Identity Management",
+    "row": 8,
+    "section_label": "",
+    "table_id": "sheet1_table1"
+  },
+  {
+    "id": "1. Access & Identity Management!9",
+    "text": "Do you identify and authenticate access to system components?",
+    "sheet": "1. Access & Identity Management",
+    "row": 9,
+    "section_label": "",
+    "table_id": "sheet1_table1"
+  },
+  {
+    "id": "1. Access & Identity Management!11",
+    "text": "Does your business use network segmentation to affect the scope of your Payment Card Industry Data Security Standard (PCI DSS) environment?",
+    "sheet": "1. Access & Identity Management",
+    "row": 11,
+    "section_label": "",
+    "table_id": "sheet1_table1"
+  },
+  {
+    "id": "1.2.1",
+    "text": "How does your business store, process, and transmit cardholder data, and in what capacity?",
+    "sheet": "1. Access & Identity Management",
+    "row": 14,
+    "section_label": "",
+    "table_id": "sheet1_table1"
+  },
+  {
+    "id": "1.2.3",
+    "text": "Do you encrypt the transmission of cardholder data across open, public networks?",
+    "sheet": "1. Access & Identity Management",
+    "row": 16,
+    "section_label": "",
+    "table_id": "sheet1_table1"
+  },
+  {
+    "id": "2.1.1",
+    "text": "Do you perform network security testing?",
+    "sheet": "2. Network & Infrastructure",
+    "row": 7,
+    "section_label": "",
+    "table_id": "sheet2_table1"
+  },
+  {
+    "id": "2.2.2",
+    "text": "Do all endpoints have malware protection software?",
+    "sheet": "2. Network & Infrastructure",
+    "row": 22,
+    "section_label": "Infrastructure hardening",
+    "table_id": "sheet2_table1"
+  },
+  {
+    "id": "2.2.6",
+    "text": "Do you have formally defined criteria for notifying a client during an incident that might impact the security of their data or systems?",
+    "sheet": "2. Network & Infrastructure",
+    "row": 26,
+    "section_label": "Infrastructure hardening",
+    "table_id": "sheet2_table1"
+  },
+  {
+    "id": "2.2.7",
+    "text": "Do you have a formalized Security Incident Response Program?",
+    "sheet": "2. Network & Infrastructure",
+    "row": 27,
+    "section_label": "Infrastructure hardening",
+    "table_id": "sheet2_table1"
+  }
+]

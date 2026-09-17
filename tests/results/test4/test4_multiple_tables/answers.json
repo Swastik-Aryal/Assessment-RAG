@@ -1,0 +1,64 @@
+{
+  "1. Access & Identity Management!sheet1_table1!7": {
+    "ans_status": "answerable",
+    "confidence": "high",
+    "answer": "Yes",
+    "sources": [
+      "[id=8.1]"
+    ],
+    "t1_d": "The retrieved context confirms that access to sensitive data is restricted by the organization's policies and procedures, which adhere to role-based access control (RBAC), least privilege, and separation of duties principles."
+  },
+  "1. Access & Identity Management!sheet1_table1!8": {
+    "ans_status": "answerable",
+    "confidence": "high",
+    "answer": "Yes",
+    "sources": [
+      "id=9.1",
+      "id=9.6",
+      "id=22.3",
+      "id=9.5"
+    ],
+    "t1_d": "The vendor confirms authentication mechanisms through internal password policies (id=9.1), the use of Single Sign-On (SSO) for applications (id=9.6), mandatory MFA for production systems (id=9.5), and centralized secrets management with complex passwords and 2FA (id=22.3). Additionally, access decisions are based on role-based access control (RBAC) and least privilege principles (id=8.1)."
+  },
+  "1. Access & Identity Management!sheet1_table2!13": {
+    "ans_status": "answerable",
+    "confidence": "high",
+    "answer": "Yes",
+    "sources": [
+      "id=18.1"
+    ],
+    "t2_d": "Yes",
+    "t2_f": "Evidence reference: id=18.1 states that the production environment is subject to an external penetration test by a nationally recognized security firm at least once per calendar year."
+  },
+  "2. Network & Infrastructure!sheet2_table1!7": {
+    "ans_status": "answerable",
+    "confidence": "high",
+    "answer": "Yes",
+    "sources": [
+      "id=18.1"
+    ],
+    "sheet2_t1_d": "Yes",
+    "sheet2_t1_f": "Evidence reference: id=18.1 states that the production environment is subject to an external penetration test by a nationally recognized security firm at least once per calendar year."
+  },
+  "3. Data Protection & Resilience!sheet3_table1!9": {
+    "ans_status": "answerable",
+    "confidence": "high",
+    "answer": "Yes",
+    "sources": [
+      "id=24.1"
+    ],
+    "sheet3_t1_e": "Security Awareness Team",
+    "sheet3_t1_f": "Based on id=24.1, all employees and contractors undergo regular security awareness training appropriate to their role upon hire and annually."
+  },
+  "3. Data Protection & Resilience!sheet3_table1!23": {
+    "ans_status": "answerable",
+    "confidence": "high",
+    "answer": "Yes",
+    "sources": [
+      "[id=23.2]",
+      "[id=7.1]"
+    ],
+    "sheet3_t1_e": "Owner",
+    "sheet3_t1_f": "Based on retrieved rows [id=23.2] and [id=7.1], the vendor confirms that all data at rest is encrypted using AES-256."
+  }
+}

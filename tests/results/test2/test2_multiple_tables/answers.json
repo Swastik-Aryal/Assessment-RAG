@@ -1,0 +1,63 @@
+{
+  "1. Access & Identity Management!t1_1!7": {
+    "ans_status": "unanswerable",
+    "confidence": "low",
+    "answer": "Not applicable",
+    "sources": [],
+    "t1_1_d": "The retrieved context does not contain information regarding whether access to cardholder data is restricted by business need to know. The available rows discuss third-party sharing, data ownership, data classification (Personal Information), and general access control policies (RBAC), but none specifically address the restriction of cardholder data access based on business need."
+  },
+  "1. Access & Identity Management!t1_1!8": {
+    "ans_status": "answerable",
+    "confidence": "high",
+    "answer": "Yes",
+    "sources": [
+      "id=9.1",
+      "id=9.6",
+      "id=22.3",
+      "id=9.5",
+      "id=8.1"
+    ],
+    "t1_1_d": "The organization identifies and authenticates access through an internal password policy, mandatory MFA for production systems, centralized SSO, role-based access control (RBAC), least privilege principles, and separation of duties."
+  },
+  "1. Access & Identity Management!t1_2!13": {
+    "ans_status": "answerable",
+    "confidence": "high",
+    "answer": "Yes",
+    "sources": [
+      "id=18.1"
+    ],
+    "t1_2_d": "Yes",
+    "t1_2_f": "Evidence reference: id=18.1 states that the production environment is subject to an external penetration test by a nationally recognized security firm at least once per calendar year."
+  },
+  "2. Network & Infrastructure!t2_1!7": {
+    "ans_status": "answerable",
+    "confidence": "high",
+    "answer": "Yes",
+    "sources": [
+      "id=18.1"
+    ],
+    "t2_1_d": "Yes",
+    "t2_1_f": "[id=18.1] Our \"ClientABC\" production environment is subject to an external penetration test by a nationally recognized security firm at least once per calendar year."
+  },
+  "3. Data Protection & Resilience!t3_1!9": {
+    "ans_status": "answerable",
+    "confidence": "high",
+    "answer": "Yes",
+    "sources": [
+      "id=24.1"
+    ],
+    "t3_1_e": "Not applicable",
+    "t3_1_f": "All employees and contractors undergo regular security awareness training appropriate to their role and function within the organization upon hire and annually."
+  },
+  "3. Data Protection & Resilience!t3_1!23": {
+    "ans_status": "answerable",
+    "confidence": "high",
+    "answer": "Yes",
+    "sources": [
+      "[id=23.2]",
+      "[id=7.1]"
+    ],
+    "t3_1_e": "ClientABC",
+    "t3_1_f": "All data at rest is encrypted using AES-256."
+  }
+}

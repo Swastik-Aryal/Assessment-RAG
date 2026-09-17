@@ -1,0 +1,99 @@
+{
+  "Sheet1!Sheet1_table1!1": {
+    "ans_status": "needs_review",
+    "confidence": "medium",
+    "answer": "The provided context does not explicitly state whether access to cardholder data is restricted by business need to know. It mentions role-based access control (RBAC) and least privilege principles for sensitive data, but does not confirm if these apply specifically to 'cardholder data' or if the restriction is strictly based on 'business need to know'.",
+    "sources": [
+      "id=8.1"
+    ]
+  },
+  "Sheet1!Sheet1_table1!2": {
+    "ans_status": "answerable",
+    "confidence": "high",
+    "answer": "Yes",
+    "sources": [
+      "[id=9.1]",
+      "[id=9.6]",
+      "[id=22.3]",
+      "[id=9.5]"
+    ]
+  },
+  "Sheet1!Sheet1_table1!3": {
+    "ans_status": "needs_review",
+    "confidence": "medium",
+    "answer": "The provided context does not explicitly state whether physical access to cardholder data is restricted. It mentions that only privileged users have access based on the principle of least privilege, but this refers to staff/contractor access rather than physical access.",
+    "sources": [
+      "id=8.6",
+      "id=8.1"
+    ]
+  },
+  "Sheet1!Sheet1_table1!4": {
+    "ans_status": "answerable",
+    "confidence": "high",
+    "answer": "Yes",
+    "sources": [
+      "[id=22.5]"
+    ]
+  },
+  "Sheet1!Sheet1_table1!5": {
+    "ans_status": "answerable",
+    "confidence": "high",
+    "answer": "Yes, the entire platform is protected by a firewall.",
+    "sources": [
+      "id=21.2"
+    ]
+  },
+  "Sheet1!Sheet1_table1!6": {
+    "ans_status": "answerable",
+    "confidence": "high",
+    "answer": "The service provider organization runs its service in the cloud via AWS, GCP, and Azure.",
+    "sources": [
+      "[id=4.1]",
+      "[id=4.3]"
+    ]
+  },
+  "Sheet1!Sheet1_table1!7": {
+    "ans_status": "answerable",
+    "confidence": "high",
+    "answer": "Yes",
+    "sources": [
+      "[id=18.2]"
+    ]
+  },
+  "Sheet1!Sheet1_table1!8": {
+    "ans_status": "answerable",
+    "confidence": "high",
+    "answer": "Yes",
+    "sources": [
+      "[id=19.6]",
+      "[id=25.1]"
+    ]
+  },
+  "Sheet1!Sheet1_table1!9": {
+    "ans_status": "answerable",
+    "confidence": "high",
+    "answer": "Yes, we regularly test security systems and processes through network vulnerability scans (quarterly), penetration tests by third parties (annually), IDS/IPS monitoring (24/7), patch evaluations, and incident response plan testing (annually).",
+    "sources": [
+      "id=25.1",
+      "id=27.2",
+      "id=18.1",
+      "id=19.6"
+    ]
+  },
+  "Sheet1!Sheet1_table1!10": {
+    "ans_status": "answerable",
+    "confidence": "high",
+    "answer": "Yes",
+    "sources": [
+      "[id=26.1]"
+    ]
+  },
+  "Sheet1!Sheet1_table1!11": {
+    "ans_status": "answerable",
+    "confidence": "high",
+    "answer": "Yes",
+    "sources": [
+      "[id=7.1]"
+    ]
+  }
+}

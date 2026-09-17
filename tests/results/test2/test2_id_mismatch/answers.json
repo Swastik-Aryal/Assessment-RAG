@@ -1,0 +1,110 @@
+{
+  "1. Access & Identity Management!table_1_1!6": {
+    "ans_status": "answerable",
+    "confidence": "high",
+    "answer": "Yes",
+    "sources": [
+      "id=10.1"
+    ],
+    "t1_d": "The retrieved context indicates that processors (vendors) do access customer information, which implies a need to restrict such access based on business need to know. The document explicitly states vendors access customer data."
+  },
+  "1. Access & Identity Management!table_1_1!9": {
+    "ans_status": "answerable",
+    "confidence": "high",
+    "answer": "Yes",
+    "sources": [
+      "id=22.5"
+    ],
+    "t1_d": "The retrieved context explicitly states that the production network is segmented into different zones based on security levels, utilizing VPCs/VNets with security groups to isolate data and prevent inbound internet access."
+  },
+  "1. Access & Identity Management!table_1_2!14": {
+    "ans_status": "answerable",
+    "confidence": "high",
+    "answer": "Yes",
+    "sources": [
+      "[id=18.1]"
+    ],
+    "t2_d": "Yes",
+    "t2_f": "Row [id=18.1] states that the production environment is subject to an external penetration test by a nationally recognized security firm at least once per calendar year."
+  },
+  "1. Access & Identity Management!table_1_2!17": {
+    "ans_status": "answerable",
+    "confidence": "high",
+    "answer": "Yes",
+    "sources": [
+      "id=12.2"
+    ],
+    "t2_d": "Yes",
+    "t2_f": "[id=12.2]"
+  },
+  "1. Access & Identity Management!table_1_2!22": {
+    "ans_status": "unanswerable",
+    "confidence": "low",
+    "answer": "Not applicable",
+    "sources": [],
+    "t2_d": "No",
+    "t2_f": "The retrieved context does not contain information regarding the maintenance of an asset inventory."
+  },
+  "1. Access & Identity Management!table_1_2!26": {
+    "ans_status": "answerable",
+    "confidence": "high",
+    "answer": "No",
+    "sources": [
+      "id=20.1"
+    ],
+    "t2_d": "Yes",
+    "t2_f": "[id=20.1] states: 'We do not permit direct connections to our backend production environment.'"
+  },
+  "3. Data Protection & Resilience!table_3_1!9": {
+    "ans_status": "answerable",
+    "confidence": "high",
+    "answer": "Yes",
+    "sources": [
+      "id=24.1"
+    ],
+    "t3_e": "ClientABC",
+    "t3_f": "All employees and contractors undergo regular security awareness training appropriate to their role and function within the organization upon hire and annually."
+  },
+  "3. Data Protection & Resilience!table_3_1!10": {
+    "ans_status": "answerable",
+    "confidence": "high",
+    "answer": "Yes",
+    "sources": [
+      "id=24.1"
+    ],
+    "t3_e": "Security Awareness Program",
+    "t3_f": "All employees and contractors undergo regular security awareness training appropriate to their role and function within the organization upon hire and annually."
+  },
+  "3. Data Protection & Resilience!table_3_1!13": {
+    "ans_status": "answerable",
+    "confidence": "high",
+    "answer": "Yes",
+    "sources": [
+      "[id=20.2]",
+      "[id=20.3]"
+    ],
+    "t3_e": "ClientABC",
+    "t3_f": "The vendor enforces this via MDM for owned devices and BYOD policy compliance for personal devices, prohibiting confidential data storage on mobile devices."
+  },
+  "3. Data Protection & Resilience!table_3_1!15": {
+    "ans_status": "answerable",
+    "confidence": "high",
+    "answer": "Yes",
+    "sources": [
+      "[id=23.5]"
+    ],
+    "t3_e": "ClientABC",
+    "t3_f": "The vendor uses centrally managed SSO, mandatory complex passwords with 2FA, and manages encryption keys on behalf of the customer or via KMS integration to protect client data."
+  },
+  "3. Data Protection & Resilience!table_3_1!20": {
+    "ans_status": "answerable",
+    "confidence": "high",
+    "answer": "Yes",
+    "sources": [
+      "id=23.2",
+      "id=7.1"
+    ],
+    "t3_e": "ClientABC",
+    "t3_f": "All data at rest is encrypted using AES-256."
+  }
+}

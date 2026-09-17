@@ -1,0 +1,441 @@
+{
+  "attempts": [
+    {
+      "full": true,
+      "instructions_text": "Answer each question in tabs 1, 2 and 3 using the Response column. Valid response values are listed in the 'Response Key' tab. Where a control is not applicable, select 'Not applicable' and explain in Comments. Attach or reference supporting evidence where a question asks for it.",
+      "response_key": [
+        {
+          "value": "Yes",
+          "meaning": "The control is fully in place."
+        },
+        {
+          "value": "No",
+          "meaning": "The control is not in place."
+        },
+        {
+          "value": "Partial",
+          "meaning": "The control is partially in place."
+        },
+        {
+          "value": "Not applicable",
+          "meaning": "The control does not apply to this service."
+        }
+      ],
+      "sheets": [
+        {
+          "sheet_name": "Cover",
+          "role": "cover",
+          "tables": []
+        },
+        {
+          "sheet_name": "How to complete",
+          "role": "instructions",
+          "tables": []
+        },
+        {
+          "sheet_name": "1. Access & Identity Management",
+          "role": "questions",
+          "tables": [
+            {
+              "table_id": "sheet3_table1",
+              "header_row": 6,
+              "first_data_row": 7,
+              "last_data_row": 43,
+              "first_col": "A",
+              "last_col": "D",
+              "question_col": "B",
+              "id_col": "A",
+              "section_label_col": "A",
+              "fill_targets": [
+                {
+                  "target_id": "t1_resp",
+                  "col": "C",
+                  "header": "Response",
+                  "role": "answer",
+                  "strategy": "llm",
+                  "constant_value": null,
+                  "format": {
+                    "type": "enum",
+                    "allowed_values": [
+                      "Yes",
+                      "No",
+                      "Partial",
+                      "Not applicable"
+                    ]
+                  },
+                  "rule": "Select one of Yes | No | Partial | Not applicable"
+                },
+                {
+                  "target_id": "t1_comm",
+                  "col": "D",
+                  "header": "Supporting comments",
+                  "role": "notes",
+                  "strategy": "llm",
+                  "constant_value": null,
+                  "format": {
+                    "type": "free_text",
+                    "allowed_values": []
+                  },
+                  "rule": "Provide supporting comments or explanations, especially if Not applicable"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sheet_name": "2. Network & Infrastructure",
+          "role": "questions",
+          "tables": [
+            {
+              "table_id": "sheet4_table1",
+              "header_row": 5,
+              "first_data_row": 6,
+              "last_data_row": 44,
+              "first_col": "A",
+              "last_col": "F",
+              "question_col": "C",
+              "id_col": "A",
+              "section_label_col": "A",
+              "fill_targets": [
+                {
+                  "target_id": "t2_appl",
+                  "col": "D",
+                  "header": "Applicable (Y/N)",
+                  "role": "other",
+                  "strategy": "llm",
+                  "constant_value": null,
+                  "format": {
+                    "type": "enum",
+                    "allowed_values": [
+                      "Yes",
+                      "No"
+                    ]
+                  },
+                  "rule": "Indicate applicability as Yes or No"
+                },
+                {
+                  "target_id": "t2_resp",
+                  "col": "E",
+                  "header": "Response",
+                  "role": "answer",
+                  "strategy": "llm",
+                  "constant_value": null,
+                  "format": {
+                    "type": "enum",
+                    "allowed_values": [
+                      "Yes",
+                      "No",
+                      "Partial",
+                      "Not applicable"
+                    ]
+                  },
+                  "rule": "Select one of Yes | No | Partial | Not applicable"
+                },
+                {
+                  "target_id": "t2_evid",
+                  "col": "F",
+                  "header": "Evidence reference",
+                  "role": "citations",
+                  "strategy": "llm",
+                  "constant_value": null,
+                  "format": {
+                    "type": "free_text",
+                    "allowed_values": []
+                  },
+                  "rule": "Provide evidence reference if applicable"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sheet_name": "3. Data Protection & Resilience",
+          "role": "questions",
+          "tables": [
+            {
+              "table_id": "sheet5_table1",
+              "header_row": 7,
+              "first_data_row": 8,
+              "last_data_row": 46,
+              "first_col": "A",
+              "last_col": "F",
+              "question_col": "C",
+              "id_col": "A",
+              "section_label_col": "A",
+              "fill_targets": [
+                {
+                  "target_id": "t3_stat",
+                  "col": "D",
+                  "header": "Status",
+                  "role": "answer",
+                  "strategy": "llm",
+                  "constant_value": null,
+                  "format": {
+                    "type": "enum",
+                    "allowed_values": [
+                      "Yes",
+                      "No",
+                      "Partial",
+                      "Not applicable"
+                    ]
+                  },
+                  "rule": "Select one of Yes | No | Partial | Not applicable"
+                },
+                {
+                  "target_id": "t3_owner",
+                  "col": "E",
+                  "header": "Owner",
+                  "role": "other",
+                  "strategy": "llm",
+                  "constant_value": null,
+                  "format": {
+                    "type": "free_text",
+                    "allowed_values": []
+                  },
+                  "rule": "Provide control owner or team"
+                },
+                {
+                  "target_id": "t3_notes",
+                  "col": "F",
+                  "header": "Notes",
+                  "role": "notes",
+                  "strategy": "llm",
+                  "constant_value": null,
+                  "format": {
+                    "type": "free_text",
+                    "allowed_values": []
+                  },
+                  "rule": "Provide notes or additional context"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "sheet_name": "Response Key",
+          "role": "response_key",
+          "tables": []
+        }
+      ],
+      "needs_full_render": false,
+      "more_info_reason": ""
+    }
+  ],
+  "schema": {
+    "instructions_text": "Answer each question in tabs 1, 2 and 3 using the Response column. Valid response values are listed in the 'Response Key' tab. Where a control is not applicable, select 'Not applicable' and explain in Comments. Attach or reference supporting evidence where a question asks for it.",
+    "response_key": [
+      {
+        "value": "Yes",
+        "meaning": "The control is fully in place."
+      },
+      {
+        "value": "No",
+        "meaning": "The control is not in place."
+      },
+      {
+        "value": "Partial",
+        "meaning": "The control is partially in place."
+      },
+      {
+        "value": "Not applicable",
+        "meaning": "The control does not apply to this service."
+      }
+    ],
+    "sheets": [
+      {
+        "sheet_name": "Cover",
+        "role": "cover",
+        "tables": []
+      },
+      {
+        "sheet_name": "How to complete",
+        "role": "instructions",
+        "tables": []
+      },
+      {
+        "sheet_name": "1. Access & Identity Management",
+        "role": "questions",
+        "tables": [
+          {
+            "table_id": "sheet3_table1",
+            "header_row": 6,
+            "first_data_row": 7,
+            "last_data_row": 43,
+            "first_col": "A",
+            "last_col": "D",
+            "question_col": "B",
+            "id_col": "A",
+            "section_label_col": "A",
+            "fill_targets": [
+              {
+                "target_id": "t1_resp",
+                "col": "C",
+                "header": "Response",
+                "role": "answer",
+                "strategy": "llm",
+                "constant_value": null,
+                "format": {
+                  "type": "enum",
+                  "allowed_values": [
+                    "Yes",
+                    "No",
+                    "Partial",
+                    "Not applicable"
+                  ]
+                },
+                "rule": "Select one of Yes | No | Partial | Not applicable"
+              },
+              {
+                "target_id": "t1_comm",
+                "col": "D",
+                "header": "Supporting comments",
+                "role": "notes",
+                "strategy": "llm",
+                "constant_value": null,
+                "format": {
+                  "type": "free_text",
+                  "allowed_values": []
+                },
+                "rule": "Provide supporting comments or explanations, especially if Not applicable"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "sheet_name": "2. Network & Infrastructure",
+        "role": "questions",
+        "tables": [
+          {
+            "table_id": "sheet4_table1",
+            "header_row": 5,
+            "first_data_row": 6,
+            "last_data_row": 44,
+            "first_col": "A",
+            "last_col": "F",
+            "question_col": "C",
+            "id_col": "A",
+            "section_label_col": "A",
+            "fill_targets": [
+              {
+                "target_id": "t2_appl",
+                "col": "D",
+                "header": "Applicable (Y/N)",
+                "role": "other",
+                "strategy": "llm",
+                "constant_value": null,
+                "format": {
+                  "type": "enum",
+                  "allowed_values": [
+                    "Yes",
+                    "No"
+                  ]
+                },
+                "rule": "Indicate applicability as Yes or No"
+              },
+              {
+                "target_id": "t2_resp",
+                "col": "E",
+                "header": "Response",
+                "role": "answer",
+                "strategy": "llm",
+                "constant_value": null,
+                "format": {
+                  "type": "enum",
+                  "allowed_values": [
+                    "Yes",
+                    "No",
+                    "Partial",
+                    "Not applicable"
+                  ]
+                },
+                "rule": "Select one of Yes | No | Partial | Not applicable"
+              },
+              {
+                "target_id": "t2_evid",
+                "col": "F",
+                "header": "Evidence reference",
+                "role": "citations",
+                "strategy": "llm",
+                "constant_value": null,
+                "format": {
+                  "type": "free_text",
+                  "allowed_values": []
+                },
+                "rule": "Provide evidence reference if applicable"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "sheet_name": "3. Data Protection & Resilience",
+        "role": "questions",
+        "tables": [
+          {
+            "table_id": "sheet5_table1",
+            "header_row": 7,
+            "first_data_row": 8,
+            "last_data_row": 46,
+            "first_col": "A",
+            "last_col": "F",
+            "question_col": "C",
+            "id_col": "A",
+            "section_label_col": "A",
+            "fill_targets": [
+              {
+                "target_id": "t3_stat",
+                "col": "D",
+                "header": "Status",
+                "role": "answer",
+                "strategy": "llm",
+                "constant_value": null,
+                "format": {
+                  "type": "enum",
+                  "allowed_values": [
+                    "Yes",
+                    "No",
+                    "Partial",
+                    "Not applicable"
+                  ]
+                },
+                "rule": "Select one of Yes | No | Partial | Not applicable"
+              },
+              {
+                "target_id": "t3_owner",
+                "col": "E",
+                "header": "Owner",
+                "role": "other",
+                "strategy": "llm",
+                "constant_value": null,
+                "format": {
+                  "type": "free_text",
+                  "allowed_values": []
+                },
+                "rule": "Provide control owner or team"
+              },
+              {
+                "target_id": "t3_notes",
+                "col": "F",
+                "header": "Notes",
+                "role": "notes",
+                "strategy": "llm",
+                "constant_value": null,
+                "format": {
+                  "type": "free_text",
+                  "allowed_values": []
+                },
+                "rule": "Provide notes or additional context"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "sheet_name": "Response Key",
+        "role": "response_key",
+        "tables": []
+      }
+    ]
+  }
+}

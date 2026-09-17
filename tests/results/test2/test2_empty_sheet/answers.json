@@ -1,0 +1,95 @@
+{
+  "1. Access & Identity Management!sheet1_table1!8": {
+    "ans_status": "answerable",
+    "confidence": "high",
+    "answer": "Yes",
+    "sources": [
+      "[id=8.1]"
+    ],
+    "t1_comm": "Based on retrieved row [id=8.1], the organization uses role-based access control (RBAC), least privilege, and separation of duties to decide access to sensitive data. While the specific phrase 'business need to know' is not explicitly used in the text, the principles of least privilege and separation of duties are standard implementations of restricting access based on business need."
+  },
+  "1. Access & Identity Management!sheet1_table1!9": {
+    "ans_status": "answerable",
+    "confidence": "high",
+    "answer": "Yes",
+    "sources": [
+      "id=9.1",
+      "id=9.6",
+      "id=22.3",
+      "id=9.5"
+    ],
+    "t1_comm": "The organization identifies and authenticates access through an internal password policy, mandatory MFA for production systems, centralized SSO usage, and role-based access control (RBAC) with least privilege principles."
+  },
+  "1. Access & Identity Management!sheet1_table1!11": {
+    "ans_status": "answerable",
+    "confidence": "high",
+    "answer": "Yes",
+    "sources": [
+      "[id=22.5]"
+    ],
+    "t1_comm": "The retrieved context explicitly states that the production network is segmented into different zones based on security levels, utilizing VPCs or VNets with security groups to isolate data and prevent inbound internet access."
+  },
+  "1. Access & Identity Management!sheet1_table1!14": {
+    "ans_status": "answerable",
+    "confidence": "high",
+    "answer": "Yes",
+    "sources": [
+      "id=10.1",
+      "id=7.1",
+      "id=8.7",
+      "id=8.10",
+      "id=10.2"
+    ],
+    "t1_comm": "The business stores and processes cardholder data in production systems using AES-256 encryption at rest and TLS 1.2 or higher for data in transit. Data is never allowed to leave the production environment. The business uses third-party vendors (processors) who access customer information, and these processors contractually comply with the business's security standards. Sensitive data may also be kept in hard copy form for specific assets like contracts and legal forms."
+  },
+  "1. Access & Identity Management!sheet1_table1!16": {
+    "ans_status": "answerable",
+    "confidence": "high",
+    "answer": "Yes",
+    "sources": [
+      "[id=23.1]",
+      "[id=22.7]"
+    ],
+    "t1_comm": "Row [id=23.1] explicitly confirms the use of TLS 1.2 for data in transit over public networks. Row [id=22.7] further supports this by stating that all network traffic to production infrastructure is sent over cryptographically sound encrypted connections, including VPNs."
+  },
+  "2. Network & Infrastructure!sheet2_table1!7": {
+    "ans_status": "answerable",
+    "confidence": "high",
+    "answer": "Yes",
+    "sources": [
+      "id=18.1"
+    ],
+    "t2_appl": "Yes",
+    "t2_evid": "[id=18.1] Our \"ClientABC\" production environment is subject to an external penetration test by a nationally recognized security firm at least once per calendar year."
+  },
+  "2. Network & Infrastructure!sheet2_table1!22": {
+    "ans_status": "answerable",
+    "confidence": "high",
+    "answer": "Yes",
+    "sources": [
+      "[id=20.2]"
+    ],
+    "t2_appl": "Yes",
+    "t2_evid": "[id=20.2] states that all 'ClientABC' managed workstations run up to date anti-virus and anti-malware software, and BYOD devices comply with the company's policy."
+  },
+  "2. Network & Infrastructure!sheet2_table1!26": {
+    "ans_status": "answerable",
+    "confidence": "high",
+    "answer": "Yes",
+    "sources": [
+      "id=28.1"
+    ],
+    "t2_appl": "Yes",
+    "t2_evid": "[id=28.1] ClientABC will notify without undue delay if we become aware of any Data Breach, including description of nature/cause and expected resolution time."
+  },
+  "2. Network & Infrastructure!sheet2_table1!27": {
+    "ans_status": "answerable",
+    "confidence": "high",
+    "answer": "Yes",
+    "sources": [
+      "[id=27.1]"
+    ],
+    "t2_appl": "Yes",
+    "t2_evid": "[id=27.1]"
+  }
+}

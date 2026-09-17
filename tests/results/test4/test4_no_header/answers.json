@@ -1,0 +1,96 @@
+{
+  "Sheet1!Sheet1_t1!1": {
+    "ans_status": "needs_review",
+    "confidence": "medium",
+    "answer": "The provided context does not explicitly state whether access to cardholder data is restricted by business need to know. It mentions role-based access control (RBAC) and least privilege principles for sensitive data, but does not specifically confirm the restriction of cardholder data access based on business need.",
+    "sources": [
+      "[id=8.1]"
+    ]
+  },
+  "Sheet1!Sheet1_t1!2": {
+    "ans_status": "answerable",
+    "confidence": "high",
+    "answer": "Yes",
+    "sources": [
+      "[id=9.1]",
+      "[id=9.6]",
+      "[id=22.3]",
+      "[id=9.5]"
+    ]
+  },
+  "Sheet1!Sheet1_t1!3": {
+    "ans_status": "needs_review",
+    "confidence": "medium",
+    "answer": "The provided context does not explicitly state whether physical access to cardholder data is restricted. It mentions that only privileged users have access based on the principle of least privilege and role-based access control (RBAC), but this refers to staff/contractor access, not specifically 'physical access'.",
+    "sources": [
+      "[id=8.6]",
+      "[id=8.1]"
+    ]
+  },
+  "Sheet1!Sheet1_t1!4": {
+    "ans_status": "answerable",
+    "confidence": "high",
+    "answer": "Yes",
+    "sources": [
+      "[id=22.5]"
+    ]
+  },
+  "Sheet1!Sheet1_t1!5": {
+    "ans_status": "answerable",
+    "confidence": "high",
+    "answer": "Yes, the entire platform is protected by a firewall.",
+    "sources": [
+      "id=21.2"
+    ]
+  },
+  "Sheet1!Sheet1_t1!6": {
+    "ans_status": "answerable",
+    "confidence": "high",
+    "answer": "The service provider organization runs its service in the cloud via AWS, GCP, and Azure.",
+    "sources": [
+      "[id=4.1]",
+      "[id=4.3]"
+    ]
+  },
+  "Sheet1!Sheet1_t1!7": {
+    "ans_status": "answerable",
+    "confidence": "high",
+    "answer": "Yes, the organization uses one or more Payment Applications.",
+    "sources": [
+      "[id=18.2]"
+    ]
+  },
+  "Sheet1!Sheet1_t1!8": {
+    "ans_status": "answerable",
+    "confidence": "high",
+    "answer": "Yes",
+    "sources": [
+      "[id=19.6]",
+      "[id=25.1]"
+    ]
+  },
+  "Sheet1!Sheet1_t1!9": {
+    "ans_status": "answerable",
+    "confidence": "high",
+    "answer": "Yes",
+    "sources": [
+      "id=25.1"
+    ]
+  },
+  "Sheet1!Sheet1_t1!10": {
+    "ans_status": "answerable",
+    "confidence": "high",
+    "answer": "Yes",
+    "sources": [
+      "id=26.1"
+    ]
+  },
+  "Sheet1!Sheet1_t1!11": {
+    "ans_status": "answerable",
+    "confidence": "high",
+    "answer": "Yes",
+    "sources": [
+      "[id=7.1]"
+    ]
+  }
+}

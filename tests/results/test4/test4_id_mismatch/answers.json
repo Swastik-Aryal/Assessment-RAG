@@ -1,0 +1,109 @@
+{
+  "1. Access & Identity Management!table_1_1!6": {
+    "ans_status": "unanswerable",
+    "confidence": "low",
+    "answer": "Not applicable",
+    "sources": [],
+    "t1_d": "The retrieved context contains questions about third-party data sharing, processor access, data ownership, and access control policies. However, none of the provided rows explicitly address whether access to cardholder data is restricted by 'business need to know'. While row [id=8.1] mentions role-based access control (RBAC) and least privilege principles generally, it does not confirm if these apply specifically to cardholder data or if a formal 'business need to know' restriction is in place."
+  },
+  "1. Access & Identity Management!table_1_1!9": {
+    "ans_status": "answerable",
+    "confidence": "high",
+    "answer": "Yes",
+    "sources": [
+      "id=22.5"
+    ],
+    "t1_d": "The retrieved context explicitly states that the production network is segmented into different zones based on security levels, utilizing VPCs/VNets with security groups to isolate data and prevent inbound internet access."
+  },
+  "1. Access & Identity Management!table_1_2!14": {
+    "ans_status": "answerable",
+    "confidence": "high",
+    "answer": "Yes",
+    "sources": [
+      "[id=18.1]",
+      "[id=25.1]"
+    ],
+    "t2_d": "Y",
+    "t2_f": "Evidence found in retrieved rows [id=18.1] and [id=25.1], which confirm the vendor performs network security testing via third-party penetration tests at least once per year and quarterly vulnerability scans."
+  },
+  "1. Access & Identity Management!table_1_2!17": {
+    "ans_status": "answerable",
+    "confidence": "high",
+    "answer": "Yes",
+    "sources": [
+      "id=12.2"
+    ],
+    "t2_d": "Y",
+    "t2_f": "The retrieved context directly confirms that the vendor has firewalls and firewall policies in place, as stated in row id=21.2: 'The entire platform is protected by a firewall.' Additionally, row id=12.2 confirms annual review of security policies."
+  },
+  "1. Access & Identity Management!table_1_2!22": {
+    "ans_status": "unanswerable",
+    "confidence": "low",
+    "answer": "Not applicable",
+    "sources": [],
+    "t2_d": "N",
+    "t2_f": "The retrieved context does not contain information regarding the maintenance of an asset inventory. The provided rows discuss dependency management, employment termination procedures, vulnerability management, and data handling in hard copy."
+  },
+  "1. Access & Identity Management!table_1_2!26": {
+    "ans_status": "answerable",
+    "confidence": "high",
+    "answer": "No",
+    "sources": [
+      "id=20.1"
+    ],
+    "t2_d": "N",
+    "t2_f": "The retrieved context explicitly states: 'We do not permit direct connections to our backend production environment.' This directly answers the question by indicating that no endpoint laptops connect directly to production networks, implying they are not centrally managed in the context of direct production access."
+  },
+  "3. Data Protection & Resilience!table_3_1!9": {
+    "ans_status": "answerable",
+    "confidence": "high",
+    "answer": "Yes",
+    "sources": [
+      "id=24.1"
+    ],
+    "t3_e": "Owner",
+    "t3_f": "All employees and contractors undergo regular security awareness training appropriate to their role and function within the organization upon hire and annually."
+  },
+  "3. Data Protection & Resilience!table_3_1!10": {
+    "ans_status": "answerable",
+    "confidence": "high",
+    "answer": "Yes",
+    "sources": [
+      "[id=24.1]"
+    ],
+    "t3_e": "Owner",
+    "t3_f": "The retrieved context confirms that all employees and contractors undergo regular security awareness training appropriate to their role, including annually."
+  },
+  "3. Data Protection & Resilience!table_3_1!13": {
+    "ans_status": "needs_review",
+    "confidence": "medium",
+    "answer": "Partial",
+    "sources": [
+      "[id=20.2]",
+      "[id=20.3]"
+    ],
+    "t3_e": "Endpoint Security - End User",
+    "t3_f": "The retrieved context confirms the use of screen locks, passwords, anti-malware, and full disk encryption for managed devices (id=20.2). However, it does not explicitly state a policy preventing the use of unauthorized personal instant messaging services or personal applications on company-managed devices with client data access. While id=20.3 mentions a BYOD policy prohibiting confidential data storage on mobile devices, this is distinct from restricting general personal app usage on managed corporate devices."
+  },
+  "3. Data Protection & Resilience!table_3_1!15": {
+    "ans_status": "answerable",
+    "confidence": "high",
+    "answer": "Yes",
+    "sources": [
+      "id=23.5"
+    ],
+    "t3_e": "ClientABC",
+    "t3_f": "ClientABC uses centrally managed SSO for authentication with mandatory complex passwords and 2FA. Cryptographic keys are managed by ClientABC on behalf of the customer, though customers may elect to manage their own keys via KMS integration."
+  },
+  "3. Data Protection & Resilience!table_3_1!20": {
+    "ans_status": "answerable",
+    "confidence": "high",
+    "answer": "Yes",
+    "sources": [
+      "id=23.2",
+      "id=7.1"
+    ],
+    "t3_e": "ClientABC",
+    "t3_f": "All data at rest is encrypted using AES-256 (Source id=23.2; Source id=7.1)."
+  }
+}

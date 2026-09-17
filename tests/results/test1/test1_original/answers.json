@@ -1,0 +1,1080 @@
+{
+  "1. Access & Identity Management!sheet3_table1!8": {
+    "ans_status": "answerable",
+    "confidence": "high",
+    "answer": "Yes",
+    "sources": [
+      "[id=8.1]"
+    ],
+    "t1_comm": "The organization uses role-based access control (RBAC), least privilege, and separation of duties to restrict access to sensitive data based on business need. This is explicitly stated in the retrieved context regarding how access decisions are made."
+  },
+  "1. Access & Identity Management!sheet3_table1!9": {
+    "ans_status": "answerable",
+    "confidence": "high",
+    "answer": "Yes",
+    "sources": [
+      "id=9.1",
+      "id=9.6",
+      "id=22.3",
+      "id=9.5",
+      "id=8.1"
+    ],
+    "t1_comm": "The organization identifies and authenticates access through an internal password policy, mandatory MFA for production systems, centralized SSO, role-based access control (RBAC), least privilege principles, and separation of duties."
+  },
+  "1. Access & Identity Management!sheet3_table1!10": {
+    "ans_status": "unanswerable",
+    "confidence": "low",
+    "answer": "Not applicable",
+    "sources": [],
+    "t1_comm": "The retrieved context addresses third-party data sharing, vendor access to customer information, and internal staff access controls (RBAC, least privilege). However, there is no specific information regarding the restriction of physical access to cardholder data."
+  },
+  "1. Access & Identity Management!sheet3_table1!11": {
+    "ans_status": "answerable",
+    "confidence": "high",
+    "answer": "Yes",
+    "sources": [
+      "[id=22.5]"
+    ],
+    "t1_comm": "The retrieved context explicitly states that the production network is segmented into different zones based on security levels, utilizing VPCs or VNets with security groups to isolate data and prevent inbound internet access."
+  },
+  "1. Access & Identity Management!sheet3_table1!12": {
+    "ans_status": "answerable",
+    "confidence": "high",
+    "answer": "Yes",
+    "sources": [
+      "id=21.2"
+    ],
+    "t1_comm": "The retrieved context explicitly states that 'The entire platform is protected by a firewall' in response to questions regarding systems mitigating web application vulnerabilities and protecting the production network."
+  },
+  "1. Access & Identity Management!sheet3_table1!13": {
+    "ans_status": "answerable",
+    "confidence": "high",
+    "answer": "Yes",
+    "sources": [
+      "id=4.1",
+      "id=6.1",
+      "id=4.4"
+    ],
+    "t1_comm": "The vendor has information about the service provider organization, including that data centers are hosted on the cloud via AWS, GCP, and Azure (id=4.3), they collect basic PII such as first name, last name, email address, IP address, device identifier, phone number, and fax number (id=6.1), and they have researched their cloud providers' best security practices (id=4.4)."
+  },
+  "1. Access & Identity Management!sheet3_table1!14": {
+    "ans_status": "answerable",
+    "confidence": "high",
+    "answer": "Yes",
+    "sources": [
+      "id=18.2"
+    ],
+    "t1_comm": "The organization uses Veracode, Coverity, and Snyk for application security testing (static and dynamic), indicating the use of Payment Applications or at least Application Security Testing tools relevant to payment processing environments."
+  },
+  "1. Access & Identity Management!sheet3_table1!15": {
+    "ans_status": "answerable",
+    "confidence": "high",
+    "answer": "Yes",
+    "sources": [
+      "id=19.6",
+      "id=25.1",
+      "id=19.3",
+      "id=19.1"
+    ],
+    "t1_comm": "The vendor confirms regular evaluation of patches and updates for infrastructure (id=19.6), maintains documented vulnerability management processes including quarterly scans and annual penetration tests (id=19.1, id=25.1), and uses tools like Nessus to perform cyber vulnerability scans (id=19.3). They utilize firewalls, host-based IDS, and IP gateways to protect systems against malware and threats."
+  },
+  "1. Access & Identity Management!sheet3_table1!16": {
+    "ans_status": "unanswerable",
+    "confidence": "low",
+    "answer": "Not applicable",
+    "sources": [],
+    "t1_comm": "The retrieved context contains information regarding the vendor's internal audit practices, third-party vendor compliance, and internal security team structure. However, there is no specific information provided about a Qualified Security Assessor (QSA) company or any external assessor engaged by the vendor."
+  },
+  "1. Access & Identity Management!sheet3_table1!17": {
+    "ans_status": "answerable",
+    "confidence": "high",
+    "answer": "Yes",
+    "sources": [
+      "id=25.1",
+      "id=27.2",
+      "id=18.1",
+      "id=19.6",
+      "id=18.2"
+    ],
+    "t1_comm": "The vendor regularly tests security systems and processes through multiple mechanisms: quarterly network vulnerability scans, annual penetration tests by third parties (and internal testing for applications), continuous monitoring via IDS/IPS, annual review/testing of the Incident Response Plan including tabletop exercises, and regular evaluation of patches and updates."
+  },
+  "1. Access & Identity Management!sheet3_table1!18": {
+    "ans_status": "answerable",
+    "confidence": "high",
+    "answer": "Yes",
+    "sources": [
+      "id=26.1",
+      "id=34.1"
+    ],
+    "t1_comm": "The vendor confirms tracking and monitoring of access to network resources and cardholder data. According to retrieved context, they log all access by personnel to their Clusters (network layer) and maintain Application and Operating System logs for systems with customer data access. These logs are retained for at least six years, include timestamps, actors, actions, and outputs, and are stored in a centralized SIEM where immutability is enforced."
+  },
+  "1. Access & Identity Management!sheet3_table1!19": {
+    "ans_status": "answerable",
+    "confidence": "high",
+    "answer": "Yes",
+    "sources": [
+      "[id=7.1]",
+      "[id=8.9]"
+    ],
+    "t1_comm": "The vendor confirms protection of stored cardholder data through encryption at rest (AES-256) and secure deletion capabilities for archived or backed-up data."
+  },
+  "1. Access & Identity Management!sheet3_table1!21": {
+    "ans_status": "answerable",
+    "confidence": "high",
+    "answer": "Yes",
+    "sources": [
+      "id=10.1",
+      "id=7.1",
+      "id=8.10",
+      "id=10.2"
+    ],
+    "t1_comm": "The business stores and processes cardholder data in production systems using AES-256 encryption at rest and TLS 1.2 or higher for data in transit. Data is never allowed to leave the production environment. Cardholder data may be processed by third-party vendors who contractually comply with security standards, though specific vendor names were not listed in the retrieved context. Sensitive data including customer contracts is also stored in hard copy format within secure environments."
+  },
+  "1. Access & Identity Management!sheet3_table1!22": {
+    "ans_status": "unanswerable",
+    "confidence": "low",
+    "answer": "Not applicable",
+    "sources": [],
+    "t1_comm": "The retrieved context contains answers to questions regarding third-party data processing, vendor access, and data anonymization capabilities. However, none of the provided rows (ids: 41.2, 10.1, 8.2, 10.2, 10.3) contain information about the business's overall capacity or involvement in impacting cardholder data security beyond specific vendor processing relationships."
+  },
+  "1. Access & Identity Management!sheet3_table1!23": {
+    "ans_status": "answerable",
+    "confidence": "high",
+    "answer": "Yes",
+    "sources": [
+      "id=23.1",
+      "id=22.7"
+    ],
+    "t1_comm": "Row id=23.1 confirms the use of TLS 1.2 for data in transit over public networks. Row id=22.7 further supports this by stating all network traffic to production infrastructure is sent over cryptographically sound encrypted connections."
+  },
+  "1. Access & Identity Management!sheet3_table1!24": {
+    "ans_status": "answerable",
+    "confidence": "high",
+    "answer": "Yes",
+    "sources": [
+      "id=23.3",
+      "id=20.2",
+      "id=22.1",
+      "id=9.1",
+      "id=22.3"
+    ],
+    "t1_comm": "The vendor avoids using default passwords by enforcing a complex password policy with mandatory 2FA (id=22.3), requiring screen locks and specific passwords on all devices (id=20.2), and utilizing industry-standard one-way hashes for credential storage rather than defaults (id=23.3). Additionally, hosts are uniformly configured using a proprietary baseline based on NIST and OWASP guidance (id=22.1)."
+  },
+  "1. Access & Identity Management!sheet3_table1!25": {
+    "ans_status": "answerable",
+    "confidence": "high",
+    "answer": "Yes",
+    "sources": [
+      "id=40.1",
+      "id=4.2"
+    ],
+    "t1_comm": "The vendor (ClientABC) is PCI DSS certified and hosts services within AWS, GCP, and Azure across over 70 cloud regions."
+  },
+  "1. Access & Identity Management!sheet3_table1!26": {
+    "ans_status": "answerable",
+    "confidence": "high",
+    "answer": "Yes",
+    "sources": [
+      "[id=40.1]",
+      "[id=39.1]"
+    ],
+    "t1_comm": "Based on retrieved context, ClientABC is explicitly stated to be PCI DSS certified (id=40.1). Furthermore, they conduct external audits specifically against defined industry standards including PCI DSS (id=39.1), confirming the service falls within the scope of such assessments."
+  },
+  "1. Access & Identity Management!sheet3_table1!27": {
+    "ans_status": "unanswerable",
+    "confidence": "low",
+    "answer": "Not applicable",
+    "sources": [],
+    "t1_comm": "The provided knowledge base does not contain information regarding services offered by the vendor that fall outside the scope of the PCI DSS Assessment. The retrieved rows discuss general security practices, audit scopes (which include PCI DSS), data classification, and third-party processing compliance, but none explicitly list out-of-scope services."
+  },
+  "1. Access & Identity Management!sheet3_table1!28": {
+    "ans_status": "answerable",
+    "confidence": "high",
+    "answer": "Yes",
+    "sources": [
+      "[id=40.1]"
+    ],
+    "t1_comm": "The vendor explicitly states in row [id=40.1] that they are 'PCI DSS certified'. Additionally, row [id=22.1] confirms hosts are uniformly configured following industry best practices, and row [id=4.3] identifies AWS, GCP, and Azure as the cloud providers used."
+  },
+  "1. Access & Identity Management!sheet3_table1!29": {
+    "ans_status": "answerable",
+    "confidence": "high",
+    "answer": "Yes",
+    "sources": [
+      "[id=7.1]",
+      "[id=23.1]"
+    ],
+    "t1_comm": "The retrieved context confirms that all data in transit is encrypted using TLS 1.2 or higher (rows [id=7.1], [id=23.1]). While the specific question mentions 'Single Sign-On (SSL)' and 'early Transport Layer Security (TLS)', the vendor's documentation explicitly states compliance with modern standards (TLS 1.2+), which supersedes early TLS versions. The use of SSO is confirmed for internal applications (row [id=9.6]), but the encryption standard is the primary factor addressing PCI DSS requirements for data in transit."
+  },
+  "1. Access & Identity Management!sheet3_table1!30": {
+    "ans_status": "answerable",
+    "confidence": "high",
+    "answer": "Yes",
+    "sources": [
+      "id=29.2",
+      "id=29.3",
+      "id=29.4"
+    ],
+    "t1_comm": "The organization has established principles for secure systems throughout the SDLC, evidenced by adherence to NIST and OWASP guidelines (id=29.2), incorporation of threat modelling in the design phase (id=29.3), and mandatory training on secure coding practices for developers (id=29.4)."
+  },
+  "1. Access & Identity Management!sheet3_table1!31": {
+    "ans_status": "unanswerable",
+    "confidence": "low",
+    "answer": "Not applicable",
+    "sources": [],
+    "t1_comm": "The retrieved context does not contain information regarding a specific program for executing validation processes, testing that program, identifying error types in the validation system, or restricting error message visibility to designated personnel. The available rows discuss software supply chain staging (id=30.2), general InfoSec programs (id=12.1), security awareness training (id=24.1), and vulnerability management (id=12.5), none of which address the specific validation process controls requested in Question 1.2.11."
+  },
+  "1. Access & Identity Management!sheet3_table1!32": {
+    "ans_status": "unanswerable",
+    "confidence": "low",
+    "answer": "Not applicable",
+    "sources": [
+      "id=39.1"
+    ],
+    "t1_comm": "The retrieved context confirms that the company conducts external audits (id=39.1) but does not mention a specific Qualified Integrator and Reseller (QIR), nor provide names or service descriptions for one. The available documents listed in other rows (id=5.5, 5.6, 5.7, 5.1) are generic placeholders indicating file upload capability rather than containing specific QIR details."
+  },
+  "1. Access & Identity Management!sheet3_table1!34": {
+    "ans_status": "unanswerable",
+    "confidence": "low",
+    "answer": "Not applicable",
+    "sources": [],
+    "t1_comm": "The retrieved context contains no information regarding the name of a Qualified Integrator and Reseller (QIR) company or individual, nor does it describe services provided by such an entity. The available documents discuss data classification requirements and general supporting documentation upload instructions."
+  },
+  "1. Access & Identity Management!sheet3_table1!35": {
+    "ans_status": "answerable",
+    "confidence": "high",
+    "answer": "Yes",
+    "sources": [
+      "[id=12.1]",
+      "[id=12.5]"
+    ],
+    "t1_comm": "The vendor maintains a formal Information Security Program (InfoSec SP) in place, which is managed by a dedicated security team led by the Chief Information Security Officer. This program includes clearly defined roles and responsibilities for all personnel. Additionally, there is a formal disciplinary policy established for employees who violate security policies, with actions ranging from corrective measures up to termination, as documented in the employee handbook."
+  },
+  "1. Access & Identity Management!sheet3_table1!36": {
+    "ans_status": "answerable",
+    "confidence": "high",
+    "answer": "Yes",
+    "sources": [
+      "id=16.1"
+    ],
+    "t1_comm": "Row id=16.1 explicitly states that all personnel are required to sign an Acceptable Use Policy (AUP). While the specific requirement for 'annual attestation' is not explicitly detailed in the provided text, the annual review of policies mentioned in row id=12.2 and the mandatory annual security training covering ISMS policies in row id=38.1 support the conclusion that such an AUP exists within a framework requiring regular review and acknowledgment."
+  },
+  "1. Access & Identity Management!sheet3_table1!37": {
+    "ans_status": "answerable",
+    "confidence": "high",
+    "answer": "Yes",
+    "sources": [
+      "id=12.5"
+    ],
+    "t1_comm": "The organization has a dedicated information security team led by the Chief Information Security Officer (CISO). Roles and responsibilities are clearly defined, including the designation of a security incident task force."
+  },
+  "1. Access & Identity Management!sheet3_table1!38": {
+    "ans_status": "answerable",
+    "confidence": "high",
+    "answer": "Yes",
+    "sources": [
+      "[id=8.6]",
+      "[id=8.1]"
+    ],
+    "t1_comm": "The organization adheres to the principle of least privilege, as confirmed by direct statements in retrieved rows [id=8.6] and [id=8.1]. Access is granted based on this principle alongside role-based access control (RBAC) and separation of duties."
+  },
+  "1. Access & Identity Management!sheet3_table1!39": {
+    "ans_status": "answerable",
+    "confidence": "high",
+    "answer": "Yes",
+    "sources": [
+      "id=8.5"
+    ],
+    "t1_comm": "The retrieved context (id=8.5) confirms that the vendor has a defined procedure for rules management in relation to role provisioning, deprovisioning, and recertification. The process is described as manual, with all activities recorded in a ticketing system. Roles and permissions are managed on a need-to-know basis following the least privilege method."
+  },
+  "1. Access & Identity Management!sheet3_table1!40": {
+    "ans_status": "answerable",
+    "confidence": "high",
+    "answer": "Yes",
+    "sources": [
+      "id=8.7"
+    ],
+    "t1_comm": "The organization keeps sensitive data in hard copy, including client contracts and legal forms. Access is secured via role-based access control (RBAC) and least privilege principles. Paper documents are shredded securely at the end of their retention period."
+  },
+  "1. Access & Identity Management!sheet3_table1!41": {
+    "ans_status": "unanswerable",
+    "confidence": "low",
+    "answer": "Not applicable",
+    "sources": [],
+    "t1_comm": "The retrieved context does not contain information regarding the frequency of Security Access Reviews. While the vendor confirms annual reviews for Information Security Policies (id=12.2), regular audits of critical vendors (id=10.3), patch evaluations (id=19.6), and Incident Response Plan testing (id=27.2), there is no specific mention of performing Security Access Reviews on a quarterly basis."
+  },
+  "1. Access & Identity Management!sheet3_table1!42": {
+    "ans_status": "answerable",
+    "confidence": "high",
+    "answer": "Yes",
+    "sources": [
+      "id=9.4"
+    ],
+    "t1_comm": "The retrieved context confirms that an encrypted VPN is utilized for remote access to production systems, which inherently restricts remote maintenance to authorized users who have the credentials to connect via this secure channel."
+  },
+  "1. Access & Identity Management!sheet3_table1!43": {
+    "ans_status": "answerable",
+    "confidence": "high",
+    "answer": "Yes",
+    "sources": [
+      "id=34.1"
+    ],
+    "t1_comm": "The vendor maintains application and operating system logs for all access by personnel to client clusters, including unauthorized access attempts. These logs include timestamps, actors, actions, and outputs, are retained for at least six years, stored in a centralized SIEM with immutability enforced, and allow clients to download or retrieve logs via API."
+  },
+  "2. Network & Infrastructure!sheet4_table1!7": {
+    "ans_status": "answerable",
+    "confidence": "high",
+    "answer": "Yes",
+    "sources": [
+      "id=18.1"
+    ],
+    "t2_app": "Not applicable",
+    "t2_evid": ""
+  },
+  "2. Network & Infrastructure!sheet4_table1!8": {
+    "ans_status": "answerable",
+    "confidence": "high",
+    "answer": "Yes",
+    "sources": [
+      "id=22.7"
+    ],
+    "t2_app": "Yes",
+    "t2_evid": "id=22.7, id=9.4, id=7.1"
+  },
+  "2. Network & Infrastructure!sheet4_table1!9": {
+    "ans_status": "answerable",
+    "confidence": "high",
+    "answer": "Yes",
+    "sources": [
+      "id=22.5"
+    ],
+    "t2_app": "Not applicable",
+    "t2_evid": "N/A"
+  },
+  "2. Network & Infrastructure!sheet4_table1!10": {
+    "ans_status": "answerable",
+    "confidence": "high",
+    "answer": "Yes",
+    "sources": [
+      "id=12.2",
+      "id=21.2"
+    ],
+    "t2_app": "Yes",
+    "t2_evid": "The entire platform is protected by a firewall (id=21.2). While the specific frequency of policy review for firewalls is not explicitly detailed in the provided context, the existence of firewall policies and their application to the entire platform confirms the implementation of such controls."
+  },
+  "2. Network & Infrastructure!sheet4_table1!11": {
+    "ans_status": "answerable",
+    "confidence": "medium",
+    "answer": "Yes",
+    "sources": [
+      "id=25.1",
+      "id=19.1",
+      "id=21.2",
+      "id=21.3",
+      "id=22.6"
+    ],
+    "t2_app": "Yes",
+    "t2_evid": "The retrieved context confirms the implementation of content filters and monitoring mechanisms through IDS/IPS systems monitored 24/7, firewalls, host-based IDS, IP gateways, and automated vulnerability scanning processes. While specific 'content filter' terminology is not explicitly used in the provided rows, the described security architecture (IDS/IPS, firewalls, vulnerability management) directly addresses the monitoring of connections to the Internet for potential threats and vulnerabilities."
+  },
+  "2. Network & Infrastructure!sheet4_table1!12": {
+    "ans_status": "answerable",
+    "confidence": "high",
+    "answer": "Yes",
+    "sources": [
+      "id=27.2"
+    ],
+    "t2_app": "Not applicable",
+    "t2_evid": "The security incident response plan is reviewed, updated, and tested annually, including a security tabletop exercise at least once per year."
+  },
+  "2. Network & Infrastructure!sheet4_table1!13": {
+    "ans_status": "answerable",
+    "confidence": "high",
+    "answer": "Yes",
+    "sources": [
+      "[id=12.2]",
+      "[id=27.2]"
+    ],
+    "t2_app": "Yes",
+    "t2_evid": "The retrieved context confirms that the security incident response plan is reviewed, updated, and tested annually, including a tabletop exercise at least once per year (id=27.2). Additionally, vulnerability scans are performed quarterly and penetration tests are conducted annually by a qualified third party (id=25.1), indicating an annual risk assessment cycle."
+  },
+  "2. Network & Infrastructure!sheet4_table1!14": {
+    "ans_status": "answerable",
+    "confidence": "high",
+    "answer": "Yes",
+    "sources": [
+      "id=28.1",
+      "id=27.1"
+    ],
+    "t2_app": "Yes",
+    "t2_evid": "The retrieved context confirms that 'ClientABC' has formally defined criteria for notifying clients during incidents impacting data or system security, including the requirement to notify without undue delay and provide details on the nature, cause, and expected resolution time of the breach."
+  },
+  "2. Network & Infrastructure!sheet4_table1!15": {
+    "ans_status": "answerable",
+    "confidence": "high",
+    "answer": "Yes",
+    "sources": [
+      "id=31.1"
+    ],
+    "t2_app": "Yes",
+    "t2_evid": "The retrieved context confirms the existence of an established security management program that validates the identity and integrity of third-party hardware, firmware, and software, including open source code, which implies maintenance of an asset inventory for these components."
+  },
+  "2. Network & Infrastructure!sheet4_table1!16": {
+    "ans_status": "unanswerable",
+    "confidence": "low",
+    "answer": "Not applicable",
+    "sources": [],
+    "t2_app": "Not applicable",
+    "t2_evid": "The retrieved context does not contain information regarding asset discovery tools. The provided rows discuss vulnerability management, threat intelligence, and endpoint security configurations, but none explicitly mention a tool for maintaining a listing of all internal and external devices connecting to the network."
+  },
+  "2. Network & Infrastructure!sheet4_table1!17": {
+    "ans_status": "unanswerable",
+    "confidence": "low",
+    "answer": "Not applicable",
+    "sources": [],
+    "t2_app": "Not applicable",
+    "t2_evid": "The retrieved context does not contain information regarding the prevention of connection to untrusted removable media devices. Row [id=20.3] mentions that customer data resides in the cloud and not onsite, which implies a separation of environments but does not explicitly confirm endpoint configurations for blocking removable media."
+  },
+  "2. Network & Infrastructure!sheet4_table1!18": {
+    "ans_status": "answerable",
+    "confidence": "high",
+    "answer": "Yes",
+    "sources": [
+      "id=8.7",
+      "id=8.8"
+    ],
+    "t2_app": "Yes",
+    "t2_evid": "id=8.7: 'Paper information (e.g customer contracts) are generally retained and eventually shredded at the end of their retention period in a secure manner.'; id=8.8: 'Do you have a procedure for securely destroying hard copy sensitive data? Answer: Yes'"
+  },
+  "2. Network & Infrastructure!sheet4_table1!19": {
+    "ans_status": "answerable",
+    "confidence": "high",
+    "answer": "No",
+    "sources": [
+      "id=20.1"
+    ],
+    "t2_app": "Yes",
+    "t2_evid": "The retrieved context explicitly states: 'We do not permit direct connections to our backend production environment.' This implies that endpoint laptops connecting directly to production networks are not allowed, and thus cannot be centrally managed in the manner implied by the question."
+  },
+  "2. Network & Infrastructure!sheet4_table1!21": {
+    "ans_status": "answerable",
+    "confidence": "high",
+    "answer": "Yes",
+    "sources": [
+      "id=20.2"
+    ],
+    "t2_app": "Yes",
+    "t2_evid": "All devices utilized for business purposes are required to have a screen lock and a set password. Also, all 'ClientABC' managed workstations run up to date anti-virus and anti-malware software. Full disk encryption is enforced too. This is enforced via MDM for 'ClientABC'-owned devices and via compliance with our BYOD policy for personal devices not owned by 'ClientABC'. [id=20.2]"
+  },
+  "2. Network & Infrastructure!sheet4_table1!22": {
+    "ans_status": "answerable",
+    "confidence": "high",
+    "answer": "Yes",
+    "sources": [
+      "[id=20.2]"
+    ],
+    "t2_app": "Yes",
+    "t2_evid": "[id=20.2] states that all 'ClientABC' managed workstations run up to date anti-virus and anti-malware software, and BYOD devices comply with the company's policy."
+  },
+  "2. Network & Infrastructure!sheet4_table1!23": {
+    "ans_status": "answerable",
+    "confidence": "high",
+    "answer": "Yes",
+    "sources": [
+      "id=20.2"
+    ],
+    "t2_app": "Yes",
+    "t2_evid": "All devices utilized for business purposes are required to have a screen lock (id=20.2)"
+  },
+  "2. Network & Infrastructure!sheet4_table1!24": {
+    "ans_status": "answerable",
+    "confidence": "high",
+    "answer": "Yes",
+    "sources": [
+      "id=28.1",
+      "id=27.1"
+    ],
+    "t2_app": "Yes",
+    "t2_evid": "The vendor confirms they have a Security Incident Response Program with formally defined criteria for notifying clients during incidents that impact data or system security, including SLAs for notification without undue delay."
+  },
+  "2. Network & Infrastructure!sheet4_table1!25": {
+    "ans_status": "answerable",
+    "confidence": "high",
+    "answer": "Yes",
+    "sources": [
+      "id=21.3",
+      "id=26.1"
+    ],
+    "t2_app": "Yes",
+    "t2_evid": "ClientABC Systems have IDS/IPS systems deployed, which are monitored 24/7 (id=21.3). We utilize a combination of automated and human review to scan audit logs stored in a centralized SIEM (id=26.1)."
+  },
+  "2. Network & Infrastructure!sheet4_table1!26": {
+    "ans_status": "answerable",
+    "confidence": "high",
+    "answer": "Yes",
+    "sources": [
+      "id=28.1"
+    ],
+    "t2_app": "Yes",
+    "t2_evid": "Section Heading: Reactive Security, Control Heading: Incident Communication, Answer: Yes, Notes/Comment: \"ClientABC\" will notify you without undue delay if we become aware of any Data Breach."
+  },
+  "2. Network & Infrastructure!sheet4_table1!27": {
+    "ans_status": "answerable",
+    "confidence": "high",
+    "answer": "Yes",
+    "sources": [
+      "[id=27.1]"
+    ],
+    "t2_app": "Yes",
+    "t2_evid": "[id=27.1]"
+  },
+  "2. Network & Infrastructure!sheet4_table1!28": {
+    "ans_status": "answerable",
+    "confidence": "high",
+    "answer": "Yes",
+    "sources": [
+      "[id=12.5]",
+      "[id=27.1]"
+    ],
+    "t2_app": "Yes",
+    "t2_evid": "The retrieved context confirms the existence of a dedicated security team led by a CISO and explicitly states that 'ClientABC' has a Security Incident Response Program with defined procedures for breach notification."
+  },
+  "2. Network & Infrastructure!sheet4_table1!29": {
+    "ans_status": "answerable",
+    "confidence": "high",
+    "answer": "Yes",
+    "sources": [
+      "[id=27.1]",
+      "[id=27.2]"
+    ],
+    "t2_app": "Yes",
+    "t2_evid": "The retrieved context confirms that the vendor has a formal Security Incident Response Program (id=27.1) and tests their Incident Response Plan annually, including tabletop exercises (id=27.2). This demonstrates a structured approach to learning from incidents as part of their framework."
+  },
+  "2. Network & Infrastructure!sheet4_table1!30": {
+    "ans_status": "answerable",
+    "confidence": "high",
+    "answer": "Yes",
+    "sources": [
+      "id=27.2"
+    ],
+    "t2_app": "Yes",
+    "t2_evid": "The security incident response plan is reviewed, updated, and tested annually, including a security tabletop exercise at least once per year."
+  },
+  "2. Network & Infrastructure!sheet4_table1!31": {
+    "ans_status": "answerable",
+    "confidence": "high",
+    "answer": "Yes",
+    "sources": [
+      "id=27.2"
+    ],
+    "t2_app": "Yes",
+    "t2_evid": "The security incident response plan is reviewed, updated, and tested annually, including a security tabletop exercise at least once per year."
+  },
+  "2. Network & Infrastructure!sheet4_table1!32": {
+    "ans_status": "answerable",
+    "confidence": "high",
+    "answer": "Yes",
+    "sources": [
+      "id=21.2"
+    ],
+    "t2_app": "Yes",
+    "t2_evid": "The entire platform is protected by a firewall, and the platform utilizes automated tooling in conjunction with monitoring security bulletins for relevant software and libraries to mitigate vulnerabilities."
+  },
+  "2. Network & Infrastructure!sheet4_table1!33": {
+    "ans_status": "answerable",
+    "confidence": "high",
+    "answer": "Yes",
+    "sources": [
+      "id=19.1"
+    ],
+    "t2_app": "Yes",
+    "t2_evid": "id=19.1"
+  },
+  "2. Network & Infrastructure!sheet4_table1!35": {
+    "ans_status": "answerable",
+    "confidence": "high",
+    "answer": "Yes",
+    "sources": [
+      "[id=19.6]",
+      "[id=19.1]",
+      "[id=19.4]",
+      "[id=19.2]"
+    ],
+    "t2_app": "Yes",
+    "t2_evid": "The vendor maintains documented vulnerability enumeration and management programs for both infrastructure and applications, conducting quarterly scans and utilizing automated tooling to identify and remediate security issues. A specific timeframe is established where Critical severity vulnerabilities must be patched within a maximum of 24 hours, commensurate with their CVSS score. Additionally, Information Security Policies are reviewed at least once a year."
+  },
+  "2. Network & Infrastructure!sheet4_table1!36": {
+    "ans_status": "answerable",
+    "confidence": "high",
+    "answer": "Yes",
+    "sources": [
+      "id=8.6",
+      "id=8.5",
+      "id=8.1"
+    ],
+    "t2_app": "Yes",
+    "t2_evid": "Rows id=8.6, id=8.5, and id=8.1 describe documented procedures involving manual processes recorded in a ticketing system, adherence to the principle of least privilege, role-based access control (RBAC), and separation of duties for granting privileged access."
+  },
+  "2. Network & Infrastructure!sheet4_table1!37": {
+    "ans_status": "answerable",
+    "confidence": "high",
+    "answer": "Yes",
+    "sources": [
+      "[id=31.2]",
+      "[id=29.2]"
+    ],
+    "t2_app": "Yes",
+    "t2_evid": "The vendor conducts quarterly scans of underlying systems and third-party code, utilizes automated tooling with security bulletins, implements patches for issues, maintains a bill of materials for third-party libraries, follows NIST and OWASP guidelines, and engineers test for vulnerabilities including dependencies before release."
+  },
+  "2. Network & Infrastructure!sheet4_table1!38": {
+    "ans_status": "answerable",
+    "confidence": "high",
+    "answer": "Yes",
+    "sources": [
+      "id=22.6"
+    ],
+    "t2_app": "Yes",
+    "t2_evid": "The retrieved context explicitly confirms the existence of a formal documented change control process involving weekly meetings for discussion, prioritization, and approval by Cloud Engineering personnel and executive management."
+  },
+  "2. Network & Infrastructure!sheet4_table1!39": {
+    "ans_status": "answerable",
+    "confidence": "high",
+    "answer": "Yes",
+    "sources": [
+      "[id=34.1]",
+      "[id=26.1]"
+    ],
+    "t2_app": "Yes",
+    "t2_evid": "The vendor logs all access by personnel to client clusters, including timestamps, actors, actions, and outputs, stored in a centralized SIEM with immutability enforced. Access to these logs is reviewed via automated and human scanning."
+  },
+  "2. Network & Infrastructure!sheet4_table1!40": {
+    "ans_status": "answerable",
+    "confidence": "high",
+    "answer": "Yes",
+    "sources": [
+      "id=21.3",
+      "id=27.1",
+      "id=28.1"
+    ],
+    "t2_app": "Yes",
+    "t2_evid": "The retrieved context confirms the existence of monitored breach detection systems (IDS/IPS) and a formal Security Incident Response Program with defined notification criteria and SLAs for data breaches."
+  },
+  "2. Network & Infrastructure!sheet4_table1!41": {
+    "ans_status": "answerable",
+    "confidence": "high",
+    "answer": "Yes",
+    "sources": [
+      "id=26.1"
+    ],
+    "t2_app": "Yes",
+    "t2_evid": "[id=26.1] Section Reactive Security - Monitoring: 'We log any access by ClientABC personnel to ClientABC Clusters... Finally, ClientABC's audit logs are stored in a centralized SIEM.' [id=21.3] Section Proactive Security - Endpoint Security: 'ClientABC Systems have IDS/IPS systems deployed, which are monitored 24/7.'"
+  },
+  "2. Network & Infrastructure!sheet4_table1!42": {
+    "ans_status": "unanswerable",
+    "confidence": "low",
+    "answer": "Not applicable",
+    "sources": [],
+    "t2_app": "Not applicable",
+    "t2_evid": "The retrieved context does not contain information regarding the removal of local admin privileges from endpoint users. The available rows discuss direct network connections, data residency, general security configurations (passwords, antivirus, encryption), data exfiltration limits, and MFA enforcement, but none specifically address local admin privilege removal."
+  },
+  "2. Network & Infrastructure!sheet4_table1!43": {
+    "ans_status": "answerable",
+    "confidence": "high",
+    "answer": "Yes",
+    "sources": [
+      "[id=31.2]",
+      "[id=31.4]",
+      "[id=19.1]"
+    ],
+    "t2_app": "Yes",
+    "t2_evid": "The vendor conducts quarterly scans of underlying systems and third-party code, utilizes automated tooling to monitor security bulletins for relevant software and libraries, and implements patches if issues are discovered (id=31.2). Additionally, the SDLC includes continuous integration, static and dynamic code analysis, and vulnerability management as part of regular reviews (id=31.4). Network vulnerability management processes also identify internet-accessible assets, scan for known vulnerabilities, and track remediation (id=19.1)."
+  },
+  "2. Network & Infrastructure!sheet4_table1!44": {
+    "ans_status": "answerable",
+    "confidence": "high",
+    "answer": "Yes",
+    "sources": [
+      "[id=12.5]",
+      "[id=27.3]"
+    ],
+    "t2_app": "Yes",
+    "t2_evid": "The vendor has a dedicated information security team led by a Chief Information Security Officer with clearly defined roles, including a designated security incident task force (id=12.5). Additionally, they have a formal service level agreement (SLA) for incident response (id=27.3)."
+  },
+  "3. Data Protection & Resilience!sheet5_table1!9": {
+    "ans_status": "answerable",
+    "confidence": "high",
+    "answer": "Yes",
+    "sources": [
+      "id=24.1"
+    ],
+    "t3_owner": "Owner",
+    "t3_notes": "Retrieved context explicitly states that all employees and contractors undergo regular security awareness training annually."
+  },
+  "3. Data Protection & Resilience!sheet5_table1!10": {
+    "ans_status": "answerable",
+    "confidence": "high",
+    "answer": "Yes",
+    "sources": [
+      "id=24.1"
+    ],
+    "t3_owner": "Owner",
+    "t3_notes": "The organization has a security awareness program where all employees and contractors undergo regular training appropriate to their role, including annual reviews."
+  },
+  "3. Data Protection & Resilience!sheet5_table1!11": {
+    "ans_status": "answerable",
+    "confidence": "high",
+    "answer": "Yes",
+    "sources": [
+      "id=24.1"
+    ],
+    "t3_owner": "Owner",
+    "t3_notes": "All employees and contractors undergo regular security awareness training appropriate to their role and function within the organization upon hire and annually."
+  },
+  "3. Data Protection & Resilience!sheet5_table1!12": {
+    "ans_status": "answerable",
+    "confidence": "high",
+    "answer": "Yes",
+    "sources": [
+      "id=8.6"
+    ],
+    "t3_owner": "Owner",
+    "t3_notes": "Access is restricted to privileged users only, governed by role-based access control (RBAC), least privilege, and separation of duties principles."
+  },
+  "3. Data Protection & Resilience!sheet5_table1!13": {
+    "ans_status": "needs_review",
+    "confidence": "medium",
+    "answer": "Not applicable",
+    "sources": [
+      "[id=20.2]",
+      "[id=20.3]"
+    ],
+    "t3_owner": "other",
+    "t3_notes": "The retrieved context confirms the use of MDM and BYOD policies with screen locks, passwords, and anti-malware for devices (id=20.2). However, it does not explicitly state a policy preventing unauthorized personal instant messaging services or applications on company-managed devices. The BYOD policy is mentioned to prohibit confidential data storage on personal devices (id=20.3), but the specific prohibition of personal IM/email/apps on *company* managed devices is not directly detailed in the provided text, requiring review of additional documentation."
+  },
+  "3. Data Protection & Resilience!sheet5_table1!14": {
+    "ans_status": "answerable",
+    "confidence": "high",
+    "answer": "Yes",
+    "sources": [
+      "[id=24.1]"
+    ],
+    "t3_owner": "Owner",
+    "t3_notes": "The organization has a security awareness program where all employees and contractors undergo regular training upon hire and annually, which covers confidentiality and discretion regarding confidential information."
+  },
+  "3. Data Protection & Resilience!sheet5_table1!15": {
+    "ans_status": "answerable",
+    "confidence": "high",
+    "answer": "Yes",
+    "sources": [
+      "[id=23.5]",
+      "[id=22.1]"
+    ],
+    "t3_owner": "Owner",
+    "t3_notes": "The vendor uses centrally managed SSO, mandatory complex passwords with 2FA, and a proprietary NIST/OWASP-aligned baseline for infrastructure configuration to protect client data."
+  },
+  "3. Data Protection & Resilience!sheet5_table1!16": {
+    "ans_status": "answerable",
+    "confidence": "high",
+    "answer": "Yes",
+    "sources": [
+      "id=21.1"
+    ],
+    "t3_owner": "Owner",
+    "t3_notes": "The vendor confirms they have strong technical and procedural controls to minimize data loss, as traditional DLP tools are not applicable due to unstructured customer data. These controls are reviewed annually by an independent third party."
+  },
+  "3. Data Protection & Resilience!sheet5_table1!17": {
+    "ans_status": "answerable",
+    "confidence": "high",
+    "answer": "Yes",
+    "sources": [
+      "[id=41.1]"
+    ],
+    "t3_owner": "Owner",
+    "t3_notes": "The organization has documented processes for handling confidential information in accordance with its classification and handling procedures, as confirmed by the alignment of data access controls with the data classification matrix."
+  },
+  "3. Data Protection & Resilience!sheet5_table1!18": {
+    "ans_status": "answerable",
+    "confidence": "high",
+    "answer": "Yes",
+    "sources": [
+      "id=41.1"
+    ],
+    "t3_owner": "Owner",
+    "t3_notes": "The retrieved context explicitly confirms that confidential data access controls are in line with the data classification matrix."
+  },
+  "3. Data Protection & Resilience!sheet5_table1!19": {
+    "ans_status": "answerable",
+    "confidence": "high",
+    "answer": "Yes",
+    "sources": [
+      "id=8.1",
+      "id=8.6"
+    ],
+    "t3_owner": "Owner",
+    "t3_notes": "The organization uses role-based access control (RBAC) and least privilege principles to limit data access to privileged personnel only. Access is granted based on specific roles, ensuring that testing or handling of organization data occurs only when authorized by notified personnel with appropriate access rights."
+  },
+  "3. Data Protection & Resilience!sheet5_table1!20": {
+    "ans_status": "answerable",
+    "confidence": "high",
+    "answer": "Yes",
+    "sources": [
+      "[id=7.1]",
+      "[id=23.1]",
+      "[id=22.7]"
+    ],
+    "t3_owner": "Owner",
+    "t3_notes": "Data in transit is encrypted using TLS 1.2 or higher (IDs: 7.1, 23.1) and data at rest is encrypted using AES-256 (ID: 7.1). Network traffic over public networks uses cryptographically sound encrypted connections including VPNs (ID: 22.7)."
+  },
+  "3. Data Protection & Resilience!sheet5_table1!21": {
+    "ans_status": "answerable",
+    "confidence": "high",
+    "answer": "Yes",
+    "sources": [
+      "id=7.1",
+      "id=8.10"
+    ],
+    "t3_owner": "Owner",
+    "t3_notes": "Customer data is encrypted using AES-256 at rest and TLS 1.2+ in transit across all systems. Customer data is never allowed to leave production systems."
+  },
+  "3. Data Protection & Resilience!sheet5_table1!23": {
+    "ans_status": "answerable",
+    "confidence": "high",
+    "answer": "Yes",
+    "sources": [
+      "[id=23.2]",
+      "[id=7.1]"
+    ],
+    "t3_owner": "Owner",
+    "t3_notes": "Confirmed via multiple sources: Row [id=23.2] states 'All data at rest is encrypted using AES-256' and Row [id=7.1] confirms 'all data at rest is encrypted using AES-256'. Key management details are also provided in Row [id=23.5]."
+  },
+  "3. Data Protection & Resilience!sheet5_table1!24": {
+    "ans_status": "answerable",
+    "confidence": "high",
+    "answer": "Yes",
+    "sources": [
+      "[id=7.1]",
+      "[id=23.1]"
+    ],
+    "t3_owner": "Owner",
+    "t3_notes": "Data in transit is encrypted using TLS 1.2 or higher (see id=7.1 and id=23.1)."
+  },
+  "3. Data Protection & Resilience!sheet5_table1!25": {
+    "ans_status": "answerable",
+    "confidence": "high",
+    "answer": "Yes",
+    "sources": [
+      "id=8.9",
+      "id=8.8",
+      "id=23.2",
+      "id=9.1",
+      "id=7.1"
+    ],
+    "t3_owner": "Owner",
+    "t3_notes": "Data at rest is encrypted using AES-256 (id=23.2, id=7.1). Password protection is enforced via an internal password policy (id=9.1). Secure deletion procedures exist for hard copy data (id=8.8) and cryptographic wiping is supported (id=8.9)."
+  },
+  "3. Data Protection & Resilience!sheet5_table1!26": {
+    "ans_status": "needs_review",
+    "confidence": "medium",
+    "answer": "Not applicable",
+    "sources": [],
+    "t3_owner": "other",
+    "t3_notes": "The retrieved context confirms the existence of confidentiality agreements (id=15.1), encrypted VPNs for remote access (id=9.4), endpoint security features like screen locks and encryption (id=20.2), least privilege access controls (id=8.6), and regular security awareness training (id=24.1). However, the specific question regarding safeguards to protect employees *before sending* emails containing confidential information to ensure all recipients are authorized is not directly addressed in the provided rows. While general data protection measures are confirmed, there is no explicit mention of email-specific authorization checks or pre-send safeguards for confidential content."
+  },
+  "3. Data Protection & Resilience!sheet5_table1!27": {
+    "ans_status": "answerable",
+    "confidence": "high",
+    "answer": "Yes",
+    "sources": [
+      "id=9.1"
+    ],
+    "t3_owner": "Owner",
+    "t3_notes": "Documented password policy exists including complexity requirements (minimum 8 characters with mixed case, numbers, and symbols), hashing using industry-standard one-way hashes, and multi-factor authentication options."
+  },
+  "3. Data Protection & Resilience!sheet5_table1!28": {
+    "ans_status": "unanswerable",
+    "confidence": "low",
+    "answer": "Not applicable",
+    "sources": [],
+    "t3_owner": "other",
+    "t3_notes": "The retrieved context confirms the existence of an internal password policy and complexity requirements (minimum 8 characters with mixed case, numbers, and symbols), but it does not specify a mandatory rotation interval. The requirement for rotation every 120 days is not mentioned in any provided row."
+  },
+  "3. Data Protection & Resilience!sheet5_table1!29": {
+    "ans_status": "answerable",
+    "confidence": "high",
+    "answer": "Yes",
+    "sources": [
+      "[id=9.1]",
+      "[id=20.2]",
+      "[id=22.3]",
+      "[id=23.3]",
+      "[id=9.3]"
+    ],
+    "t3_owner": "Owner",
+    "t3_notes": "The organization has a process to keep user credentials confidential, including mandatory complex passwords and 2FA for all personnel (id=22.3). Passwords are hashed using industry-standard one-way hashes (id=9.3), and devices require screen locks and passwords (id=20.2). Centralized SSO is used for authentication (id=22.3)."
+  },
+  "3. Data Protection & Resilience!sheet5_table1!30": {
+    "ans_status": "answerable",
+    "confidence": "high",
+    "answer": "Yes",
+    "sources": [
+      "id=32.1"
+    ],
+    "t3_owner": "Owner",
+    "t3_notes": "The vendor uses industry standard and audited one-way hashes for password storage (id=9.3, id=23.3) and employs a combination of username, password, and TOTP/push notification for authentication (id=32.1). Password strength is audited through these cryptographic frameworks and complexity requirements."
+  },
+  "3. Data Protection & Resilience!sheet5_table1!31": {
+    "ans_status": "answerable",
+    "confidence": "high",
+    "answer": "Yes",
+    "sources": [
+      "id=9.6"
+    ],
+    "t3_owner": "Owner",
+    "t3_notes": "Internal applications leverage SSO for authentication as confirmed by the security policy."
+  },
+  "3. Data Protection & Resilience!sheet5_table1!32": {
+    "ans_status": "answerable",
+    "confidence": "high",
+    "answer": "Yes",
+    "sources": [
+      "id=32.1"
+    ],
+    "t3_owner": "Owner",
+    "t3_notes": "The vendor supports SSO via multiple identity providers (Okta, OneLogin, Ping, Azure AD, AWS Single Sign-On, Google Cloud Identity SSO) and SAML federation for customer access to web portals."
+  },
+  "3. Data Protection & Resilience!sheet5_table1!33": {
+    "ans_status": "answerable",
+    "confidence": "high",
+    "answer": "Yes",
+    "sources": [
+      "id=9.5"
+    ],
+    "t3_owner": "Owner",
+    "t3_notes": "Confirmed via control 9.5 which states MFA is required for employees/contractors to log in to production systems. Remote access capability is confirmed via id=9.4, and authentication details including TOTP/push notifications are provided in id=32.1."
+  },
+  "3. Data Protection & Resilience!sheet5_table1!34": {
+    "ans_status": "answerable",
+    "confidence": "high",
+    "answer": "Yes",
+    "sources": [
+      "id=9.5",
+      "id=32.2"
+    ],
+    "t3_owner": "Owner",
+    "t3_notes": "Confirmed via multiple sources: id=9.5 explicitly states MFA is required for employees/contractors to log in to production systems, and id=32.2 confirms admins can enforce user MFA. Additionally, id=22.3 notes that complex passwords and 2FA are mandatory for all personnel."
+  },
+  "3. Data Protection & Resilience!sheet5_table1!35": {
+    "ans_status": "answerable",
+    "confidence": "high",
+    "answer": "Yes",
+    "sources": [
+      "[id=29.4]",
+      "[id=31.4]"
+    ],
+    "t3_owner": "Owner",
+    "t3_notes": "The vendor ensures code is developed securely by following NIST and OWASP guidelines, conducting annual security reviews, fuzz testing, and static analysis. Developers are trained on secure coding practices including vulnerability management and bug hunting. Regular code reviews and documented policies for change management are part of the SDLC."
+  },
+  "3. Data Protection & Resilience!sheet5_table1!37": {
+    "ans_status": "answerable",
+    "confidence": "high",
+    "answer": "Yes",
+    "sources": [
+      "id=4.1",
+      "id=4.5",
+      "id=4.6",
+      "id=4.2",
+      "id=4.3"
+    ],
+    "t3_owner": "other",
+    "t3_notes": "The service is deployed in multiple cloud environments (AWS, GCP, Azure) with over 70 regions available for hosting databases."
+  },
+  "3. Data Protection & Resilience!sheet5_table1!38": {
+    "ans_status": "answerable",
+    "confidence": "high",
+    "answer": "Yes",
+    "sources": [
+      "id=9.4"
+    ],
+    "t3_owner": "Owner",
+    "t3_notes": "Employees and contractors have the ability to remotely connect via an encrypted VPN, but direct connections to backend production environments are not permitted."
+  },
+  "3. Data Protection & Resilience!sheet5_table1!39": {
+    "ans_status": "answerable",
+    "confidence": "high",
+    "answer": "Yes",
+    "sources": [
+      "id=27.2"
+    ],
+    "t3_owner": "Owner",
+    "t3_notes": "The security incident response plan is reviewed, updated, and tested annually, including a security tabletop exercise at least once per year."
+  },
+  "3. Data Protection & Resilience!sheet5_table1!40": {
+    "ans_status": "answerable",
+    "confidence": "high",
+    "answer": "Yes",
+    "sources": [
+      "[id=18.2]"
+    ],
+    "t3_owner": "Owner",
+    "t3_notes": "The vendor performs application security testing using both internal tools (Veracode, Coverity, Snyk) and third-party penetration testing by a nationally recognized security firm at least once per calendar year."
+  },
+  "3. Data Protection & Resilience!sheet5_table1!41": {
+    "ans_status": "answerable",
+    "confidence": "high",
+    "answer": "Yes",
+    "sources": [
+      "id=35.1"
+    ],
+    "t3_owner": "Owner",
+    "t3_notes": "The retrieved context confirms that backup processes are terminated immediately upon cluster termination, with copies deleted within 24 hours, indicating a secure backup process aligned with incident response protocols."
+  },
+  "3. Data Protection & Resilience!sheet5_table1!42": {
+    "ans_status": "answerable",
+    "confidence": "high",
+    "answer": "Yes",
+    "sources": [
+      "id=12.5"
+    ],
+    "t3_owner": "Owner",
+    "t3_notes": "The organization has a dedicated information security team led by the Chief Information Security Officer (CISO), as confirmed in row id=12.5."
+  },
+  "3. Data Protection & Resilience!sheet5_table1!43": {
+    "ans_status": "answerable",
+    "confidence": "high",
+    "answer": "Yes",
+    "sources": [
+      "[id=12.1]"
+    ],
+    "t3_owner": "Owner",
+    "t3_notes": "The vendor confirms the existence of a formal Information Security Program (InfoSec SP) in place, maintained by a dedicated security team led by the Chief Information Security Officer."
+  },
+  "3. Data Protection & Resilience!sheet5_table1!44": {
+    "ans_status": "answerable",
+    "confidence": "high",
+    "answer": "Yes",
+    "sources": [
+      "[id=12.2]"
+    ],
+    "t3_owner": "Owner",
+    "t3_notes": "The retrieved context explicitly states that the Information Security Policy is reviewed and approved annually by the CISO."
+  },
+  "3. Data Protection & Resilience!sheet5_table1!45": {
+    "ans_status": "answerable",
+    "confidence": "high",
+    "answer": "Yes",
+    "sources": [
+      "[id=12.3]"
+    ],
+    "t3_owner": "Owner",
+    "t3_notes": "The retrieved context explicitly confirms the existence of an Information Security Risk Management Program (InfoSec RMP) in row [id=12.3]. Additionally, supporting evidence from rows [id=12.4] and [id=12.5] indicates management support and a dedicated security team, which are integral components of such a program."
+  },
+  "3. Data Protection & Resilience!sheet5_table1!46": {
+    "ans_status": "answerable",
+    "confidence": "high",
+    "answer": "Yes",
+    "sources": [
+      "id=12.2"
+    ],
+    "t3_owner": "Owner",
+    "t3_notes": "The Information Security Policies are reviewed and approved annually by the CISO, as stated in the notes for id=38.1."
+  }
+}
