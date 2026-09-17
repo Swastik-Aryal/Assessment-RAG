@@ -322,6 +322,8 @@ Amongst the six text files, five contain this column. During the five tests, the
 - **[Yes | No]** had 7 occurrences.
 - **[Y | N]** had 8 occurrences.
 
+**Find the data and results here : [Assessment-RAG/tests](./tests/)**
+
 ---
 
 
