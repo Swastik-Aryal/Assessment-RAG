@@ -26,14 +26,14 @@ Identify:
 - id_col if a column is mostly short ids like 1.1.1; else null. Do not invent an id_regex.
 - section_label_col if empty question rows carry a section banner; null if unsure
 - fill_targets: every column a human respondent/security personnel would type into. No extra instruction
-  on the sheet is required. You can only have one column with role=answer. Other fillable columns (applicability, comments,
-  extra closed fields) are their own targets(set role = other if unsure).
-- strategy=llm for (answer, applicability, comments, evidence, notes, extras, i.e. columns that can be filled with knowledge, or can be filled with citations and notes or extremely simple instruction following).
-- strategy = skip only for totally irrelevant/unfillable columns likw owner which the rag might not be able to answer.
+  on the sheet is required. You can only have one column with role=answer. Other fillable columns are their own targets(set role = other if unsure).
+- strategy=llm for (answer, applicable, comments, evidence, notes, extras, i.e. columns that can be filled with knowledge, or can be filled with citations and notes or extremely simple instruction following).
+- strategy = skip only for totally irrelevant/unfillable columns.
 - For each fill_target you decide format, allowed_values, and rule.
-  Enums are always a priority. Enforce as much as possible. ALWAYS use them to ADHERE TO global instructions.
+  Enums are always a priority. Enforce as much as possible. ALWAYS use them to ADHERE TO instructions.
   If there is an explicit global rule/format/enum for a column name, always use that. Never override it.
-  Column names may contain rules/format instructions. If true, use them as enums/rules EXACTLY as written in the column name . THEY ALWAYS override the global format/rule eg: (Y/N MEANS Y OR N).
+  Column names may contain rules/format instructions. If true, use them as enums/rules EXACTLY as written in the column name . THEY ALWAYS override the global format/rule eg: abbreviated instructions.
+  If a columns has `VALIDATIONS`, that overrides every other instruction.
   Write that choice into `rule` so the answering model follows it.
   Use free_text and empty allowed_values only as a last resort when no other option is available.
 

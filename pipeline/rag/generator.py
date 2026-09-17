@@ -29,6 +29,7 @@ Always fill these four keys first, in this order:
 - sources: the id values shown on retrieved rows you actually used. Empty list if you used none. Never cite anything not shown as [id=...].
 
 Then fill any extra workbook keys listed below. Follow each column's rule.
+Fill the extra workbook keys only if: The answers can be derived from the main asnwer. It is relevant to the main answer or it is strightforward instruction following.
 IMPORTANT: If you are asked to fill an enum column, you must use the exact spelling from the allowed values list. Do not invent or modify the spelling.
 Always cite the retrieved rows you actually used in any comment/description/explanatory field, and in answer if that column has no restriction.
 """
@@ -71,7 +72,7 @@ def llm_answer_model(targets: list[FillTarget]):
     for t in targets:
         if t.strategy != "llm" or t.role == "answer":
             continue
-        desc = f"Table column, fill after the four core keys if you have something to write. {t.header or t.target_id}"
+        desc = f"Table column, fill after the four core keys if the answers can be derived from the main asnwer and it is relevant to the main answer or it is strightforward instruction following. Else fill blank "". {t.header or t.target_id}"
         if t.rule:
             desc += ". " + t.rule
         if t.format.type == "enum" and t.format.allowed_values:
@@ -259,12 +260,18 @@ class Generator:
         user = build_user(question, hits)
         model = llm_answer_model(targets)
         raw = call_structured(self.llm, system, user, model)
-        misses = _enum_misses(raw, targets)
-        if misses:
-            log.warning("enum mismatch, retrying once: %s", misses)
-            raw = call_structured(
-                self.llm, system, _enum_retry_user(user, misses), model, max_attempts=1
-            )
+        for attempt in range(3):
+            misses = _enum_misses(raw, targets)
+            if not misses:
+                break
+            log.warning("enum mismatch (retry %s/3): %s", attempt + 1, misses)
+            try:
+                raw = call_structured(
+                    self.llm, system, _enum_retry_user(user, misses), model, max_attempts=1
+                )
+            except Exception:
+                log.warning("enum retry %s failed, keeping last response", attempt + 1)
+                break
         return finalize(raw, hits, targets), hits, system, user, raw.model_dump()
 
 
